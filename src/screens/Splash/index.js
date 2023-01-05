@@ -9,10 +9,10 @@ Image,
 Linking,
 } from 'react-native';
 import {scale, verticalScale} from 'react-native-size-matters';
-import Login from '../Login';
-import Register from '../Register'
-
+import AuthNavigator from '../../navigation/authNavigator'
+import {AUTH_NAV_STORE} from '../../mobx/AUTH_NAV_STORE';
 const Splash = ({navigation}) => {
+    
     const [State, setState] = useState(0);
     const navigate = () => {
         console.log("moving");
@@ -23,7 +23,8 @@ const Splash = ({navigation}) => {
         //   // all okay go ahead
         //   Login_Store.closeSplash();
         // }
-        navigation.push('Login', {screenType: 'LOGIN'});
+        AUTH_NAV_STORE.setSplashLoading(false);
+        
     };
     setTimeout(function () {
     navigate();

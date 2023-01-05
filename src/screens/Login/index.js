@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import {scale, verticalScale} from 'react-native-size-matters';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {TextInput} from 'react-native-element-textinput';
@@ -7,7 +7,7 @@ import LottieView from 'lottie-react-native';
 import loginLottie from '../../assets/lottieFiles/login.json';
 import {Icon} from '@ui-kitten/components';
 import {Register} from '../Register';
-import {Homme} from '../Home';
+import {AuthContext} from '../../context/AuthContext';
 import {
   FONT,
   fontSizeBig,
@@ -20,7 +20,7 @@ const Login = ({navigation}) => {
   const [roll, setRoll] = useState('');
   const[phone,setPhone]= useState('');
   const [password, setPassword] = useState('');
-
+  const {login,userToken}= useContext(AuthContext);
   return (
     <View style={{backgroundColor:'white'}}>
       <View
@@ -29,6 +29,7 @@ const Login = ({navigation}) => {
           width: '100%',
         }}>
         <Text style={styles.title}>LOGIN</Text>
+       
         <TextInput
             value={phone}
             style={styles.input1}
@@ -128,12 +129,11 @@ const Login = ({navigation}) => {
               marginRight: scale(paddingMedium),
             }}>
             <TouchableOpacity onPress={() =>  {
-              console.log(roll+" "+phone+" "+password)
-              navigation.push('Home', {screenType: 'HOME'})
+              login();
+              console.log(userToken);
               }}>
             <Icon
                 fill="white"
-                
                 style={{
                   height: verticalScale(40),
                   width: verticalScale(40),
