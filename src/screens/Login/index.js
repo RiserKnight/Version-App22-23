@@ -16,11 +16,14 @@ import {
   paddingSmall,
 } from '../../utils/UIConstants';
 import LinearGradient from 'react-native-linear-gradient';
+
 const Login = ({navigation}) => {
   const [roll, setRoll] = useState('');
   const[phone,setPhone]= useState('');
   const [password, setPassword] = useState('');
   const {login,userToken}= useContext(AuthContext);
+  
+  
   return (
     <View style={{backgroundColor:'white'}}>
       <View
@@ -83,8 +86,9 @@ const Login = ({navigation}) => {
         <View
           style={{
             height: verticalScale(30),
+            flexDirection:'row',
             alignContent: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-around',
             marginTop: 10,
             marginBottom: 3,
           }}>
@@ -101,7 +105,7 @@ const Login = ({navigation}) => {
               Don't have an account?
               <Text
                 style={{
-                  color: 'blue',
+                  color: '#842DCE',
                   fontWeight: 'bold',
                   fontSize: scale(14),
                   fontFamily: FONT,
@@ -111,16 +115,11 @@ const Login = ({navigation}) => {
               </Text>
             </Text>
           </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            alignItems: 'flex-end',
-          }}>
           <LinearGradient
             start={{x: 0.0, y: 0.25}}
             end={{x: 0.5, y: 1.0}}
             locations={[0, 0.6, 0.8]}
-            colors={['#f13e4d', '#ff5130', '#ff512f']}
+            colors={['#842DCE', '#852DCE', '#842DCE']}
             style={{
               backgroundColor: 'blue',
               height: verticalScale(40),
@@ -169,11 +168,12 @@ const styles = StyleSheet.create({
   input1: {
     marginHorizontal: paddingMedium,
     marginTop: paddingSmall,
-    borderWidth: scale(1),
+    borderWidth: scale(2),
     height: verticalScale(55),
     paddingHorizontal: scale(8),
     borderRadius: scale(8),
     fontFamily: FONT,
+    borderColor:'#842DCE'
   },
   inputStyle: {fontSize: scale(fontSizeBig), color: 'black', fontFamily: FONT},
   labelStyle: {fontSize: scale(fontSizeBig)},

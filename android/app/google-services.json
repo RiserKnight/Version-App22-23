@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "380033951908",
+    "project_id": "versionnitt",
+    "storage_bucket": "versionnitt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380033951908:android:e8279865b6d1f8f421de31",
+        "android_client_info": {
+          "package_name": "com.versionnitt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380033951908-aqg6a5oii1cdu3hiuo72bnh5cash1s0r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqctT-LwOkLhHo2QAyo4L0da3JyfjSHEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380033951908-aqg6a5oii1cdu3hiuo72bnh5cash1s0r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
