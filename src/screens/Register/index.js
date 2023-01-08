@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {scale, verticalScale} from 'react-native-size-matters';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity,ScrollView, ImageBackground} from 'react-native';
 import {TextInput} from 'react-native-element-textinput';
 import {Black} from '../../utils/colors';
 import LottieView from 'lottie-react-native';
-import loginLottie from '../../assets/lottieFiles/register.json';
+import loginLottie from '../../assets/lottieFiles/signup.json';
 import {Icon} from '@ui-kitten/components';
 import {Login} from '../Login';
 import {
@@ -24,6 +24,7 @@ const Register = ({navigation}) => {
     const[college,setCollege]= useState('');
     return (
       <View style={{backgroundColor:'white'}}>
+        <ScrollView>
         <View
           style={{
             height: verticalScale(470),
@@ -125,8 +126,9 @@ const Register = ({navigation}) => {
         <View
           style={{
             height: verticalScale(30),
+            flexDirection:'row',
             alignContent: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-around',
             marginTop: 10,
             marginBottom: 3,
           }}>
@@ -143,7 +145,7 @@ const Register = ({navigation}) => {
               Already have an account?
               <Text
                 style={{
-                  color: 'blue',
+                  color: '#842DCE',
                   fontWeight: 'bold',
                   fontSize: scale(14),
                   fontFamily: FONT,
@@ -153,16 +155,11 @@ const Register = ({navigation}) => {
               </Text>
             </Text>
           </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            alignItems: 'flex-end',
-          }}>
           <LinearGradient
             start={{x: 0.0, y: 0.25}}
             end={{x: 0.5, y: 1.0}}
             locations={[0, 0.6, 0.8]}
-            colors={['#f13e4d', '#ff5130', '#ff512f']}
+            colors={['#842DCE', '#852DCE', '#842DCE']}
             style={{
               backgroundColor: 'blue',
               height: verticalScale(40),
@@ -175,7 +172,6 @@ const Register = ({navigation}) => {
               navigation.goBack()}}>
             <Icon
                 fill="white"
-                
                 style={{
                   height: verticalScale(40),
                   width: verticalScale(40),
@@ -189,7 +185,7 @@ const Register = ({navigation}) => {
       </View>
       <View
         style={{
-          height: verticalScale(220),
+          height: verticalScale(205),
           width: '100%',
           alignSelf: 'center',
           justifyContent: 'center',
@@ -203,6 +199,7 @@ const Register = ({navigation}) => {
           loop
         />
       </View>
+      </ScrollView>
     </View>
   );
 };
@@ -211,17 +208,18 @@ const styles = StyleSheet.create({
   input1: {
     marginHorizontal: paddingMedium,
     marginTop: paddingSmall,
-    borderWidth: scale(1),
-    height: verticalScale(40),
+    borderWidth: scale(2),
+    height: verticalScale(50),
     paddingHorizontal: scale(8),
     borderRadius: scale(8),
     fontFamily: FONT,
+    borderColor:'#842DCE'
   },
   inputStyle: {fontSize: scale(fontSizeBig), color: 'black', fontFamily: FONT},
   labelStyle: {fontSize: scale(fontSizeBig)},
   textErrorStyle: {fontSize: 16},
   title: {
-    marginTop: verticalScale(paddingSmall),
+    marginTop: verticalScale(paddingSmall-4),
     paddingVertical: scale(paddingSmall),
     color: Black,
     paddingLeft: scale(paddingMedium),

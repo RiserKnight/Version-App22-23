@@ -8,6 +8,7 @@ Platform,
 Image,
 Linking,
 } from 'react-native';
+import PushNotification from "react-native-push-notification";
 import {scale, verticalScale} from 'react-native-size-matters';
 import AuthNavigator from '../../navigation/authNavigator'
 import {AUTH_NAV_STORE} from '../../mobx/AUTH_NAV_STORE';
@@ -29,6 +30,18 @@ const Splash = ({navigation}) => {
     setTimeout(function () {
     navigate();
     }, 2000);
+    useEffect(() => {
+        createChannels();
+    }, []);
+    const createChannels = () => {
+        PushNotification.createChannel(
+            {
+                channelId: "test-channel",
+                channelName: "Test Channel"
+            }
+        )
+    }
+
 return (
     <>
     {State === 0 ? (
@@ -78,7 +91,6 @@ return (
             <Register />
         </>
         )} */}
-       
     </>
     )}
 </>
@@ -86,7 +98,7 @@ return (
 };
 
 
-export default Splash;
+
 
 const styles = StyleSheet.create({
 bottom: {
@@ -102,3 +114,4 @@ top: {
     backgroundColor: '#130e0b',
 },
 });
+export default Splash;
