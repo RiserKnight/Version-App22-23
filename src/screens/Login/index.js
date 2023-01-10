@@ -30,6 +30,7 @@ const Login = ({navigation}) => {
         style={{
           height: verticalScale(310),
           width: '100%',
+          marginTop:verticalScale(10)
         }}>
         <Text style={styles.title}>LOGIN</Text>
        

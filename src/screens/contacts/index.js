@@ -9,6 +9,7 @@ import Eec from './eec';
 import Ccc from './ccc';
 import Arc from './arc';
 import Ppc from './ppc';
+import Chairpersons from './cps';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 const Tab = createMaterialTopTabNavigator();
@@ -16,7 +17,6 @@ const Tab = createMaterialTopTabNavigator();
 const Contacts = ({navigation}) => {
 
   return (
-    <SafeAreaView style={{flex: 1}}>
         <>
           <Tab.Navigator
             screenOptions={{
@@ -26,15 +26,16 @@ const Contacts = ({navigation}) => {
               },
               tabBarIndicatorStyle: {backgroundColor: '#842DCE'},
               tabBarStyle: {backgroundColor: 'white'},
-            }}>
+            }}
+            >
             <Tab.Screen name="Eec" component={Eec} />
             <Tab.Screen name="Ccc" component={Ccc} />
             <Tab.Screen name="Hrc" component={Hrc} />
             <Tab.Screen name="Arc" component={Arc} />
             <Tab.Screen name="Ppc" component={Ppc} />
+            <Tab.Screen name="CPs" component={Chairpersons} />
           </Tab.Navigator>
         </>
-    </SafeAreaView>
   );
 };
 

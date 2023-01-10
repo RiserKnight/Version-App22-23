@@ -1,5 +1,5 @@
 import React, {Component,useEffect} from 'react';
-import {SafeAreaView, View ,Alert} from 'react-native';
+import {SafeAreaView, View ,Alert,StatusBar} from 'react-native';
 import Navigator from './navigation';
 import * as eva from '@eva-design/eva';
 import {LogBox} from 'react-native';
@@ -76,6 +76,8 @@ import { NavigationContainer } from '@react-navigation/native';
     
   return (
     <>
+   
+    <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#842DCE" translucent = {true}/>
       <AuthProvider>
           <IconRegistry icons={[EvaIconsPack]} />
           <ApplicationProvider {...eva} theme={eva.light}>
@@ -84,6 +86,7 @@ import { NavigationContainer } from '@react-navigation/native';
                   </NavigationContainer>
           </ApplicationProvider>
       </AuthProvider>
+  
     </>
   );
 }
