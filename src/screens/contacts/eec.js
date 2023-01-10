@@ -14,7 +14,9 @@ return (
         </Text>
       )}
       data={persons}
+      initialNumToRender={8}
       columnWrapperStyle={styles.row}
+      initialNumToRender={8}
       renderItem={({item}) => <ContactCard item={item} />}
       numColumns={2}
     />

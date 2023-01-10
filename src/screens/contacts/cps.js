@@ -3,19 +3,19 @@ import { SafeAreaView, FlatList, StyleSheet, Text, View } from "react-native";
 import ContactCard from '../../components/ContactCard';
 import {persons} from '../../utils/temp';
 
-export default function Arc() {
+export default function Chairpersons() {
 
 return (
   <View style={styles.container}>
     <FlatList
     ListHeaderComponent={() => (
         <Text style={{ fontSize: 20, textAlign: "center",marginTop:20,fontWeight:'bold',textDecorationLine: 'underline' , color:'black'}}>
-          Alumini Relation Committie
+          Version Chairpersons
         </Text>
       )}
       data={persons}
-      initialNumToRender={8}
       columnWrapperStyle={styles.row}
+      initialNumToRender={8}
       renderItem={({item}) => <ContactCard item={item} />}
       numColumns={2}
     />

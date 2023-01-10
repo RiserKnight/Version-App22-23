@@ -15,6 +15,7 @@ return (
       )}
       data={persons}
       columnWrapperStyle={styles.row}
+      initialNumToRender={8}
       renderItem={({item}) => <ContactCard item={item} />}
       numColumns={2}
     />

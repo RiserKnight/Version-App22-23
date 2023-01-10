@@ -1,7 +1,6 @@
 import {AuthContext} from '../../context/AuthContext';
 import CustomAlert from '../../components/customAlert';
 import React, {useState, useEffect ,useContext} from 'react';
-
 import {
   View,
   StyleSheet,
@@ -17,10 +16,12 @@ import * as Colors from '../../utils/colors';
 import {scale, verticalScale} from 'react-native-size-matters';
 import {SafeAreaView,ScrollView} from 'react-native';
 import Contacts from '../contacts';
+import Slider from './slider'
 import PushNotification from "react-native-push-notification";
 import {
   borderRadiusLarge,
   fontSizeBig,
+  fontSizeSmall,
   paddingMedium,
   paddingSmall,
   iconLarge,
@@ -92,8 +93,6 @@ const Home = ({navigation}) => {
         title: "You clicked on ",
         message: "notification",
         bigText: " is one of the largest and most beatiful cities in " ,
-        
-      
     });
 
     PushNotification.localNotificationSchedule({
@@ -185,6 +184,7 @@ const Home = ({navigation}) => {
             style={{
               flex: 1,
               height: verticalScale(120),
+              marginTop:verticalScale(20)
             }}
             resizeMode="cover">
             <View style={styles.headingContainer}>
@@ -205,21 +205,23 @@ const Home = ({navigation}) => {
             </View>
           </ImageBackground>
         </View>
-    
       <ScrollView contentContainerStyle={styles.mainMenu}>
       <View>
               <Text
                 style={{
-                  marginLeft: scale(40),
+                  marginTop:scale(70),
+                  marginLeft: scale(20),
                   fontSize: scale(20),
                   fontWeight: 'bold',
                   fontFamily: FONT,
                   color: Colors.Black
                 }}>
-                Welcome!
+                Welcome {data.studentName} !
               </Text>
       </View>
+        <Slider/>
       <View style={styles.cardRow}>
+      <View style={{flexDirection: 'column'}}>
               <View style={styles.shadow}>
                 <Card style={[styles.card1, styles.elevation]}>
                   <TouchableOpacity
@@ -229,68 +231,24 @@ const Home = ({navigation}) => {
                     <ImageBackground
                       source={require('../../assets/icons/events.png')}
                       style={{
-                        height: verticalScale(50),
-                        width: scale(50),
+                        height: verticalScale(40),
+                        width: scale(40),
                         justifyContent: 'center',
                         alignItems: 'center',
                       }}></ImageBackground>
-                    <View
-                      style={{justifyContent: 'center', alignItems: 'center'}}>
-                      <Text style={styles.textMainMenu}>Events</Text>
-                    </View>
+
                   </TouchableOpacity>
                 </Card>
               </View>
+              <View
+                  style={{justifyContent: 'center', alignItems: 'center'}}>
+                  <Text style={styles.textMainMenu}>Events</Text>
+                </View>
+                </View>
+
+              <View style={{flexDirection: 'column'}}>
               <View style={styles.shadow}>
-                <Card style={[styles.card2, styles.elevation]}>
-                  <TouchableOpacity
-                    onPress={() => {
-                      
-                    }}>
-                    <ImageBackground
-                      source={require('../../assets/icons/demo.png')}
-                      style={{
-                        marginLeft:20,
-                        height: verticalScale(50),
-                        width: scale(50),
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}></ImageBackground>
-                    <View
-                      style={{justifyContent: 'center', alignItems: 'center'}}>
-                      <Text style={styles.textMainMenu}>some screen</Text>
-                    </View>
-                  </TouchableOpacity>
-                </Card>
-              </View>
-            </View>
-            <View style={styles.cardRow}>
-              <View style={styles.shadow}>
-                <Card style={[styles.card3, styles.elevation]}>
-                  <TouchableOpacity
-                    onPress={() => {
-                      navigation.push('Contacts', {screenType: 'Contacts'});
-                    }}>
-                    <ImageBackground
-                      source={require('../../assets/icons/team.png')}
-                      style={{
-                        height: verticalScale(50),
-                        width: scale(50),
-                        justifyContent: 'center',
-                        alignSelf: 'center',
-                      }}></ImageBackground>
-                    <View
-                      style={{
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}>
-                      <Text style={styles.textMainMenu}>Committee's</Text>
-                    </View>
-                  </TouchableOpacity>
-                </Card>
-              </View>
-              <View style={styles.shadow}>
-                <Card style={[styles.card4, styles.elevation]}>
+                <Card style={[styles.card1, styles.elevation]}>
                   <TouchableOpacity
                     onPress={() => {
                     }}>
@@ -298,76 +256,120 @@ const Home = ({navigation}) => {
                       source={require('../../assets/icons/demo.png')}
                       style={{
                         height: verticalScale(40),
-                        width: scale(50),
-                        justifyContent: 'center',
-                        alignSelf: 'center',
-                        marginTop: verticalScale(10),
-                        marginBottom: verticalScale(20),
-                      }}></ImageBackground>
-                    <View
-                      style={{
+                        width: scale(40),
                         justifyContent: 'center',
                         alignItems: 'center',
-                      }}>
-                      <Text style={styles.textMainMenu}>not</Text>
-                    </View>
+                      }}></ImageBackground>
                   </TouchableOpacity>
                 </Card>
               </View>
-            </View>
+              <View
+                    style={{justifyContent: 'center', alignItems: 'center'}}>
+                    <Text style={styles.textMainMenu}>some screen</Text>
+              </View>
+              </View>
 
-            <View style={styles.cardRow}>
+              <View style={{flexDirection: 'column'}}>
               <View style={styles.shadow}>
-                <Card style={[styles.card5, styles.elevation]}>
+                <Card style={[styles.card1, styles.elevation]}>
                   <TouchableOpacity
                     onPress={() => {
-                      
+                      navigation.push('Committee', {screenType: 'Committee'});
                     }}>
                     <ImageBackground
-                      source={require('../../assets/icons/demo.png')}
+                      source={require('../../assets/icons/team.png')}
                       style={{
-                        height: verticalScale(50),
-                        width: scale(50),
+                        height: verticalScale(40),
+                        width: scale(40),
                         justifyContent: 'center',
                         alignSelf: 'center',
-                        marginBottom: verticalScale(10),
                       }}></ImageBackground>
-                    <View
+                  </TouchableOpacity>
+                </Card>
+              </View>
+              <View
                       style={{
                         justifyContent: 'center',
                         alignItems: 'center',
                       }}>
-                      <Text style={styles.textMainMenu}>some screen</Text>
+                      <Text style={styles.textMainMenu}>Committee's</Text>
                     </View>
-                  </TouchableOpacity>
-                </Card>
               </View>
+              </View>
+
+              {/* 2nd row */}
+
+              <View style={styles.cardRow}>
+              <View style={{flexDirection: 'column'}}>
               <View style={styles.shadow}>
-                <Card style={[styles.card6, styles.elevation]}>
+                <Card style={[styles.card1, styles.elevation]}>
                   <TouchableOpacity
                     onPress={() => {
-                     
                     }}>
                     <ImageBackground
                       source={require('../../assets/icons/demo.png')}
                       style={{
-                        height: verticalScale(50),
-                        width: scale(50),
-                        justifyContent: 'center',
-                        alignSelf: 'center',
-                        marginBottom: verticalScale(5),
-                      }}></ImageBackground>
-                    <View
-                      style={{
+
+                        height: verticalScale(40),
+                        width: scale(40),
                         justifyContent: 'center',
                         alignItems: 'center',
-                      }}>
-                      <Text style={styles.textMainMenu}>some screen</Text>
-                    </View>
+                      }}></ImageBackground>
                   </TouchableOpacity>
                 </Card>
               </View>
-            </View>
+              <View
+                    style={{justifyContent: 'center', alignItems: 'center'}}>
+                    <Text style={styles.textMainMenu}>some screen</Text>
+              </View>
+              </View>
+
+              <View style={{flexDirection: 'column'}}>
+              <View style={styles.shadow}>
+                <Card style={[styles.card1, styles.elevation]}>
+                  <TouchableOpacity
+                    onPress={() => {
+                    }}>
+                    <ImageBackground
+                      source={require('../../assets/icons/demo.png')}
+                      style={{
+                        height: verticalScale(40),
+                        width: scale(40),
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}></ImageBackground>
+                  </TouchableOpacity>
+                </Card>
+              </View>
+              <View
+                    style={{justifyContent: 'center', alignItems: 'center'}}>
+                    <Text style={styles.textMainMenu}>some screen</Text>
+              </View>
+              </View>
+
+              <View style={{flexDirection: 'column'}}>
+              <View style={styles.shadow}>
+                <Card style={[styles.card1, styles.elevation]}>
+                  <TouchableOpacity
+                    onPress={() => {
+                    }}>
+                    <ImageBackground
+                      source={require('../../assets/icons/demo.png')}
+                      style={{
+                        height: verticalScale(40),
+                        width: scale(40),
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}></ImageBackground>
+                  </TouchableOpacity>
+                </Card>
+              </View>
+              <View
+                    style={{justifyContent: 'center', alignItems: 'center'}}>
+                    <Text style={styles.textMainMenu}>some screen</Text>
+              </View>
+              </View>
+              </View>
         </ScrollView>
       </Layout>
     </SafeAreaView>
@@ -469,69 +471,69 @@ cardRow: {
 },
 card1: {
   marginTop: verticalScale(20),
-  height: verticalScale(140),
-  width: scale(140),
+  height: verticalScale(60),
+  width: scale(65),
   justifyContent: 'center',
   alignItems: 'center',
-  borderRadius: scale(borderRadiusLarge),
-  borderWidth: scale(2),
+  //borderRadius: scale(borderRadiusLarge),
+  borderWidth: scale(1),
   borderColor: '#842DCE',
 },
-card2: {
-  marginTop: verticalScale(20),
-  height: verticalScale(140),
-  width: scale(140),
-  borderRadius: scale(borderRadiusLarge),
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: Colors.White,
-  borderWidth: scale(2),
-  borderColor: '#842DCE',
-},
-card3: {
-  height: verticalScale(140),
-  width: scale(140),
-  marginTop: verticalScale(20),
-  justifyContent: 'center',
-  borderRadius: scale(borderRadiusLarge),
-  alignItems: 'center',
-  backgroundColor: Colors.White,
-  borderWidth: scale(2),
-  borderColor: '#842DCE',
-},
-card4: {
-  marginTop: verticalScale(20),
-  height: verticalScale(140),
-  width: scale(140),
-  justifyContent: 'center',
-  borderRadius: scale(borderRadiusLarge),
-  alignItems: 'center',
-  backgroundColor: Colors.White,
-  borderWidth: scale(2),
-  borderColor: '#842DCE',
-},
-card5: {
-  marginTop: verticalScale(20),
-  height: verticalScale(140),
-  width: scale(140),
-  borderRadius: scale(borderRadiusLarge),
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: Colors.White,
-  borderWidth: scale(2),
-  borderColor: '#842DCE',
-},
-card6: {
-  marginTop: verticalScale(20),
-  height: verticalScale(140),
-  width: scale(140),
-  borderRadius: scale(borderRadiusLarge),
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: Colors.White,
-  borderWidth: scale(2),
-  borderColor: '#842DCE',
-},
+// card2: {
+//   marginTop: verticalScale(20),
+//   height: verticalScale(80),
+//   width: scale(80),
+//   borderRadius: scale(borderRadiusLarge),
+//   justifyContent: 'center',
+//   alignItems: 'center',
+//   backgroundColor: Colors.White,
+//   borderWidth: scale(2),
+//   borderColor: '#842DCE',
+// },
+// card3: {
+//   height: verticalScale(80),
+//   width: scale(80),
+//   marginTop: verticalScale(20),
+//   justifyContent: 'center',
+//   borderRadius: scale(borderRadiusLarge),
+//   alignItems: 'center',
+//   backgroundColor: Colors.White,
+//   borderWidth: scale(2),
+//   borderColor: '#842DCE',
+// },
+// card4: {
+//   marginTop: verticalScale(20),
+//   height: verticalScale(80),
+//   width: scale(80),
+//   justifyContent: 'center',
+//   borderRadius: scale(borderRadiusLarge),
+//   alignItems: 'center',
+//   backgroundColor: Colors.White,
+//   borderWidth: scale(2),
+//   borderColor: '#842DCE',
+// },
+// card5: {
+//   marginTop: verticalScale(20),
+//   height: verticalScale(80),
+//   width: scale(80),
+//   borderRadius: scale(borderRadiusLarge),
+//   justifyContent: 'center',
+//   alignItems: 'center',
+//   backgroundColor: Colors.White,
+//   borderWidth: scale(2),
+//   borderColor: '#842DCE',
+// },
+// card6: {
+//   marginTop: verticalScale(20),
+//   height: verticalScale(80),
+//   width: scale(80),
+//   borderRadius: scale(borderRadiusLarge),
+//   justifyContent: 'center',
+//   alignItems: 'center',
+//   backgroundColor: Colors.White,
+//   borderWidth: scale(2),
+//   borderColor: '#842DCE',
+// },
 shadow: {
   shadowColor: '#842DCE',
   shadowOffset: {width: 7, height: 7},
@@ -546,7 +548,7 @@ elevation: {
 textMainMenu: {
   textAlign: 'center',
   textAlignVertical: 'top',
-  fontSize: scale(fontSizeMedium),
+  fontSize: scale(fontSizeSmall-1),
   color: Colors.Black,
   fontFamily: FONT,
 },

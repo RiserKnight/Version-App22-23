@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef,memo} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {Card, Icon} from '@ui-kitten/components';
 import {
@@ -37,7 +37,7 @@ const ContactCard = ({item}) => {
         <TouchableOpacity onPress={() => setVisible(true)}>
           <ImageBackground
             source={{
-              uri: item.imageUrl,
+              uri: item.Photo,
             }}
             resizeMode="cover"
             style={styles.image}>
@@ -48,9 +48,8 @@ const ContactCard = ({item}) => {
             />
             <View style={styles.textContainer}>
               <Text numberOfLines={1} style={styles.textName} >
-                {item.name}
+                {item.Name}
               </Text>
-             
             </View>
           </ImageBackground>
         </TouchableOpacity>
@@ -62,7 +61,8 @@ const ContactCard = ({item}) => {
         transparent={true}
         onRequestClose={() => {
           setVisible(false);
-        }}>
+        }} 
+        >
         <View style={styles.content}>
           <TouchableOpacity
             onPress={() => {
@@ -91,7 +91,7 @@ const ContactCard = ({item}) => {
             }}>
             <Image
               source={{
-                uri: item.imageUrl,
+                uri: item.Photo,
               }}
               resizeMode="cover"
               style={styles.image2}
@@ -105,20 +105,20 @@ const ContactCard = ({item}) => {
               }}>
               <Text
                 style={{fontSize: scale(fontSizeVeryLarge), fontFamily: FONT ,  color:Black}}>
-                {item.name}
+                {item.Name}
               </Text>
               <View
                 style={{
-                  flexDirection: 'row',
+                  flexDirection: 'column',
                   alignItems: 'center',
                   marginTop: verticalScale(9),
                 }}>
-                <Icon style={styles.icon} fill={ORANGE} name="phone" />
+                <Icon style={styles.icon} fill={'black'} name="github" />
                 <TouchableOpacity
                   onPress={() => {
                     Clipboard.setString(item.mobile + '');
                     toastRef.current.show(
-                      `Copied ${item.name}'s phone number to clipboard`,
+                      `Copied ${item.Name}'s phone number to clipboard`,
                       {
                         type: 'success',
                         placement: 'top',
@@ -126,17 +126,17 @@ const ContactCard = ({item}) => {
                       },
                     );
                   }}>
-                  <Text style={styles.phoneText}>
-                    {item.mobile} 
+                <Text style={styles.phoneText}>
+                    {item.github} 
                   </Text>
                 </TouchableOpacity>
-{/* 
+
                 <Icon
                   style={styles.icon}
-                  fill={ORANGE}
-                  name="browser-outline"
-                /> */}
-               
+                  fill={'black'}
+                  name="linkedin"
+                />
+                <Text style={styles.phoneText}>{item.Linkedin}</Text>
               </View>
             </View>
           </View>
@@ -164,6 +164,8 @@ const styles = StyleSheet.create({
     marginHorizontal: scale(8),
     marginVertical: verticalScale(8),
     elevation: 5,
+    borderWidth: scale(2),
+    borderColor: '#842DCE',
   },
   image: {
     height: verticalScale(cardHeight),
@@ -191,7 +193,7 @@ const styles = StyleSheet.create({
   },
   textName: {
     marginLeft: scale(paddingSmall),
-    fontSize: scale(16) / PixelRatio.getFontScale(),
+    fontSize: scale(13) / PixelRatio.getFontScale(),
     color: White,
     fontFamily: FONT,
   },
@@ -209,12 +211,15 @@ const styles = StyleSheet.create({
     padding: scale(16),
     backgroundColor: 'rgba(204, 198, 204, 0.8)',
     justifyContent: 'center',
+    borderRadius:10,
+    borderWidth: 1,
+    borderColor: '#842DCE',
     flex: 1,
   },
   phoneText: {
     alignItems: 'center',
     color: 'black',
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(10),
     fontFamily: FONT,
   },
   image2: {
@@ -229,4 +234,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ContactCard;
+export default memo(ContactCard);

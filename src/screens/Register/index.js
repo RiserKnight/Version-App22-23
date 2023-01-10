@@ -29,6 +29,7 @@ const Register = ({navigation}) => {
           style={{
             height: verticalScale(470),
             width: '100%',
+            marginTop:verticalScale(10)
           }}>
           <Text style={styles.title}>Register</Text>
           <TextInput
