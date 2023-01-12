@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     marginVertical: verticalScale(8),
     elevation: 5,
     borderWidth: scale(2),
-    borderColor: '#842DCE',
+    borderColor: '#4d1637',
   },
   image: {
     height: verticalScale(cardHeight),
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius:10,
     borderWidth: 1,
-    borderColor: '#842DCE',
+    borderColor: '#4d1637',
     flex: 1,
   },
   phoneText: {

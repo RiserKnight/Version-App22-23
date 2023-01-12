@@ -38,31 +38,11 @@ import { NavigationContainer } from '@react-navigation/native';
           .then(remoteMessage => {
             console.log(remoteMessage); // always prints null
             if (remoteMessage) {
-              // Never reached
-             // Alert.alert('here');
-              
               console.log(
                 'Notification caused app to open from quit state:',
                 remoteMessage,
               );
               setTimeout(function () {
-                // Alert.alert(
-                //   "Alert Title",
-                //   "My Alert Msg",
-                //   [
-                //     {
-                //       text: "Cancel",
-                //       onPress: () =>{  RootNavigation.navigate('Notification', {
-                //         itemId: 86,
-                //         otherParam: remoteMessage,
-                //             });} ,
-                //       style: "cancel",
-                //     },
-                //   ],
-                //   {
-                //     cancelable: true,
-                //   }
-                // );
                 RootNavigation.navigate('Notification', {
                   itemId: 86,
                   otherParam: remoteMessage,
@@ -77,7 +57,7 @@ import { NavigationContainer } from '@react-navigation/native';
   return (
     <>
    
-    <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#842DCE" translucent = {true}/>
+    <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#4d1637" translucent = {true}/>
       <AuthProvider>
           <IconRegistry icons={[EvaIconsPack]} />
           <ApplicationProvider {...eva} theme={eva.light}>
