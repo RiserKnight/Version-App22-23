@@ -24,7 +24,7 @@ const Contacts = ({navigation}) => {
                 fontSize: scale(12),
                 fontFamily: FONT,
               },
-              tabBarIndicatorStyle: {backgroundColor: '#842DCE'},
+              tabBarIndicatorStyle: {backgroundColor: '#4d1637'},
               tabBarStyle: {backgroundColor: 'white'},
             }}
             >

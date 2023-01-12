@@ -106,7 +106,7 @@ const Login = ({navigation}) => {
               Don't have an account?
               <Text
                 style={{
-                  color: '#842DCE',
+                  color: '#4d1637',
                   fontWeight: 'bold',
                   fontSize: scale(14),
                   fontFamily: FONT,
@@ -120,7 +120,7 @@ const Login = ({navigation}) => {
             start={{x: 0.0, y: 0.25}}
             end={{x: 0.5, y: 1.0}}
             locations={[0, 0.6, 0.8]}
-            colors={['#842DCE', '#852DCE', '#842DCE']}
+            colors={['#4d1637', '#852DCE', '#4d1637']}
             style={{
               backgroundColor: 'blue',
               height: verticalScale(40),
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(8),
     borderRadius: scale(8),
     fontFamily: FONT,
-    borderColor:'#842DCE'
+    borderColor:'#4d1637'
   },
   inputStyle: {fontSize: scale(fontSizeBig), color: 'black', fontFamily: FONT},
   labelStyle: {fontSize: scale(fontSizeBig)},

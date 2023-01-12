@@ -9,7 +9,7 @@ export default function Notification({ route, navigation }) {
       source={{uri:otherParam.data.url }}
       style={{width: 200, height: 200}}
     />
-    <Text style={{color:'black',marginTop:20,fontSize:30}}>{otherParam.data.message}</Text>
+    <Text style={{color:'black',marginTop:20,fontSize:25}}>{otherParam.data.message}</Text>
   </View>
   )
 }

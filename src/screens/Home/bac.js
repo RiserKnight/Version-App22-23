@@ -18,7 +18,7 @@ import {SafeAreaView,ScrollView} from 'react-native';
 import Contacts from '../contacts';
 import Slider from './slider'
 import TabOneScreen from '../Timeline/index'
-import EventDescriptionScreen from '../Events/index'
+import PushNotification from "react-native-push-notification";
 import {
   borderRadiusLarge,
   fontSizeBig,
@@ -35,6 +35,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Dimensions} from 'react-native';
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
+import Notification from '../notification';
 const Home = ({navigation}) => {
   const {logout,userToken}= useContext(AuthContext);
   const [logoutVisible, setLogoutVisible] = useState(false);
@@ -84,7 +85,25 @@ const Home = ({navigation}) => {
     studentRollNo: 205121099,
     studentCollege: 'NIT-T',
   };
+  const handleNotification = () => {
 
+    PushNotification.cancelAllLocalNotifications();
+
+    PushNotification.localNotification({
+        channelId: "test-channel",
+        title: "You clicked on ",
+        message: "notification",
+        bigText: " is one of the largest and most beatiful cities in " ,
+    });
+
+    PushNotification.localNotificationSchedule({
+        channelId: "test-channel",
+        title: "Alarm",
+        message: "You clicked on  20 seconds ago",
+        date: new Date(Date.now() + 20 * 1000),
+        allowWhileIdle: true,
+    });
+}
     return (
       <SafeAreaView style={{flex: 1}}>
       <Layout style={{flex: 1}}>
@@ -145,7 +164,7 @@ const Home = ({navigation}) => {
                 key={i}>
                 <Icon
                   style={styles.iconDashBoard}
-                  fill='#4d1637'
+                  fill='#842DCE'
                   name={item.icon}
                 />
                 <Text style={styles.sideNavItemsText}>{item.name}</Text>
@@ -205,10 +224,10 @@ const Home = ({navigation}) => {
       <View style={styles.cardRow}>
       <View style={{flexDirection: 'column'}}>
               <View style={styles.shadow}>
-                <Card style={[styles.card, styles.elevation]}>
+                <Card style={[styles.card1, styles.elevation]}>
                   <TouchableOpacity
                     onPress={() => {
-                      navigation.push('Events', {screenType: 'Events'});
+                      handleNotification();
                     }}>
                     <ImageBackground
                       source={require('../../assets/icons/events.png')}
@@ -230,7 +249,7 @@ const Home = ({navigation}) => {
 
               <View style={{flexDirection: 'column'}}>
               <View style={styles.shadow}>
-                <Card style={[styles.card, styles.elevation]}>
+                <Card style={[styles.card1, styles.elevation]}>
                   <TouchableOpacity
                     onPress={() => {
                       navigation.push('Timeline', {screenType: 'Timeline'});
@@ -254,7 +273,7 @@ const Home = ({navigation}) => {
 
               <View style={{flexDirection: 'column'}}>
               <View style={styles.shadow}>
-                <Card style={[styles.card, styles.elevation]}>
+                <Card style={[styles.card1, styles.elevation]}>
                   <TouchableOpacity
                     onPress={() => {
                       navigation.push('Committee', {screenType: 'Committee'});
@@ -285,7 +304,7 @@ const Home = ({navigation}) => {
               <View style={styles.cardRow}>
               <View style={{flexDirection: 'column'}}>
               <View style={styles.shadow}>
-                <Card style={[styles.card, styles.elevation]}>
+                <Card style={[styles.card1, styles.elevation]}>
                   <TouchableOpacity
                     onPress={() => {
                     }}>
@@ -309,7 +328,7 @@ const Home = ({navigation}) => {
 
               <View style={{flexDirection: 'column'}}>
               <View style={styles.shadow}>
-                <Card style={[styles.card, styles.elevation]}>
+                <Card style={[styles.card1, styles.elevation]}>
                   <TouchableOpacity
                     onPress={() => {
                     }}>
@@ -332,7 +351,7 @@ const Home = ({navigation}) => {
 
               <View style={{flexDirection: 'column'}}>
               <View style={styles.shadow}>
-                <Card style={[styles.card, styles.elevation]}>
+                <Card style={[styles.card1, styles.elevation]}>
                   <TouchableOpacity
                     onPress={() => {
                     }}>
@@ -394,7 +413,7 @@ sideNavTop: {
   padding: scale(10),
   paddingTop: scale(50),
   marginBottom: scale(15),
-  backgroundColor: '#4d1637',
+  backgroundColor: '#842DCE',
 },
 sideNavRest: {
   height: windowHeight,
@@ -452,7 +471,7 @@ cardRow: {
   // backgroundColor: '#f2f2f2',
   justifyContent: 'space-evenly',
 },
-card: {
+card1: {
   marginTop: verticalScale(20),
   height: verticalScale(60),
   width: scale(65),
@@ -460,18 +479,72 @@ card: {
   alignItems: 'center',
   //borderRadius: scale(borderRadiusLarge),
   borderWidth: scale(1),
-  borderColor: '#4d1637',
+  borderColor: '#842DCE',
 },
-
+// card2: {
+//   marginTop: verticalScale(20),
+//   height: verticalScale(80),
+//   width: scale(80),
+//   borderRadius: scale(borderRadiusLarge),
+//   justifyContent: 'center',
+//   alignItems: 'center',
+//   backgroundColor: Colors.White,
+//   borderWidth: scale(2),
+//   borderColor: '#842DCE',
+// },
+// card3: {
+//   height: verticalScale(80),
+//   width: scale(80),
+//   marginTop: verticalScale(20),
+//   justifyContent: 'center',
+//   borderRadius: scale(borderRadiusLarge),
+//   alignItems: 'center',
+//   backgroundColor: Colors.White,
+//   borderWidth: scale(2),
+//   borderColor: '#842DCE',
+// },
+// card4: {
+//   marginTop: verticalScale(20),
+//   height: verticalScale(80),
+//   width: scale(80),
+//   justifyContent: 'center',
+//   borderRadius: scale(borderRadiusLarge),
+//   alignItems: 'center',
+//   backgroundColor: Colors.White,
+//   borderWidth: scale(2),
+//   borderColor: '#842DCE',
+// },
+// card5: {
+//   marginTop: verticalScale(20),
+//   height: verticalScale(80),
+//   width: scale(80),
+//   borderRadius: scale(borderRadiusLarge),
+//   justifyContent: 'center',
+//   alignItems: 'center',
+//   backgroundColor: Colors.White,
+//   borderWidth: scale(2),
+//   borderColor: '#842DCE',
+// },
+// card6: {
+//   marginTop: verticalScale(20),
+//   height: verticalScale(80),
+//   width: scale(80),
+//   borderRadius: scale(borderRadiusLarge),
+//   justifyContent: 'center',
+//   alignItems: 'center',
+//   backgroundColor: Colors.White,
+//   borderWidth: scale(2),
+//   borderColor: '#842DCE',
+// },
 shadow: {
-  shadowColor: '#4d1637',
+  shadowColor: '#842DCE',
   shadowOffset: {width: 7, height: 7},
   shadowOpacity: 0.8,
   shadowRadius: 3,
 },
 elevation: {
   elevation: 5,
-  shadowColor: '#4d1637',
+  shadowColor: '#842DCE',
   backgroundColor: Colors.White,
 },
 textMainMenu: {

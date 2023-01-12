@@ -8,10 +8,12 @@ Platform,
 Image,
 Linking,
 } from 'react-native';
+import NoConnection from '../Error/noConnectio'
 import PushNotification from "react-native-push-notification";
 import {scale, verticalScale} from 'react-native-size-matters';
 import AuthNavigator from '../../navigation/authNavigator'
 import {AUTH_NAV_STORE} from '../../mobx/AUTH_NAV_STORE';
+import NetInfo from '@react-native-community/netinfo';
 const Splash = ({navigation}) => {
     
     const [State, setState] = useState(0);
@@ -24,7 +26,15 @@ const Splash = ({navigation}) => {
         //   // all okay go ahead
         //   Login_Store.closeSplash();
         // }
-        AUTH_NAV_STORE.setSplashLoading(false);
+        NetInfo.fetch().then((state) => {
+            if(state.isConnected == true ){
+                AUTH_NAV_STORE.setSplashLoading(false);
+            }
+            else{
+                setState(2);
+            }
+          });
+        
         
     };
     setTimeout(function () {
@@ -82,15 +92,15 @@ return (
     </>
     ) : (
     <>
-        {/* {State === 1 ? (
+        {State === 2 ? (
         <>
-            <Login />
+            < NoConnection/>
         </>
         ) : (
         <>
-            <Register />
+            {/* <Register /> */}
         </>
-        )} */}
+        )}
     </>
     )}
 </>
