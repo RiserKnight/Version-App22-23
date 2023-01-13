@@ -7,10 +7,18 @@ import {Icon} from '@ui-kitten/components';
 
 import {scale, verticalScale} from 'react-native-size-matters';
 import {FONT} from '../../utils/UIConstants';
-
-
-
+import {AUTH_NAV_STORE} from '../../mobx/AUTH_NAV_STORE';
+import NetInfo from '@react-native-community/netinfo';
+const backPress = () => {
+ 
+  NetInfo.fetch().then((state) => {
+    if(state.isConnected == true ){
+        AUTH_NAV_STORE.setSplashLoading(false);
+    }
+  });
+};
 export default class NoConnection extends Component {
+
 
 
 render() {
@@ -31,20 +39,42 @@ return (
         autoPlay
         loop
     />
-    {/* <Text
-    style={{
-        textAlign: 'center',
-        fontSize: scale(22),
-        marginHorizontal: scale(12),
-        textTransform: 'uppercase',
-        fontWeight: '500',
-        fontFamily: FONT,
-        color:'black',
-        padding:90,
-        marginTop: verticalScale(290),
-        }}>
-        No Internet
-      </Text> */}
+     <TouchableOpacity
+          style={{
+            padding: scale(9),
+            paddingRight: scale(18),
+            borderRadius: scale(24),
+            alignSelf: 'center',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '50%',
+            position: 'absolute',
+            backgroundColor: '#4d1637',
+            bottom: verticalScale(50),
+          }}
+          onPress={backPress}
+          >
+          <View
+            style={{
+              flexDirection: 'row',
+              borderRadius: scale(24),
+              alignItems: 'center',
+            }}>
+        
+              <View style={{width: scale(8)}} />
+            <Text
+              allowFontScaling={false}
+              style={{
+                fontSize: scale(17),
+                color: 'white',
+
+                fontWeight: 'bold',
+              }}>
+              TRY AGAIN
+            </Text>
+          </View>
+        </TouchableOpacity>
         </View>
     );
   }

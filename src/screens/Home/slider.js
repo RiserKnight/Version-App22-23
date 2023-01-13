@@ -27,6 +27,9 @@ import {
     component={<Preview />}
     indicatorActiveWidth={40}
     contentContainerStyle={{paddingHorizontal: 16}}
+    indicatorContainerStyle={{position:'absolute', bottom: 20}}
+    indicatorActiveColor={'#4d1637'}
+    indicatorInActiveColor={'#4d1637'}
   />
       </View>
     );

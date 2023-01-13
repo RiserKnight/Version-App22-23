@@ -9,7 +9,7 @@ import Eec from './eec';
 import Ccc from './ccc';
 import Arc from './arc';
 import Ppc from './ppc';
-import Prc from './cps';
+import Prc from './prc';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 const Tab = createMaterialTopTabNavigator();
