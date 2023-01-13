@@ -1,24 +1,26 @@
 export const persons =[
     {
+        "Email Address": "nitansshujain@gmail.com",
+        "Name": "Nitansshu Jain",
+        "desig": "Chairperson",
+        "Photo": "https://drive.google.com/uc?export=view&id=1Vx1eVNxtXQUTnNvTwsG_QhMm0_ANB7N1",
+        "github": "https://github.com/nitansshujain",
+        "Linkedin": "https://www.linkedin.com/in/nitansshujain/"
+    },
+    {
+        "Email Address": "amitnitt015@gmail.com",
+        "Name": "Amit Kumar",
+        "desig": "Chairperson",
+        "Photo": "https://drive.google.com/uc?export=view&id=1QwNVzN77wXlGrSWxNSXhstW0xwwRcRf5",
+        "github": "https://github.com/015amit",
+        "Linkedin": "https://linkedin.com/amit015"
+    },
+    {
      "Email Address": "yaduvanshibikash1998@gmail.com",
      "Name": "BIKASH KUMAR YADAV ",
      "Photo": "https://drive.google.com/uc?export=view&id=1ve8PCSmgvOKlDm6xdzvhHRFOWz1QEXti",
      "github": "https://github.com/034-BikashKumarYadav",
      "Linkedin": "linkedin.com/in/bikash-kumar-yadav-461237223"
-    },
-    {
-     "Email Address": "nitansshujain@gmail.com",
-     "Name": "Nitansshu Jain",
-     "Photo": "https://drive.google.com/uc?export=view&id=1Vx1eVNxtXQUTnNvTwsG_QhMm0_ANB7N1",
-     "github": "https://github.com/nitansshujain",
-     "Linkedin": "https://www.linkedin.com/in/nitansshujain/"
-    },
-    {
-     "Email Address": "amitnitt015@gmail.com",
-     "Name": "Amit Kumar",
-     "Photo": "https://drive.google.com/uc?export=view&id=1QwNVzN77wXlGrSWxNSXhstW0xwwRcRf5",
-     "github": "https://github.com/015amit",
-     "Linkedin": "https://linkedin.com/amit015"
     },
     {
      "Email Address": "jaspreetkhurana793@gmail.com",
