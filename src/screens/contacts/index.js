@@ -9,7 +9,7 @@ import Eec from './eec';
 import Ccc from './ccc';
 import Arc from './arc';
 import Ppc from './ppc';
-import Chairpersons from './cps';
+import Prc from './cps';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 const Tab = createMaterialTopTabNavigator();
@@ -33,7 +33,7 @@ const Contacts = ({navigation}) => {
             <Tab.Screen name="Hrc" component={Hrc} />
             <Tab.Screen name="Arc" component={Arc} />
             <Tab.Screen name="Ppc" component={Ppc} />
-            <Tab.Screen name="CPs" component={Chairpersons} />
+            <Tab.Screen name="Prc" component={Prc} />
           </Tab.Navigator>
         </>
   );

@@ -1,9 +1,9 @@
 import React from "react";
 import { SafeAreaView, FlatList, StyleSheet, Text, View } from "react-native";
 import ContactCard from '../../components/ContactCard';
-import {persons} from '../../utils/temp';
+import {persons} from '../../utils/prc';
 
-export default function Chairpersons() {
+export default function Prc() {
 
 return (
   <View style={styles.container}>

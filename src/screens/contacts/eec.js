@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, FlatList, StyleSheet, Text, View } from "react-native";
 import ContactCard from '../../components/ContactCard';
-import {persons} from '../../utils/temp';
+import {persons} from '../../utils/eec';
 
 export default function Eec() {
 
@@ -16,7 +16,7 @@ return (
       data={persons}
       initialNumToRender={8}
       columnWrapperStyle={styles.row}
-      initialNumToRender={8}
+      //initialNumToRender={8}
       renderItem={({item}) => <ContactCard item={item} />}
       numColumns={2}
     />
