@@ -1,11 +1,11 @@
 export const persons =[
-   
     {
-        "Email Address": "kmishra5403@gmail.com",
-        "Name": "Khushbu Shandilya ",
-        "Photo": "https://drive.google.com/uc?export=view&id=1OCNIXPTwscqn7HCPDGaa8_V7THPf8gm3",
-        "github": "https://github.com/047-KhushbuShandilya",
-        "Linkedin": "https://www.linkedin.com/in/khushbu-shandilya-a02284222"
+        "Email Address": "amitnitt015@gmail.com",
+        "Name": "Amit Kumar",
+        "desig": "Chairperson",
+        "Photo": "https://drive.google.com/uc?export=view&id=1nBbym7Up7WtH7MDVfLhDhf0R_7ZIkFEz",
+        "github": "https://github.com/015amit",
+        "Linkedin": "https://linkedin.com/amit015"
     },
     {
         "Email Address": "asc23062000@gmail.com",
@@ -13,13 +13,13 @@ export const persons =[
         "Photo": "https://drive.google.com/uc?export=view&id=14yo8Vup2gel562O07ZLSpSjvSWrBfPaW",
         "github": "https://github.com/015-Aman",
         "Linkedin": "https://www.linkedin.com/in/aman-singh-65334621b"
-       },
+    },
     {
-     "Email Address": "rajnishsince2000@gmail.com",
-     "Name": "Rajnish Kumar Verma",
-     "Photo": "https://drive.google.com/uc?export=view&id=1wf8xXcmi9T5vGsS_HjNEWwoWRAECEf_M",
-     "github": "https://github.com/erajneeshverma",
-     "Linkedin": "https://www.linkedin.com/in/erajnishverma"
+        "Email Address": "rajnishsince2000@gmail.com",
+        "Name": "Rajnish Kumar Verma",
+        "Photo": "https://drive.google.com/uc?export=view&id=1wf8xXcmi9T5vGsS_HjNEWwoWRAECEf_M",
+        "github": "https://github.com/erajneeshverma",
+        "Linkedin": "https://www.linkedin.com/in/erajnishverma"
     },
     {
         "Email Address": "Satishjnvr@gmail.com",
@@ -34,6 +34,13 @@ export const persons =[
         "Photo": "https://drive.google.com/uc?export=view&id=1GrvaTCatm9bkATrgvH0E07f1wZDXm3fR",
         "github": "https://github.com/umangkumarumk",
         "Linkedin": "https://www.linkedin.com/in/umangkumarumk/"
+    },
+    {
+        "Email Address": "kmishra5403@gmail.com",
+        "Name": "Khushbu Shandilya ",
+        "Photo": "https://drive.google.com/uc?export=view&id=1OCNIXPTwscqn7HCPDGaa8_V7THPf8gm3",
+        "github": "https://github.com/047-KhushbuShandilya",
+        "Linkedin": "https://www.linkedin.com/in/khushbu-shandilya-a02284222"
     },
     {
      "Email Address": "subhamjha.indian.170@gmail.com",
@@ -62,14 +69,7 @@ export const persons =[
      "github": "https://github.com/anupkumarmridha/anupkumarmridha",
      "Linkedin": "https://www.linkedin.com/in/anup-kumar-mridha"
     },
-    {
-        "Email Address": "amitnitt015@gmail.com",
-        "Name": "Amit Kumar",
-        "desig": "Chairperson",
-        "Photo": "https://drive.google.com/uc?export=view&id=1nBbym7Up7WtH7MDVfLhDhf0R_7ZIkFEz",
-        "github": "https://github.com/015amit",
-        "Linkedin": "https://linkedin.com/amit015"
-    },
+    
     {
      "Email Address": "riser.aayush@gmail.com",
      "Name": "Aayush Gupta",

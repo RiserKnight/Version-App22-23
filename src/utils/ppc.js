@@ -1,5 +1,13 @@
 export const persons =[
     {
+        "Email Address": "niteshagrahari1999@gmail.com",
+        "Name": "NITESH AGRAHARI",
+        "desig": "Chairperson",
+        "Photo": "https://drive.google.com/uc?export=view&id=14LhQfUNbbtz1c597v2AAyWSLrYI1cGtf",
+        "github": "https://github.com/niteshagrahari",
+        "Linkedin": "https://www.linkedin.com/in/nitesh-agrahari-abb312203/"
+    }, 
+    {
      "Email Address": "poojasomani295@gmail.com",
      "Name": "Pooja Somani",
      "Photo": "https://drive.google.com/uc?export=view&id=19VJQd7M3JGvbhlIST5xgwalmX2d2SSty",
@@ -44,13 +52,6 @@ export const persons =[
      "Photo": "https://drive.google.com/uc?export=view&id=1kxvygjubmBo070XrfZVwssD4_nWthFK7",
      "github": "github.com/075Purushottam",
      "Linkedin": "https://www.linkedin.com/in/purushottam-patidar-246a02164"
-    },
-    {
-     "Email Address": "niteshagrahari1999@gmail.com",
-     "Name": "NITESH AGRAHARI",
-     "Photo": "https://drive.google.com/uc?export=view&id=14LhQfUNbbtz1c597v2AAyWSLrYI1cGtf",
-     "github": "https://github.com/niteshagrahari",
-     "Linkedin": "https://www.linkedin.com/in/nitesh-agrahari-abb312203/"
     },
     {
      "Email Address": "rajakumarmuz1234567@gmail.com",

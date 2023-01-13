@@ -1,5 +1,13 @@
 export const persons =[
     {
+        "Email Address": "imsudhanshu3@gmail.com",
+        "Name": "SUDHANSHU",
+        "desig": "Chairperson",
+        "Photo": "https://drive.google.com/uc?export=view&id=1E3ZD-DVKNnpaVIREWUBvKhbgFJutRV70",
+        "github": "https://github.com/Sudhanshu-105",
+        "Linkedin": "https://www.linkedin.com/in/sudhanshu-shrivastava-74a089203/"
+    },
+    {
      "Email Address": "nayangupta2215@gmail.com",
      "Name": "Nayan Gupta ",
      "Photo": "https://drive.google.com/uc?export=view&id=1yCcv58Mo2ueLaO6QrYtgJn8gd4fiTzqj",
@@ -31,13 +39,7 @@ export const persons =[
      "Name": "Sagar Patidar ",
      "Photo": "https://drive.google.com/uc?export=view&id=1RXPLQSB3m9i_I6TBmY_t39epuOl4M3ia"
     },
-    {
-     "Email Address": "imsudhanshu3@gmail.com",
-     "Name": "SUDHANSHU",
-     "Photo": "https://drive.google.com/uc?export=view&id=1E3ZD-DVKNnpaVIREWUBvKhbgFJutRV70",
-     "github": "https://github.com/Sudhanshu-105",
-     "Linkedin": "https://www.linkedin.com/in/sudhanshu-shrivastava-74a089203/"
-    },
+    
     {
      "Email Address": "ankitasaha250@gmail.com",
      "Name": "Ankita Saha ",
