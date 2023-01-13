@@ -107,6 +107,10 @@ const ContactCard = ({item}) => {
                 style={{fontSize: scale(fontSizeVeryLarge), fontFamily: FONT ,  color:Black}}>
                 {item.Name}
               </Text>
+              <Text
+                style={{fontSize: scale(fontSizeSmall), fontFamily: FONT ,  color:'gray'}}>
+                {item.desig}
+              </Text>
               <View
                 style={{
                   flexDirection: 'column',
@@ -126,9 +130,7 @@ const ContactCard = ({item}) => {
                       },
                     );
                   }}>
-                <Text style={styles.phoneText}>
-                    {item.github} 
-                  </Text>
+                <Text style={styles.phoneText}>{item.github}</Text>
                 </TouchableOpacity>
 
                 <Icon
@@ -136,7 +138,20 @@ const ContactCard = ({item}) => {
                   fill={'black'}
                   name="linkedin"
                 />
+                <TouchableOpacity
+                  onPress={() => {
+                    Clipboard.setString(item.mobile + '');
+                    toastRef.current.show(
+                      `Copied ${item.Name}'s phone number to clipboard`,
+                      {
+                        type: 'success',
+                        placement: 'top',
+                        animationType: 'slide-in',
+                      },
+                    );
+                  }}>
                 <Text style={styles.phoneText}>{item.Linkedin}</Text>
+                </TouchableOpacity>
               </View>
             </View>
           </View>

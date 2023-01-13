@@ -61,15 +61,6 @@ const Home = ({navigation}) => {
   };
   let sideNavItemsList = [
     {
-      name: 'Feedback',
-      icon: 'message-square',
-      key: 2,
-      onPress: () => {
-        navigation.navigate('FeedbackScreen');
-        setSideNavVisible(false);
-      },
-    },
-    {
       name: 'Logout',
       icon: 'log-out-outline',
       onPress: () => {
@@ -111,7 +102,7 @@ const Home = ({navigation}) => {
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <Icon
                   style={styles.iconDashBoard}
-                  fill={Colors.Black}
+                  fill='white'
                   name="person-outline"
                 />
 
@@ -122,7 +113,7 @@ const Home = ({navigation}) => {
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <Icon
                   style={styles.iconDashBoard}
-                  fill={Colors.Black}
+                  fill='white'
                   name="hash-outline"
                 />
                 <Text style={[styles.textDashBoard]}>{data.studentRollNo}</Text>
@@ -130,7 +121,7 @@ const Home = ({navigation}) => {
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <Icon
                   style={styles.iconDashBoard}
-                  fill={Colors.Black}
+                  fill='white'
                   name="book-outline"
                 />
                 <Text numberOfLines={1} style={styles.textDashBoard}>
@@ -162,11 +153,11 @@ const Home = ({navigation}) => {
 
         <View style={styles.dashboard}>
           <ImageBackground
-            source={require('../../assets/icons/headerimg1.png')}
+            source={require('../../assets/icons/header.png')}
             style={{
               flex: 1,
               height: verticalScale(120),
-              marginTop:verticalScale(20)
+              marginTop:verticalScale(25)
             }}
             resizeMode="cover">
             <View style={styles.headingContainer}>
@@ -179,7 +170,7 @@ const Home = ({navigation}) => {
                 <TouchableOpacity onPress={() => setSideNavVisible(true)}>
                   <Icon
                     style={styles.iconDashBoard}
-                    fill={Colors.DashboardLogo}
+                    fill='white'
                     name="menu-outline"
                   />
                 </TouchableOpacity>
@@ -196,7 +187,7 @@ const Home = ({navigation}) => {
                   fontSize: scale(20),
                   fontWeight: 'bold',
                   fontFamily: FONT,
-                  color: Colors.Black
+                  color: '#4d1637'
                 }}>
                 Welcome {data.studentName} !
               </Text>
@@ -432,7 +423,7 @@ orientationTitleText: {
 },
 textDashBoard: {
   fontSize: scale(fontSizeBig),
-  color: Colors.Black,
+  color: 'cyan',
   fontFamily: FONT,
   flex: 1,
 },
@@ -459,7 +450,7 @@ card: {
   justifyContent: 'center',
   alignItems: 'center',
   //borderRadius: scale(borderRadiusLarge),
-  borderWidth: scale(1),
+  borderWidth: scale(1.5),
   borderColor: '#4d1637',
 },
 
