@@ -3,8 +3,10 @@ import Home from '../../screens/Home';
 import Contacts from '../../screens/contacts';
 import Notification from '../../screens/notification';
 import { navigationRef } from '../RooNavigation';
+import Map from '../../screens/map/index.js'
 import TabOneScreen from '../../screens/Timeline/index';
 import Events from '../../screens/Events/index';
+import About from '../../screens/About/index'
 import { NavigationContainer } from '@react-navigation/native';
 import {FONT} from '../../utils/UIConstants';
 const Stack = createNativeStackNavigator();
@@ -22,7 +24,24 @@ return (
             fontWeight: 'bold',
             fontFamily:FONT
           },}} />
-    <Stack.Screen name="Notification" component={Notification} options={{headerShown: true, animation: 'slide_from_right',}} />
+    <Stack.Screen name="Notification" component={Notification} options={{headerShown: true, animation: 'slide_from_right',
+  headerStyle: {
+    backgroundColor: '#4d1637',
+  },
+  headerTintColor: '#fff',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+    fontFamily:FONT
+  }}} />
+    <Stack.Screen name="Explore" component={Map} options={{headerShown: true, animation: 'slide_from_right',
+  headerStyle: {
+    backgroundColor: '#4d1637',
+  },
+  headerTintColor: '#fff',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+    fontFamily:FONT
+  }}} />
     <Stack.Screen name="Timeline" component={TabOneScreen} options={{headerShown: true, animation: 'slide_from_right',headerStyle: {
             backgroundColor: '#4d1637',
           },
@@ -39,6 +58,14 @@ return (
             fontWeight: 'bold',
             fontFamily:FONT
           },}} />
+  <Stack.Screen name="About" component={About} options={{headerShown: true, animation: 'slide_from_right',headerStyle: {
+    backgroundColor: '#4d1637',
+  },
+  headerTintColor: '#fff',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+    fontFamily:FONT
+  },}} />
     </Stack.Navigator>
     </NavigationContainer>
 );

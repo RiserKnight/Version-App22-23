@@ -122,7 +122,7 @@ const ContactCard = ({item}) => {
                   onPress={() => {
                     Clipboard.setString(item.mobile + '');
                     toastRef.current.show(
-                      `Copied ${item.Name}'s phone number to clipboard`,
+                      `Copied ${item.Name}'s GitHub id to clipboard`,
                       {
                         type: 'success',
                         placement: 'top',
@@ -142,7 +142,7 @@ const ContactCard = ({item}) => {
                   onPress={() => {
                     Clipboard.setString(item.mobile + '');
                     toastRef.current.show(
-                      `Copied ${item.Name}'s phone number to clipboard`,
+                      `Copied ${item.Name}'s LinkedIn id to clipboard`,
                       {
                         type: 'success',
                         placement: 'top',
