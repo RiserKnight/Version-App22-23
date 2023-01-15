@@ -121,6 +121,7 @@ render() {
           separator={false}
           detailContainerStyle={{marginBottom: 20, paddingLeft: 5, paddingRight: 5, backgroundColor: "#5c2044", borderRadius: 10}}
           columnFormat='two-column'
+          
         />
       </View>
     );

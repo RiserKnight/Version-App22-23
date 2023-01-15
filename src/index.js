@@ -10,9 +10,11 @@ import SplashScreen from "react-native-splash-screen";
 import Notification from './screens/notification'
 import * as RootNavigation from './navigation/RooNavigation';
 import PushNotification from "react-native-push-notification";
+import {enableLatestRenderer} from 'react-native-maps';
 // import * as colors from './utils/colors';
 import messaging from '@react-native-firebase/messaging'
 import { NavigationContainer } from '@react-navigation/native';
+enableLatestRenderer();
     export default function App() {
       useEffect(() => {
         (async () => await messaging().registerDeviceForRemoteMessages())();
@@ -57,7 +59,7 @@ import { NavigationContainer } from '@react-navigation/native';
   return (
     <>
    
-    <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#4d1637" translucent = {true}/>
+    <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "white" translucent = {true}/>
       <AuthProvider>
           <IconRegistry icons={[EvaIconsPack]} />
           <ApplicationProvider {...eva} theme={eva.light}>

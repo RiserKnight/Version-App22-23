@@ -15,10 +15,7 @@ import {Layout, Card, Icon} from '@ui-kitten/components';
 import * as Colors from '../../utils/colors';
 import {scale, verticalScale} from 'react-native-size-matters';
 import {SafeAreaView,ScrollView} from 'react-native';
-import Contacts from '../contacts';
-import Slider from './slider'
-import TabOneScreen from '../Timeline/index'
-import EventDescriptionScreen from '../Events/index'
+import Slider from './slider';
 import {
   borderRadiusLarge,
   fontSizeBig,
@@ -157,7 +154,7 @@ const Home = ({navigation}) => {
             style={{
               flex: 1,
               height: verticalScale(120),
-              marginTop:verticalScale(25)
+              marginTop:verticalScale(20)
             }}
             resizeMode="cover">
             <View style={styles.headingContainer}>
@@ -202,7 +199,7 @@ const Home = ({navigation}) => {
                       navigation.push('Events', {screenType: 'Events'});
                     }}>
                     <ImageBackground
-                      source={require('../../assets/icons/events.png')}
+                      source={require('../../assets/icons/event.png')}
                       style={{
                         height: verticalScale(40),
                         width: scale(40),
@@ -279,9 +276,10 @@ const Home = ({navigation}) => {
                 <Card style={[styles.card, styles.elevation]}>
                   <TouchableOpacity
                     onPress={() => {
+                      navigation.push('Explore', {screenType: 'Map'});
                     }}>
                     <ImageBackground
-                      source={require('../../assets/icons/demo.png')}
+                      source={require('../../assets/icons/map.png')}
                       style={{
 
                         height: verticalScale(40),
@@ -294,30 +292,7 @@ const Home = ({navigation}) => {
               </View>
               <View
                     style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <Text style={styles.textMainMenu}>some screen</Text>
-              </View>
-              </View>
-
-              <View style={{flexDirection: 'column'}}>
-              <View style={styles.shadow}>
-                <Card style={[styles.card, styles.elevation]}>
-                  <TouchableOpacity
-                    onPress={() => {
-                    }}>
-                    <ImageBackground
-                      source={require('../../assets/icons/demo.png')}
-                      style={{
-                        height: verticalScale(40),
-                        width: scale(40),
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}></ImageBackground>
-                  </TouchableOpacity>
-                </Card>
-              </View>
-              <View
-                    style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <Text style={styles.textMainMenu}>some screen</Text>
+                    <Text style={styles.textMainMenu}>Explore</Text>
               </View>
               </View>
 
@@ -341,6 +316,30 @@ const Home = ({navigation}) => {
               <View
                     style={{justifyContent: 'center', alignItems: 'center'}}>
                     <Text style={styles.textMainMenu}>some screen</Text>
+              </View>
+              </View>
+
+              <View style={{flexDirection: 'column'}}>
+              <View style={styles.shadow}>
+                <Card style={[styles.card, styles.elevation]}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.push('About', {screenType: 'About'});
+                    }}>
+                    <ImageBackground
+                      source={require('../../assets/icons/info.png')}
+                      style={{
+                        height: verticalScale(35),
+                        width: scale(35),
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}></ImageBackground>
+                  </TouchableOpacity>
+                </Card>
+              </View>
+              <View
+                    style={{justifyContent: 'center', alignItems: 'center'}}>
+                    <Text style={styles.textMainMenu}>About Us</Text>
               </View>
               </View>
               </View>
@@ -452,6 +451,7 @@ card: {
   //borderRadius: scale(borderRadiusLarge),
   borderWidth: scale(1.5),
   borderColor: '#4d1637',
+  
 },
 
 shadow: {
