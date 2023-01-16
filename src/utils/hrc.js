@@ -1,19 +1,18 @@
 export const persons =[
     {
-        "Email Address": "nitansshujain@gmail.com",
-        "Name": "Nitansshu Jain",
-        "desig": "Chairperson",
-        "Photo": "https://drive.google.com/uc?export=view&id=1Vx1eVNxtXQUTnNvTwsG_QhMm0_ANB7N1",
-        "github": "https://github.com/nitansshujain",
-        "Linkedin": "https://www.linkedin.com/in/nitansshujain/"
+        "Email Address": "pankajsharmasxc25@gmail.com",
+        "Name": "Pankaj Sharma ",
+        "desig": "Head of the committee",
+        //"Photo": "https://drive.google.com/uc?export=view&id=1r9PSBYpjFcjv4_spmgk0hYww2_5RKekF",
+        "Photo": "https://drive.google.com/uc?export=view&id=1VZ3Dh2irLw9_XXNIh6tYyssuAMtvdw3c",
+        "Linkedin": "https://www.linkedin.com/in/pankaj-sharma-a2b35a200"
     },
     {
-        "Email Address": "amitnitt015@gmail.com",
-        "Name": "Amit Kumar",
-        "desig": "Chairperson",
-        "Photo": "https://drive.google.com/uc?export=view&id=1QwNVzN77wXlGrSWxNSXhstW0xwwRcRf5",
-        "github": "https://github.com/015amit",
-        "Linkedin": "https://linkedin.com/amit015"
+        "Email Address": "aasthasrivastava1903@gmail.com",
+        "Name": "Aastha Srivasatava",
+        "Photo": "https://drive.google.com/uc?export=view&id=1vpy6M9JAe_esAITO1iq3MuQcrSp5jhtM",
+        "github": "https://github.com/aasthaaaaa",
+        "Linkedin": "https://www.linkedin.com/in/aastha-srivastava-81b50121b"
     },
     {
      "Email Address": "yaduvanshibikash1998@gmail.com",
@@ -27,13 +26,6 @@ export const persons =[
      "Name": "Jaspreet Singh khurana ",
      "Photo": "https://drive.google.com/uc?export=view&id=1BrPo0cQchPwvxK1w2BifHNOj-InpMmz1",
      "Linkedin": "https://www.linkedin.com/in/jaspreet-khurana-62371a222/"
-    },
-    {
-     "Email Address": "aasthasrivastava1903@gmail.com",
-     "Name": "Aastha Srivasatava",
-     "Photo": "https://drive.google.com/uc?export=view&id=1vpy6M9JAe_esAITO1iq3MuQcrSp5jhtM",
-     "github": "https://github.com/aasthaaaaa",
-     "Linkedin": "https://www.linkedin.com/in/aastha-srivastava-81b50121b"
     },
     {
      "Email Address": "amannimcet2021@gmail.com",

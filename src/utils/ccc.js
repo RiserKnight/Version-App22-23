@@ -1,5 +1,13 @@
 export const persons =[
     {
+        "Email address": "akriti1099@gmail.com",
+        "Name": "Akriti Upadhyay ",
+        "desig": "Chairperson",
+        "Photo": "https://drive.google.com/uc?export=view&id=1AHmA_zfekZvvfVhPQcTEX1l7Qj46rfDJ",
+        "github": "https://github.com/akriti-upadhyay",
+        "Linkedin": "https://www.linkedin.com/mwlite/in/akriti-upadhyay"
+    },
+    {
         "Email address": "abdheeraj18@gmail.com",
         "Name": "Dheeraj Lakhotra",
         "desig": "Secretary",

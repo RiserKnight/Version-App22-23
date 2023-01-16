@@ -1,5 +1,13 @@
 export const persons =[
     {
+        "Email Address": "nitansshujain@gmail.com",
+        "Name": "Nitansshu Jain",
+        "desig": "Head of the committee",
+        "Photo": "https://drive.google.com/uc?export=view&id=1Vx1eVNxtXQUTnNvTwsG_QhMm0_ANB7N1",
+        "github": "https://github.com/nitansshujain",
+        "Linkedin": "https://www.linkedin.com/in/nitansshujain/"
+    },
+    {
      "Email address": "priyanshbadgujar650@gmail.com",
      "Name": "Priyansh Badgujar",
      "Photo": "https://drive.google.com/uc?export=view&id=1v0seorh1Q4Gh5vcewN7MpyNWeL-ICAko",

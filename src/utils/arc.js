@@ -2,7 +2,7 @@ export const persons =[
     {
         "Email Address": "imsudhanshu3@gmail.com",
         "Name": "SUDHANSHU",
-        "desig": "Chairperson",
+        "desig": "Head of the committee",
         "Photo": "https://drive.google.com/uc?export=view&id=1E3ZD-DVKNnpaVIREWUBvKhbgFJutRV70",
         "github": "https://github.com/Sudhanshu-105",
         "Linkedin": "https://www.linkedin.com/in/sudhanshu-shrivastava-74a089203/"
