@@ -2,7 +2,7 @@ export const persons =[
     {
         "Email Address": "amitnitt015@gmail.com",
         "Name": "Amit Kumar",
-        "desig": "Chairperson",
+        "desig": "Head of the committee",
         "Photo": "https://drive.google.com/uc?export=view&id=1nBbym7Up7WtH7MDVfLhDhf0R_7ZIkFEz",
         "github": "https://github.com/015amit",
         "Linkedin": "https://linkedin.com/amit015"
