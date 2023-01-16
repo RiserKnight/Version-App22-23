@@ -383,8 +383,17 @@ export const departmentCoordinates = [{
 },
 ];
 
-export const hostelCoordinates = [{
-   
+export const hostelCoordinates = [
+  {
+    coordinate: {
+      latitude: 10.762405712969432,
+      longitude: 78.81422080099584,
+    },
+    title: 'Hostel Office',
+    image: Images[29].image
+  },
+  
+  {
   coordinate: {
     latitude: 10.76209741442728,
     longitude: 78.8133805990219,
@@ -477,15 +486,7 @@ export const hostelCoordinates = [{
   title: 'Opal',
   image: Images[27].image
 },
-{
-  // // image: require('../assets/images/NIT.png'),      
-  coordinate: {
-    latitude: 10.762405712969432,
-    longitude: 78.81422080099584,
-  },
-  title: 'Hostel Office',
-  image: Images[29].image
-},
+
 ];
 
 export const foodAndSports = [{

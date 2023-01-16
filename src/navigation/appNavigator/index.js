@@ -6,9 +6,12 @@ import { navigationRef } from '../RooNavigation';
 import Map from '../../screens/map/index.js'
 import TabOneScreen from '../../screens/Timeline/index';
 import Events from '../../screens/Events/index';
-import About from '../../screens/About/index'
+import About from '../../screens/About/index';
+import EventDescriptionScreen from '../../screens/Events/EventDescription'
 import { NavigationContainer } from '@react-navigation/native';
 import {FONT} from '../../utils/UIConstants';
+import Feedback from '../../screens/feedback';
+import Support from '../../screens/support/index'
 const Stack = createNativeStackNavigator();
 
 function AppNavigator() {
@@ -25,6 +28,15 @@ return (
             fontFamily:FONT
           },}} />
     <Stack.Screen name="Notification" component={Notification} options={{headerShown: true, animation: 'slide_from_right',
+          headerStyle: {
+            backgroundColor: '#4d1637',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontFamily:FONT
+          }}} />
+    <Stack.Screen name="EventDescriptionScreen" component={EventDescriptionScreen} options={{headerShown: true, animation: 'slide_from_right',
   headerStyle: {
     backgroundColor: '#4d1637',
   },
@@ -33,15 +45,15 @@ return (
     fontWeight: 'bold',
     fontFamily:FONT
   }}} />
-    <Stack.Screen name="Explore" component={Map} options={{headerShown: true, animation: 'slide_from_right',
-  headerStyle: {
-    backgroundColor: '#4d1637',
-  },
-  headerTintColor: '#fff',
-  headerTitleStyle: {
-    fontWeight: 'bold',
-    fontFamily:FONT
-  }}} />
+  <Stack.Screen name="Explore" component={Map} options={{headerShown: true, animation: 'slide_from_right',
+      headerStyle: {
+        backgroundColor: '#4d1637',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        fontFamily:FONT
+      }}} />
     <Stack.Screen name="Timeline" component={TabOneScreen} options={{headerShown: true, animation: 'slide_from_right',headerStyle: {
             backgroundColor: '#4d1637',
           },
@@ -66,6 +78,22 @@ return (
     fontWeight: 'bold',
     fontFamily:FONT
   },}} />
+  <Stack.Screen name="Feedback" component={Feedback} options={{headerShown: true, animation: 'slide_from_right',headerStyle: {
+    backgroundColor: '#4d1637',
+  },
+  headerTintColor: '#fff',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+    fontFamily:FONT
+  },}} />
+   <Stack.Screen name="Support" component={Support} options={{headerShown: true, animation: 'slide_from_right',headerStyle: {
+            backgroundColor: '#4d1637',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontFamily:FONT
+          },}} />
     </Stack.Navigator>
     </NavigationContainer>
 );

@@ -1,4 +1,4 @@
-import React, {Component,useEffect} from 'react';
+import React, {Component,useEffect,useState} from 'react';
 import {SafeAreaView, View ,Alert,StatusBar} from 'react-native';
 import Navigator from './navigation';
 import * as eva from '@eva-design/eva';
@@ -15,12 +15,34 @@ import {enableLatestRenderer} from 'react-native-maps';
 import messaging from '@react-native-firebase/messaging'
 import { NavigationContainer } from '@react-navigation/native';
 enableLatestRenderer();
+
     export default function App() {
+      const[pushData,setState] =useState([]);
       useEffect(() => {
+        PushNotification.configure({
+          // (optional) Called when Token is generated (iOS and Android)
+          onRegister: function (token) {
+            console.log("TOKEN:", token);
+          },
+        
+        
+          onNotification: function (notification) {
+            console.log("NOTIFICATION:", notification);
+          
+          Alert.alert('Notification Received');
+          RootNavigation.navigate('Notification', {
+            itemId: 86,
+            otherParam: notification,
+                });
+               
+           },
+         
+          popInitialNotification: true,
+        });
         (async () => await messaging().registerDeviceForRemoteMessages())();
     
         const unsubscribe = messaging().onMessage(async remoteMessage => {
-          store.dispatch(storeNews(remoteMessage));
+          //store.dispatch(storeNews(remoteMessage));
         });
     
         messaging().onNotificationOpenedApp(remoteMessage => {
@@ -55,7 +77,10 @@ enableLatestRenderer();
           });
         return unsubscribe;
       }, []);
-    
+      const _addDataToList = (data) =>{
+        
+        console.log("yeh:"+data.data.message);
+      }
   return (
     <>
    
