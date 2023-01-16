@@ -58,6 +58,15 @@ const Home = ({navigation}) => {
   };
   let sideNavItemsList = [
     {
+      name: 'Contact & Support',
+      icon: 'message-square',
+      key: 2,
+      onPress: () => {
+        navigation.navigate('Support');
+        setSideNavVisible(false);
+      },
+    },
+    {
       name: 'Logout',
       icon: 'log-out-outline',
       onPress: () => {
@@ -154,7 +163,7 @@ const Home = ({navigation}) => {
             style={{
               flex: 1,
               height: verticalScale(120),
-              marginTop:verticalScale(20)
+              marginTop:verticalScale(22)
             }}
             resizeMode="cover">
             <View style={styles.headingContainer}>
@@ -296,28 +305,6 @@ const Home = ({navigation}) => {
               </View>
               </View>
 
-              <View style={{flexDirection: 'column'}}>
-              <View style={styles.shadow}>
-                <Card style={[styles.card, styles.elevation]}>
-                  <TouchableOpacity
-                    onPress={() => {
-                    }}>
-                    <ImageBackground
-                      source={require('../../assets/icons/demo.png')}
-                      style={{
-                        height: verticalScale(40),
-                        width: scale(40),
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}></ImageBackground>
-                  </TouchableOpacity>
-                </Card>
-              </View>
-              <View
-                    style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <Text style={styles.textMainMenu}>some screen</Text>
-              </View>
-              </View>
 
               <View style={{flexDirection: 'column'}}>
               <View style={styles.shadow}>
@@ -340,6 +327,30 @@ const Home = ({navigation}) => {
               <View
                     style={{justifyContent: 'center', alignItems: 'center'}}>
                     <Text style={styles.textMainMenu}>About Us</Text>
+              </View>
+              </View>
+              
+              <View style={{flexDirection: 'column'}}>
+              <View style={styles.shadow}>
+                <Card style={[styles.card, styles.elevation]}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.push('Feedback', {screenType: 'Feedback'});
+                    }}>
+                    <ImageBackground
+                      source={require('../../assets/icons/feedback.png')}
+                      style={{
+                        height: verticalScale(40),
+                        width: scale(40),
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}></ImageBackground>
+                  </TouchableOpacity>
+                </Card>
+              </View>
+              <View
+                    style={{justifyContent: 'center', alignItems: 'center'}}>
+                    <Text style={styles.textMainMenu}>feedback</Text>
               </View>
               </View>
               </View>

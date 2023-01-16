@@ -1,94 +1,30 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from "react";
 import {Image, ImageBackground, View, FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import {Events }from '../../utils/events';
 
-const DATA = [
-    {
-        id: "1",
-        title: "Coding Cauldron",
-        date: "17/02/2013",
-        StartTime: "09:00 AM",
-    
-    },
-    {
-        id: "2",
-        title: "Eliminator Round 1",
-        date: "17/02/2013",
-        StartTime: "11:30 AM",
 
-    },
-    {
-        id: "3",
-        title: "Lunch Break",
-        date: "17/02/2013",
-        StartTime: "01:00 PM",
-        
-    },
-    {
-        id: "4",
-        title: "Xscape Quest",
-        date: "17/02/2013",
-        StartTime: "02:00 PM",
-    },
-    {
-        id: "5",
-        title: "Eliminator Round 2",
-        date: "17/02/2013",
-        StartTime: "05:30 PM",
-    
-    },
-    {
-        id: "6",
-        title: "Closing Ceremony",
-        date: "17/02/2013",
-        StartTime: "07:00 PM",
-    },
-    {
-        id: "7",
-        title: "Closing Ceremony",
-        date: "17/02/2013",
-        StartTime: "07:00 PM",
-    },
-    {
-        id: "8",
-        title: "Closing Ceremony",
-        date: "17/02/2013",
-        StartTime: "07:00 PM",
-    },
-    {
-        id: "9",
-        title: "Closing Ceremony",
-        date: "17/02/2013",
-        StartTime: "07:00 PM",
-    },
-    {
-        id: "10",
-        title: "Closing Ceremony",
-        date: "17/02/2013",
-        StartTime: "07:00 PM",
-    },
-];
-
-const Item = ({ item, onPress, backgroundColor, textColor }) => (
-    <TouchableOpacity onPress={onPress} style={[styles.items, backgroundColor]}>
-        <Text style={[styles.title, textColor]}>{item.title}</Text>
-        <View style= {styles.Dtime}>
-            <Image style= {{height:30, width:30}} source={require("../../assets/icons/schedule.png")}/>
-            <View style= {{marginLeft: 10}}>
-                <View style= {{flexDirection:'row'}}>
-                    <Text style={[{fontSize:16, fontWeight:'bold', width:'90%'}, textColor]}>{item.date}</Text>
-                    <Text style={[{fontWeight:'900', fontSize:16, width:'5%'}, textColor]}>></Text>
-                </View>
-                <Text style= {textColor}>{item.StartTime}</Text>
-            </View>
-        </View>
-    </TouchableOpacity>
-);
-
-const UpComing = (navigation) => {
+const UpComing = () => {
+    const navigation = useNavigation();
     const [selectedId, setSelectedId] = useState(null);
 
-    const renderItem = ({ item }) => {
+    const Item = ({ item, backgroundColor, textColor }) => (
+        <TouchableOpacity onPress={() => navigation.navigate('EventDescriptionScreen',{item})} style={[styles.items, backgroundColor]}>
+            <Text style={[styles.title, textColor]}>{item.title}</Text>
+            <View style= {styles.Dtime}>
+                <Image style= {{height:30, width:30}} source={require("../../assets/icons/schedule.png")}/>
+                <View style= {{marginLeft: 10}}>
+                    <View style= {{flexDirection:'row'}}>
+                        <Text style={[{fontSize:16, fontWeight:'bold', width:'90%'}, textColor]}>{item.StartDate}</Text>
+                        <Text style={[{fontWeight:'900', fontSize:16, width:'5%'}, textColor]}>></Text>
+                    </View>
+                    <Text style= {textColor}>{item.StartTime}</Text>
+                </View>
+            </View>
+        </TouchableOpacity>
+    );
+    const renderItem = ({ item,navigation }) => {
         const backgroundColor =  "white";
         const color = 'black';
 
@@ -97,6 +33,7 @@ const UpComing = (navigation) => {
                 item={item}
                 backgroundColor={{ backgroundColor }}
                 textColor={{ color }}
+                
             />
         );
     };
@@ -105,7 +42,7 @@ const UpComing = (navigation) => {
             <View style= {styles.list}>
                 
                 <FlatList
-                    data={DATA}
+                    data={Events}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id}
                     extraData={selectedId}

@@ -7,6 +7,7 @@ import LottieView from 'lottie-react-native';
 import loginLottie from '../../assets/lottieFiles/signup.json';
 import {Icon} from '@ui-kitten/components';
 import {Login} from '../Login';
+import axios from 'axios';
 import {
   FONT,
   fontSizeBig,
@@ -15,13 +16,36 @@ import {
   paddingSmall,
 } from '../../utils/UIConstants';
 import LinearGradient from 'react-native-linear-gradient';
+import { BASE_URL} from '../../utils/constants'
 const Register = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [roll, setRoll] = useState('');
     const [name, setName] = useState('');
     const[phone,setPhone]= useState('');
     const[college,setCollege]= useState('');
+    const handleApI = async () =>{
+      try {
+        const response = await axios.post(`http://localhost:3000/register`, {
+          name,
+          email,
+          college,
+          phone,
+          password,
+        });
+        if (response.success) {
+          alert(` You have created: ${JSON.stringify(response.data)}`);
+          // setIsLoading(false);
+          // setFullName('');
+          // setEmail('');
+        } else {
+          throw new Error("An error has occurred");
+        }
+      } catch (error) {
+        alert("An error has occurred");
+        console.log(error);
+        // setIsLoading(false);
+      }
+    }
     return (
       <View style={{backgroundColor:'white'}}>
         <ScrollView>
@@ -92,21 +116,6 @@ const Register = ({navigation}) => {
             // textError={email.length === 0 ? 'Please enter' : ''}
           />
 
-        <TextInput
-          value={roll}
-          style={styles.input1}
-          inputStyle={styles.inputStyle}
-          labelStyle={styles.labelStyle}
-          // textErrorStyle={styles.textErrorStyle}
-          placeholder="Roll Number"
-          placeholderTextColor="gray"
-          onChangeText={text => {
-            setRoll(text);
-          }}
-          focusColor="black"
-          autoCapitalize="none"
-          // textError={email.length === 0 ? 'Please enter' : ''}
-        />
          <TextInput
           value={password}
           style={styles.input1}
@@ -169,7 +178,8 @@ const Register = ({navigation}) => {
               marginRight: scale(paddingMedium),
             }}>
             <TouchableOpacity onPress={() =>{  
-              console.log(name+" "+email+" "+college+" "+phone+" "+roll+" "+password)
+             console.log(name+" "+email+" "+college+" "+phone+" "+password)
+              handleApI();
               navigation.goBack()}}>
             <Icon
                 fill="white"

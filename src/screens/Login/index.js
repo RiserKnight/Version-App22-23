@@ -18,8 +18,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 
 const Login = ({navigation}) => {
-  const [roll, setRoll] = useState('');
-  const[phone,setPhone]= useState('');
+  const[id,setId]= useState('');
   const [password, setPassword] = useState('');
   const {login,userToken}= useContext(AuthContext);
   
@@ -35,38 +34,22 @@ const Login = ({navigation}) => {
         <Text style={styles.title}>LOGIN</Text>
        
         <TextInput
-            value={phone}
+            value={id}
             style={styles.input1}
             inputStyle={styles.inputStyle}
             labelStyle={styles.labelStyle}
             // textErrorStyle={styles.textErrorStyle}
-            placeholder="Phone"
+            placeholder="UserId"
             placeholderTextColor="gray"
             keyboardType="number-pad"
             onChangeText={text => {
-              setPhone(text);
+              setId(text);
             }}
             focusColor="black"
             maxLength={10}
             // textError={email.length === 0 ? 'Please enter' : ''}
           />
 
-        <TextInput
-          value={roll}
-          style={styles.input1}
-          inputStyle={styles.inputStyle}
-          labelStyle={styles.labelStyle}
-          // textErrorStyle={styles.textErrorStyle}
-          placeholder="Roll Number"
-          placeholderTextColor="gray"
-          onChangeText={text => {
-            setRoll(text);
-          }}
-          keyboardType="number-pad"
-          focusColor="black"
-          autoCapitalize="none"
-          // textError={email.length === 0 ? 'Please enter' : ''}
-        />
 
         <TextInput
           value={password}
@@ -129,8 +112,9 @@ const Login = ({navigation}) => {
               marginRight: scale(paddingMedium),
             }}>
             <TouchableOpacity onPress={() =>  {
-              login();
-              console.log(userToken);
+              console.log("login pressed");
+              login(id,password);
+              //console.log(userToken);
               }}>
             <Icon
                 fill="white"

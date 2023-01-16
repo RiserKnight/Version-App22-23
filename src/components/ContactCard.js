@@ -117,6 +117,7 @@ const ContactCard = ({item}) => {
                   alignItems: 'center',
                   marginTop: verticalScale(9),
                 }}>
+                  <View style={{flexDirection: 'row'}}>
                 <Icon style={styles.icon} fill={'black'} name="github" />
                 <TouchableOpacity
                   onPress={() => {
@@ -132,7 +133,8 @@ const ContactCard = ({item}) => {
                   }}>
                 <Text style={styles.phoneText}>{item.github}</Text>
                 </TouchableOpacity>
-
+              </View>
+               <View style={{flexDirection: 'row'}}>
                 <Icon
                   style={styles.icon}
                   fill={'black'}
@@ -152,6 +154,7 @@ const ContactCard = ({item}) => {
                   }}>
                 <Text style={styles.phoneText}>{item.Linkedin}</Text>
                 </TouchableOpacity>
+                </View>
               </View>
             </View>
           </View>
