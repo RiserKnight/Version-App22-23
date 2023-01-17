@@ -11,6 +11,7 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   Keyboard,
 } from 'react-native';
 
@@ -27,20 +28,17 @@ import {
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const Feedback = observer(({navigation}) => {
+  const [feed,setFeed] = useState('');
     const PostFeedback = () => {
       };
       
   const onPressHandler = () => {
-    console.log(FEEDBACK_STORE.getMessage.trim() + 'bhai');
-    if (!FEEDBACK_STORE.getMessage.trim()) {
-      FEEDBACK_STORE.setError(true);
-      FEEDBACK_STORE.setErrorText(INVALID_FEEDBACK);
-    } else {
-      PostFeedback();
-    }
+    console.log(feed+ 'ji');
+   setFeed('');
   };
-
+  
   return (
+   
     // <>
     //   {FEEDBACK_STORE.isLoading ? (
     //     <LoaderPage navigation={navigation} />
@@ -71,9 +69,7 @@ const Feedback = observer(({navigation}) => {
     //           ) : (
                 <>
                   <ScrollView
-                    onScroll={() => {
-                      Keyboard.dismiss();
-                    }}>
+                    >
                         <LottieView
                       source={FeedbackLottie}
                       speed={1}
@@ -89,11 +85,13 @@ const Feedback = observer(({navigation}) => {
                       }}
                     />
                     <View style={styles.inputField}>
+                    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
                       <TextInput
                         style={styles.input}
                         inputStyle={{
                           fontSize: scale(fontSizeBig),
                         }}
+                        value={feed}
                         labelStyle={{fontSize: scale(fontSizeBig)}}
                         placeholder="Give your feedback here"
                         autoFocus={true}
@@ -103,12 +101,14 @@ const Feedback = observer(({navigation}) => {
                         autoCapitalize="none"
                         onChangeText={text => {
                         //   FEEDBACK_STORE.setMessage(text);
+                        setFeed(text);
                         }}
                         // value={message}
                       />
+                      </TouchableWithoutFeedback>
                       <TouchableOpacity
                         style={styles.button}
-                       // onPress={}
+                       onPress={onPressHandler}
                        >
                         <Text
                           style={{

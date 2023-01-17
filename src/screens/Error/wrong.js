@@ -17,7 +17,7 @@ const backPress = () => {
     }
   });
 };
-export default class Wrong extends Component {
+export default class NoConnection extends Component {
 
 
 
@@ -34,11 +34,24 @@ return (
     }}>
     <LottieView
         style={{marginBottom: verticalScale(50)}}
-        source={require('../../assets/lottieFiles/succ.json')}
+        source={require('../../assets/lottieFiles/103574-robot-error.json')}
         resizeMode="contain"
         autoPlay
         loop
     />
+     <Text
+        allowFontScaling={false}
+        style={{
+          textAlign: 'center',
+          fontSize: scale(20),
+          marginHorizontal: scale(12),
+          textTransform: 'uppercase',
+          fontWeight: '600',
+          color:'black',
+          marginTop: verticalScale(200),
+        }}>
+        Something Went Wrong !!! 
+      </Text>
      <TouchableOpacity
           style={{
             padding: scale(9),

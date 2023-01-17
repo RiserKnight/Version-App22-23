@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, Image, SafeAreaView,StyleSheet, FlatList } from 'react-native';
+import { View, Text, Image, SafeAreaView,StyleSheet, FlatList ,TouchableOpacity} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 const EventDescriptionScreen = ({navigation,route}) => {
   const { item } = route.params;
   return (
-    <ScrollView>
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+    <SafeAreaView >
         <Image style={styles.image}
         source={{uri:item.image}} />
         <Text style={styles.header}>
@@ -27,15 +27,23 @@ const EventDescriptionScreen = ({navigation,route}) => {
             <Text style= {styles.header21}>{item.StartTime}</Text>
             <Text style={styles.header21}>{item.EndTime}</Text>
           </View>
+          
       </View>
+      
     </SafeAreaView>
-</ScrollView>
+    <View style={styles.bottom}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Register</Text>
+        </TouchableOpacity>
+      </View>
+</View>
 
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     margin: '3%',
     backgroundColor: '#eee',
 },
@@ -83,7 +91,23 @@ timings:{
 line:{
   flexDirection:'row',
   justifyContent:'space-between',
-}
+},
+bottom: {
+  flex: 1,
+  justifyContent: 'flex-end',
+},
+button: {
+  width: '100%',
+  height: 50,
+  backgroundColor: '#4d1637',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius:30
+},
+buttonText: {
+  fontSize: 16,
+  color: 'white',
+},
 });
 
 export default EventDescriptionScreen;
