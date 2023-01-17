@@ -29,7 +29,7 @@ enableLatestRenderer();
           onNotification: function (notification) {
             console.log("NOTIFICATION:", notification);
           
-          Alert.alert('Notification Received');
+          // Alert.alert('Notification Received');
           RootNavigation.navigate('Notification', {
             itemId: 86,
             otherParam: notification,

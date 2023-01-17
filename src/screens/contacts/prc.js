@@ -9,7 +9,7 @@ return (
   <View style={styles.container}>
     <FlatList
     ListHeaderComponent={() => (
-        <Text style={{ fontSize: 20, textAlign: "center",marginTop:20,fontWeight:'bold',textDecorationLine: 'underline' , color:'black'}}>
+        <Text style={styles.header}>
           Public Relation Committee
         </Text>
       )}
@@ -33,4 +33,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-around',
       },
+      header: {
+        marginTop:20,
+        marginBottom: 20,
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: '600',
+        color:'black',
+    },
 });

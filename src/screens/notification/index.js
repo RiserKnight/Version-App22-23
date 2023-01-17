@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
 },
 image: {
-    width: 300,
-    height: 150,
+    width: 350,
+    height: 360,
     position: 'relative',
     alignSelf: 'center',
-    borderRadius: 10,
+    
 },
 header: {
     marginTop:20,
@@ -58,7 +58,7 @@ text:{
     color:'black',
     fontSize:16,
     fontFamily:'',
-    marginTop: 10,
+    marginTop: 30,
     paddingLeft:10,
     alignSelf: 'center',
 },
