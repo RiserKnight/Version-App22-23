@@ -1,7 +1,7 @@
 import React, {useState,useContext} from 'react';
 import {scale, verticalScale} from 'react-native-size-matters';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {TextInput} from 'react-native-element-textinput';
+import {TextInput} from 'react-native';
 import {Black} from '../../utils/colors';
 import LottieView from 'lottie-react-native';
 import loginLottie from '../../assets/lottieFiles/login.json';
@@ -12,19 +12,105 @@ import {
   FONT,
   fontSizeBig,
   fontSizeVeryLarge,
+  fontSizeMedium,
   paddingMedium,
   paddingSmall,
 } from '../../utils/UIConstants';
+import { useTogglePasswordVisibility } from './useTogglePasswordVisibility';
+import Loader from '../loading/index';
 import LinearGradient from 'react-native-linear-gradient';
-
 const Login = ({navigation}) => {
   const[id,setId]= useState('');
   const [password, setPassword] = useState('');
-  const {login,userToken}= useContext(AuthContext);
-  
-  
+  const {login,isLoading,errorText,setErrorText,hasError,setError}= useContext(AuthContext);
+  const _handelOnPress = () => {
+    if(!id){
+      alert("Please Enter User Id");
+      return;
+    }
+    if(!password){
+      alert("Please Enter Password");
+      return;
+    }
+    console.log("login pressed");
+    login(id,password);
+    
+  }
+  console.log("is loading="+isLoading);
+  if (hasError) {
+    return (
+      <View
+      style={{
+        height: '100%',
+        width: '100%',
+        alignSelf: 'center',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+    }}>
+       <LottieView
+      style={{marginBottom: verticalScale(50)}}
+      source={require('../../assets/lottieFiles/103574-robot-error.json')}
+      resizeMode="contain"
+      autoPlay
+      loop
+  />
+        <Text
+      allowFontScaling={false}
+      style={{
+        textAlign: 'center',
+        fontSize: scale(20),
+        marginHorizontal: scale(12),
+        textTransform: 'uppercase',
+        fontWeight: '600',
+        color:'black',
+        marginTop: verticalScale(200),
+      }}>
+      Something Went Wrong !!! 
+    </Text>
+   <TouchableOpacity
+        style={{
+          padding: scale(9),
+          paddingRight: scale(18),
+          borderRadius: scale(24),
+          alignSelf: 'center',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '50%',
+          position: 'absolute',
+          backgroundColor: '#4d1637',
+          bottom: verticalScale(50),
+        }}
+        onPress={() => {
+          setError(false);
+          navigation.navigate('Login')}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            borderRadius: scale(24),
+            alignItems: 'center',
+          }}>
+      
+            <View style={{width: scale(8)}} />
+          <Text
+            allowFontScaling={false}
+            style={{
+              fontSize: scale(17),
+              color: 'white',
+
+              fontWeight: 'bold',
+            }}>
+            TRY AGAIN
+          </Text>
+        </View>
+      </TouchableOpacity>
+      </View>
+    );
+  }
   return (
     <View style={{backgroundColor:'white'}}>
+      <Loader isLoading={isLoading}/>
       <View
         style={{
           height: verticalScale(310),
@@ -32,7 +118,6 @@ const Login = ({navigation}) => {
           marginTop:verticalScale(10)
         }}>
         <Text style={styles.title}>LOGIN</Text>
-       
         <TextInput
             value={id}
             style={styles.input1}
@@ -41,12 +126,12 @@ const Login = ({navigation}) => {
             // textErrorStyle={styles.textErrorStyle}
             placeholder="UserId"
             placeholderTextColor="gray"
-            keyboardType="number-pad"
+            // keyboardType="number-pad"
             onChangeText={text => {
               setId(text);
             }}
             focusColor="black"
-            maxLength={10}
+            //maxLength={10}
             // textError={email.length === 0 ? 'Please enter' : ''}
           />
 
@@ -67,6 +152,11 @@ const Login = ({navigation}) => {
           autoCapitalize="none"
           // textError={email.length === 0 ? 'Please enter' : ''}
         />
+        {errorText != '' ? (
+            <Text style={styles.errorTextStyle}>
+              {errorText}
+            </Text>
+          ) : null}
         <View
           style={{
             height: verticalScale(30),
@@ -78,7 +168,10 @@ const Login = ({navigation}) => {
           }}>
           <TouchableOpacity
             style={{marginTop: 3}}
-            onPress={() => navigation.push('Register', {screenType: 'REGISTER'})}>
+            onPress={() => {
+              setErrorText('');
+              navigation.push('Register', {screenType: 'REGISTER'})
+              }}>
             <Text
               style={{
                 color: 'black',
@@ -111,11 +204,7 @@ const Login = ({navigation}) => {
               borderRadius: verticalScale(20),
               marginRight: scale(paddingMedium),
             }}>
-            <TouchableOpacity onPress={() =>  {
-              console.log("login pressed");
-              login(id,password);
-              //console.log(userToken);
-              }}>
+            <TouchableOpacity onPress={_handelOnPress}>
             <Icon
                 fill="white"
                 style={{
@@ -158,11 +247,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(8),
     borderRadius: scale(8),
     fontFamily: FONT,
-    borderColor:'#4d1637'
+    borderColor:'#4d1637',
+    color:'black'
   },
-  inputStyle: {fontSize: scale(fontSizeBig), color: 'black', fontFamily: FONT},
-  labelStyle: {fontSize: scale(fontSizeBig)},
+  inputStyle: {fontSize: scale(fontSizeMedium), color: 'black', fontFamily: FONT},
+  labelStyle: {fontSize: scale(fontSizeMedium)},
   textErrorStyle: {fontSize: 16},
+  errorTextStyle: {
+    marginTop:20,
+    color: 'red',
+    textAlign: 'center',
+    fontSize: 14,
+  },
   title: {
     marginTop: verticalScale(paddingSmall),
     paddingVertical: scale(paddingSmall),
