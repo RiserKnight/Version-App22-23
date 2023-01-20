@@ -29,7 +29,7 @@ const Support = () => {
       id:1,
       name: 'Sumit Kushwaha',
       phone: '9717919127',
-      role: 'Hospitality and Reception Committee',
+      role: 'Hospitality & Reception Committee',
       mail: 'sumitkushwaha188@gmail.com',
       image: "https://drive.google.com/uc?export=view&id=1ETACm2rA1FuFmDfstmFcrxt1hyT0rzAj",
     },
@@ -163,7 +163,8 @@ const styles = StyleSheet.create({
     flex:1,
     flexDirection:'row',
     alignItems:'center',
-    padding:13,
+    padding:10,
+    marginVertical:30
   },
   imgContainer: {
     backgroundColor:'#D9D9D9',
@@ -181,7 +182,7 @@ const styles = StyleSheet.create({
   name:{
     color:'black',
     fontWeight:'bold',
-    fontSize:16,
+    fontSize:14,
     marginLeft:13,
     fontColor:'black',
   },

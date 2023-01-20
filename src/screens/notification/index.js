@@ -9,11 +9,12 @@ const Notification = ({ route, navigation }) => {
     <SafeAreaView style={styles.container}>
         <Image style={styles.image}
         source={{uri:otherParam.data.url}} />
-        
+        <Text style= {styles.header}>
+          {otherParam.data.header}
+        </Text>
         <Text style= {styles.text}>
           {otherParam.data.message}
         </Text>
-     
     </SafeAreaView>
 </ScrollView>
 

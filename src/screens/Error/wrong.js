@@ -7,21 +7,12 @@ import {Icon} from '@ui-kitten/components';
 
 import {scale, verticalScale} from 'react-native-size-matters';
 import {FONT} from '../../utils/UIConstants';
-import {AUTH_NAV_STORE} from '../../mobx/AUTH_NAV_STORE';
-import NetInfo from '@react-native-community/netinfo';
-const backPress = () => {
- 
-  NetInfo.fetch().then((state) => {
-    if(state.isConnected == true ){
-        AUTH_NAV_STORE.setSplashLoading(false);
-    }
-  });
-};
-export default class NoConnection extends Component {
+
+export default  Wrong = ({navigation,fn}) =>{
 
 
 
-render() {
+
 return (
     <View
     style={{
@@ -66,7 +57,7 @@ return (
             backgroundColor: '#4d1637',
             bottom: verticalScale(50),
           }}
-          onPress={backPress}
+          onPress={fn}
           >
           <View
             style={{
@@ -91,5 +82,5 @@ return (
         </View>
     );
   }
-}
+
 

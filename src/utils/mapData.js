@@ -293,6 +293,16 @@ export const departmentCoordinates = [{
  
 },
 {
+  
+  coordinate: {
+    latitude: 10.759931421627916,
+    longitude: 78.81791958835097,
+  },
+  title: 'Computer Applications',
+  image: "https://www.nitt.edu/home/academics/departments/ca/lecium.jpg"
+ 
+},
+{
   title: 'CHEM Department',
   
   coordinate: {
@@ -352,6 +362,16 @@ export const departmentCoordinates = [{
   
 },
 {
+  title: 'Management Studies',
+  
+  coordinate: {
+    latitude: 10.76170053535638,
+    longitude: 78.8168641124184,
+  },
+  image: "https://www.nitt.edu/home/academics/departments/management/domsfront.jpg"
+  
+},
+{
   title: 'MECH Department',
   
   coordinate: {
@@ -392,7 +412,15 @@ export const hostelCoordinates = [
     title: 'Hostel Office',
     image: Images[29].image
   },
-  
+  {
+    // // image: require('../assets/images/NIT.png'),      
+    coordinate: {
+      latitude: 10.75719094562206,
+      longitude: 78.82198244333269,
+    },
+    title: 'Opal',
+    image: "https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/hostels/opalb.jpg"
+  },
   {
   coordinate: {
     latitude: 10.76209741442728,
@@ -400,6 +428,31 @@ export const hostelCoordinates = [
   },
   title: 'Agate',
   image: Images[32].image
+},
+
+{
+  coordinate: {
+    latitude: 10.767774255557613,
+    longitude: 78.81841779094744,
+  },
+  title: 'Aquamarine A',
+  image: "https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/hostels/AquamarineA.jpg"
+},
+{
+  coordinate: {
+    latitude: 10.768174772545333,
+    longitude: 78.81841779094744,
+  },
+  title: 'Aquamarine B',
+  image: "https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/hostels/AquamarineA.jpg"
+},
+{
+  coordinate: {
+    latitude: 10.762277063609083,
+    longitude: 78.81745271492657,
+  },
+  title: 'Beryl',
+  image: "https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/hostels/Beryl.JPG"
 },
 {
   coordinate: {
@@ -416,6 +469,14 @@ export const hostelCoordinates = [
   },
   title: 'Diamond',
   image: Images[30].image
+},
+{
+  coordinate: {
+    latitude: 10.763459287191244,
+    longitude: 78.81637168696085,
+  },
+  title: 'Emerald',
+  image: "https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/hostels/Emerald.JPG"
 },
 {
    
@@ -451,8 +512,60 @@ export const hostelCoordinates = [
     longitude: 78.81824478507042,
   },
   title: 'Jade',
-  image: Images[26].image
+  image: "https://www.nitt.edu/www/uploads/1279_jade-.jpg"
 },
+{
+  coordinate: {
+    latitude: 10.769297271265588,
+    longitude: 78.81832123141788,
+  },
+  title: 'Jasper',
+  // image: Images[28].image
+},
+{
+  coordinate: {
+    latitude: 10.764406729755176,
+    longitude: 78.81386340005676,
+  },
+  title: 'Lapis',
+  image: "https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/hostels/lapis.jpg"
+},
+{
+  coordinate: {
+    latitude: 10.764471691073998,
+    longitude: 78.81538434966869,
+  },
+  title: 'Pearl',
+  image: "https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/hostels/Pearl.JPG"
+},
+{
+  coordinate: {
+    latitude: 10.764554853133806,
+    longitude: 78.81728111580175,
+  },
+  title: 'Ruby',
+  image: "https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/hostels/Ruby.JPG"
+},
+
+{
+  coordinate: {
+    latitude: 10.765441367490517,
+    longitude: 78.81434178142477,
+  },
+  title: 'Sapphire ',
+  image: "https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/hostels/Sapphire.JPG"
+},
+
+
+{
+  coordinate: {
+    latitude: 10.765477990104811,
+    longitude: 78.81625972889061,
+  },
+  title: 'Topaz',
+  image: "https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/hostels/Topaz.JPG"
+},
+
 {
   coordinate: {
     latitude: 10.765531499825686,
@@ -477,15 +590,7 @@ export const hostelCoordinates = [
   title: 'Zircon C',
   image: Images[28].image
 },
-{
-  // // image: require('../assets/images/NIT.png'),      
-  coordinate: {
-    latitude: 10.75719094562206,
-    longitude: 78.82198244333269,
-  },
-  title: 'Opal',
-  image: Images[27].image
-},
+
 
 ];
 
