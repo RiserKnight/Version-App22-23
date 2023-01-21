@@ -1,7 +1,7 @@
 import React, {useState,useContext} from 'react';
-import {scale, verticalScale} from 'react-native-size-matters';
-import {StyleSheet, Text, View, TouchableOpacity,ScrollView, ImageBackground,Image} from 'react-native';
-import {TextInput} from 'react-native';
+import {scale, verticalScale,moderateScale} from 'react-native-size-matters';
+import {StyleSheet, Text, View, TouchableOpacity,ScrollView, ImageBackground,Image,TouchableWithoutFeedback,Keyboard,} from 'react-native';
+import {IconButton, TextInput} from 'react-native-paper';
 import {Black} from '../../utils/colors';
 import LottieView from 'lottie-react-native';
 import loginLottie from '../../assets/lottieFiles/signup.json';
@@ -21,6 +21,8 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import { BASE_URL} from '../../utils/constants'
 const Register = ({navigation}) => {
+    const [eyeIcon, setEyeIcon] = useState('eye-off');
+    const [passwordToggle, setPasswordToggle] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -234,88 +236,137 @@ const Register = ({navigation}) => {
         <ScrollView>
         <View
           style={{
+           
             height: verticalScale(470),
             width: '100%',
             marginTop:verticalScale(10)
           }}>
           <Text style={styles.title}>Register</Text>
-          <TextInput
+          <View style={styles.textInput}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <TextInput
+        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+            label="Name"
+            placeholder="Enter your Name"
+            mode="outlined"
             value={name}
-            style={styles.input1}
-            inputStyle={styles.inputStyle}
-            labelStyle={styles.labelStyle}
-            // textErrorStyle={styles.textErrorStyle}
-            placeholder="Name"
-            placeholderTextColor="gray"
+            autoCapitalize="none"
+            style={{backgroundColor: 'white'}}
+            theme={{
+              colors: {
+                primary: 'black',
+              },
+            }}
+            selectionColor='black'
             onChangeText={text => {
               setName(text);
             }}
-            focusColor="black"
-            // textError={email.length === 0 ? 'Please enter' : ''}
           />
-          <TextInput
+          </TouchableWithoutFeedback>
+        </View>
+        <View style={styles.textInput}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <TextInput
+            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+            label="Email"
+            placeholder="Enter your Email"
+            mode="outlined"
             value={email}
-            style={styles.input1}
-            inputStyle={styles.inputStyle}
-            labelStyle={styles.labelStyle}
-            // textErrorStyle={styles.textErrorStyle}
-            placeholder="Email"
-            placeholderTextColor="gray"
+            autoCapitalize="none"
+            style={{backgroundColor: 'white'}}
+            theme={{
+              colors: {
+                primary: 'black',
+              },
+            }}
+            selectionColor='black'
             onChangeText={text => {
               setEmail(text);
             }}
-            focusColor="black"
-            
-            // textError={email.length === 0 ? 'Please enter' : ''}
           />
-           <TextInput
+          </TouchableWithoutFeedback>
+        </View>
+        <View style={styles.textInput}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <TextInput
+            label="College"
+            placeholder="Enter your College"
+            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+            mode="outlined"
             value={college}
-            style={styles.input1}
-            inputStyle={styles.inputStyle}
-            labelStyle={styles.labelStyle}
-            // textErrorStyle={styles.textErrorStyle}
-            placeholder="College"
-            placeholderTextColor="gray"
+            autoCapitalize="none"
+            style={{backgroundColor: 'white'}}
+            theme={{
+              colors: {
+                primary: 'black',
+              },
+            }}
+            selectionColor='black'
             onChangeText={text => {
               setCollege(text);
             }}
-            focusColor="black"
-            // textError={email.length === 0 ? 'Please enter' : ''}
           />
-            <TextInput
+          </TouchableWithoutFeedback>
+        </View>
+        <View style={styles.textInput}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <TextInput
+            label="Mobile"
+            placeholder="Enter your Mobile number"
+            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+            mode="outlined"
             value={phone}
-            style={styles.input1}
-            inputStyle={styles.inputStyle}
-            labelStyle={styles.labelStyle}
-            // textErrorStyle={styles.textErrorStyle}
-            placeholder="Phone"
-            placeholderTextColor="gray"
-            keyboardType="number-pad"
+            autoCapitalize="none"
+            style={{backgroundColor: 'white'}}
+            theme={{
+              colors: {
+                primary: 'black',
+              },
+            }}
+            
+            Keyboard="number"
+            selectionColor='black'
             onChangeText={text => {
               setPhone(text);
             }}
-            focusColor="black"
-            maxLength={10}
-            // textError={email.length === 0 ? 'Please enter' : ''}
           />
+          </TouchableWithoutFeedback>
+        </View>
 
-         <TextInput
-          value={password}
-          style={styles.input1}
-          inputStyle={styles.inputStyle}
-          labelStyle={styles.labelStyle}
-          // textErrorStyle={styles.textErrorStyle}
-          placeholder="Password"
-          placeholderTextColor="gray"
-          onChangeText={text => {
-            setPassword(text);
-          }}
-          secureTextEntry
-          focusColor="black"
-          autoCapitalize="none"
-          
-          // textError={email.length === 0 ? 'Please enter' : ''}
-        />
+        <View style={styles.textInput}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+          <TextInput
+            autoCorrect={false}
+            label="Password"
+            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+            placeholder="Enter your password"
+            style={{backgroundColor: 'white',}}
+            mode="outlined"
+            autoComplete={'off'}
+            autoCapitalize="none"
+            secureTextEntry={passwordToggle}
+            theme={{
+              colors: {
+                primary: 'black',
+              },
+            }}
+            selectionColor='black'
+            right={
+              <TextInput.Icon
+                name={eyeIcon}
+                onPress={() => {
+                  setPasswordToggle(!passwordToggle);
+                  setEyeIcon(
+                    eyeIcon === 'eye' ? 'eye-off' : 'eye',
+                  );
+                }}
+              />
+            }
+            value={password}
+            onChangeText={password => setPassword(password)}
+          />
+          </TouchableWithoutFeedback>
+        </View>
          {errorText != '' ? (
             <Text style={styles.errorTextStyle}>
               {errorText}
@@ -355,7 +406,12 @@ const Register = ({navigation}) => {
               </Text>
             </Text>
           </TouchableOpacity>
-          <LinearGradient
+        </View>
+        <View
+          style={{
+            alignItems: 'flex-end',
+          }}>
+        <LinearGradient
             start={{x: 0.0, y: 0.25}}
             end={{x: 0.5, y: 1.0}}
             locations={[0, 0.6, 0.8]}
@@ -404,26 +460,26 @@ const Register = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  input1: {
-    marginHorizontal: paddingMedium,
-    marginTop: paddingSmall,
-    borderWidth: scale(2),
-    height: verticalScale(50),
-    paddingHorizontal: scale(8),
-    borderRadius: scale(8),
-    fontFamily: FONT,
-    borderColor:'#4d1637',
-    color:'black'
-  },
+  // input1: {
+  //   marginHorizontal: paddingMedium,
+  //   marginTop: paddingSmall,
+  //   borderWidth: scale(2),
+  //   height: verticalScale(50),
+  //   paddingHorizontal: scale(8),
+  //   borderRadius: scale(8),
+  //   fontFamily: FONT,
+  //   borderColor:'#4d1637',
+  //   color:'black'
+  // },
   errorTextStyle: {
     marginTop:20,
     color: 'red',
     textAlign: 'center',
     fontSize: 14,
   },
-  inputStyle: {fontSize: scale(fontSizeMedium), color: 'black', fontFamily: FONT},
-  labelStyle: {fontSize: scale(fontSizeMedium)},
-  textErrorStyle: {fontSize: 16},
+  // inputStyle: {fontSize: scale(fontSizeMedium), color: 'black', fontFamily: FONT},
+  // labelStyle: {fontSize: scale(fontSizeMedium)},
+  // textErrorStyle: {fontSize: 16},
   title: {
     marginTop: verticalScale(paddingSmall-4),
     paddingVertical: scale(paddingSmall),
@@ -432,6 +488,10 @@ const styles = StyleSheet.create({
     fontSize: scale(fontSizeVeryLarge),
     fontWeight: 'bold',
     fontFamily: FONT,
+  },
+  textInput: {
+    paddingHorizontal: moderateScale(20),
+    paddingVertical: moderateScale(5),
   },
 });
 

@@ -1,7 +1,7 @@
 import React, {useState,useContext} from 'react';
-import {scale, verticalScale} from 'react-native-size-matters';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {TextInput} from 'react-native';
+import {scale, verticalScale,moderateScale,} from 'react-native-size-matters';
+import {StyleSheet, Text, View, TouchableOpacity,TouchableWithoutFeedback,Keyboard,} from 'react-native';
+import {IconButton, TextInput} from 'react-native-paper';
 import {Black} from '../../utils/colors';
 import LottieView from 'lottie-react-native';
 import loginLottie from '../../assets/lottieFiles/login.json';
@@ -22,6 +22,8 @@ import LinearGradient from 'react-native-linear-gradient';
 const Login = ({navigation}) => {
   const[id,setId]= useState('');
   const [password, setPassword] = useState('');
+  const [eyeIcon, setEyeIcon] = useState('eye-off');
+  const [passwordToggle, setPasswordToggle] = useState(true);
   const {login,isLoading,errorText,setErrorText,hasError,setError}= useContext(AuthContext);
   const _handelOnPress = () => {
     if(!id){
@@ -114,44 +116,67 @@ const Login = ({navigation}) => {
       <View
         style={{
           height: verticalScale(310),
+          
           width: '100%',
           marginTop:verticalScale(10)
         }}>
         <Text style={styles.title}>LOGIN</Text>
+        <View style={styles.textInput}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <TextInput
+        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+            label="User Id"
+            placeholder="Enter your User Id"
+            mode="outlined"
             value={id}
-            style={styles.input1}
-            inputStyle={styles.inputStyle}
-            labelStyle={styles.labelStyle}
-            // textErrorStyle={styles.textErrorStyle}
-            placeholder="UserId"
-            placeholderTextColor="gray"
-            // keyboardType="number-pad"
-            onChangeText={text => {
-              setId(text);
+            autoCapitalize="none"
+            style={{backgroundColor: 'white'}}
+            theme={{
+              colors: {
+                primary: 'black',
+              },
             }}
-            focusColor="black"
-            //maxLength={10}
-            // textError={email.length === 0 ? 'Please enter' : ''}
+            selectionColor='black'
+            onChangeText={user => {
+              setId(user);
+            }}
           />
-
-
-        <TextInput
-          value={password}
-          style={styles.input1}
-          inputStyle={styles.inputStyle}
-          labelStyle={styles.labelStyle}
-          // textErrorStyle={styles.textErrorStyle}
-          placeholder="Password"
-          placeholderTextColor="gray"
-          onChangeText={text => {
-            setPassword(text);
-          }}
-          secureTextEntry
-          focusColor="black"
-          autoCapitalize="none"
-          // textError={email.length === 0 ? 'Please enter' : ''}
-        />
+          </TouchableWithoutFeedback>
+        </View>
+        <View style={styles.textInput}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+                        <TextInput
+                        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+                          autoCorrect={false}
+                          label="Password"
+                          placeholder="Enter your password"
+                          style={{backgroundColor: 'white',}}
+                          mode="outlined"
+                          autoComplete={'off'}
+                          autoCapitalize="none"
+                          secureTextEntry={passwordToggle}
+                          theme={{
+                            colors: {
+                              primary: 'black',
+                            },
+                          }}
+                          selectionColor='black'
+                          right={
+                            <TextInput.Icon
+                              name={eyeIcon}
+                              onPress={() => {
+                                setPasswordToggle(!passwordToggle);
+                                setEyeIcon(
+                                  eyeIcon === 'eye' ? 'eye-off' : 'eye',
+                                );
+                              }}
+                            />
+                          }
+                          value={password}
+                          onChangeText={password => setPassword(password)}
+                        />
+                        </TouchableWithoutFeedback>
+        </View>
         {errorText != '' ? (
             <Text style={styles.errorTextStyle}>
               {errorText}
@@ -166,6 +191,7 @@ const Login = ({navigation}) => {
             marginTop: 10,
             marginBottom: 3,
           }}>
+            <View style={{flexDirection:'column',justifyContent: 'center'}}>
           <TouchableOpacity
             style={{marginTop: 3}}
             onPress={() => {
@@ -192,7 +218,40 @@ const Login = ({navigation}) => {
               </Text>
             </Text>
           </TouchableOpacity>
-          <LinearGradient
+          <TouchableOpacity
+            style={{marginTop: 3}}
+            onPress={() => {
+              setErrorText('');
+              navigation.push('Reset', {screenType: 'RESET'})
+              }}>
+            <Text
+              style={{
+                color: 'black',
+                textAlign: 'center',
+                fontSize: scale(12),
+                fontFamily: FONT,
+              }}>
+              Forgot USER ID / Password ?
+              <Text
+                style={{
+                  color: '#4d1637',
+                  fontWeight: 'bold',
+                  fontSize: scale(14),
+                  fontFamily: FONT,
+                }}>
+                {' '}
+                RESET
+              </Text>
+            </Text>
+          </TouchableOpacity>
+          </View>
+         
+        </View>
+        <View
+          style={{
+            alignItems: 'flex-end',
+          }}>
+        <LinearGradient
             start={{x: 0.0, y: 0.25}}
             end={{x: 0.5, y: 1.0}}
             locations={[0, 0.6, 0.8]}
@@ -216,7 +275,7 @@ const Login = ({navigation}) => {
               />
             </TouchableOpacity>
           </LinearGradient>
-        </View>
+          </View>
       </View>
       <View
         style={{
@@ -239,20 +298,20 @@ const Login = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  input1: {
-    marginHorizontal: paddingMedium,
-    marginTop: paddingSmall,
-    borderWidth: scale(2),
-    height: verticalScale(55),
-    paddingHorizontal: scale(8),
-    borderRadius: scale(8),
-    fontFamily: FONT,
-    borderColor:'#4d1637',
-    color:'black'
-  },
-  inputStyle: {fontSize: scale(fontSizeMedium), color: 'black', fontFamily: FONT},
-  labelStyle: {fontSize: scale(fontSizeMedium)},
-  textErrorStyle: {fontSize: 16},
+  // input1: {
+  //   marginHorizontal: paddingMedium,
+  //   marginTop: paddingSmall,
+  //   borderWidth: scale(2),
+  //   height: verticalScale(55),
+  //   paddingHorizontal: scale(8),
+  //   borderRadius: scale(8),
+  //   fontFamily: FONT,
+  //   borderColor:'#4d1637',
+  //   color:'black'
+  // },
+  // inputStyle: {fontSize: scale(fontSizeMedium), color: 'black', fontFamily: FONT},
+  // labelStyle: {fontSize: scale(fontSizeMedium)},
+  // textErrorStyle: {fontSize: 16},
   errorTextStyle: {
     marginTop:20,
     color: 'red',
@@ -267,6 +326,10 @@ const styles = StyleSheet.create({
     fontSize: scale(fontSizeVeryLarge),
     fontWeight: 'bold',
     fontFamily: FONT,
+  },
+  textInput: {
+    paddingHorizontal: moderateScale(20),
+    paddingVertical: moderateScale(10),
   },
 });
 

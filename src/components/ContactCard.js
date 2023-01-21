@@ -160,7 +160,7 @@ const ContactCard = ({item}) => {
           </View>
         </View>
         <Toast
-          successColor={TOAST_COLOR}
+          successColor='#4d1637'
           ref={toastRef}
           offset={verticalScale(35)}
           duration={1500}
