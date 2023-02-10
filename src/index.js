@@ -84,7 +84,7 @@ enableLatestRenderer();
   return (
     <>
    
-    <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "white" translucent = {true}/>
+    <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#4d1637" translucent = {true}/>
       <AuthProvider>
           <IconRegistry icons={[EvaIconsPack]} />
           <ApplicationProvider {...eva} theme={eva.light}>

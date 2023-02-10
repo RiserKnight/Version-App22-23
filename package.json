@@ -35,6 +35,7 @@
     "react-native": "0.70.6",
     "react-native-animatable": "^1.3.3",
     "react-native-calendars": "^1.1293.0",
+    "react-native-dotenv": "^3.4.7",
     "react-native-element-textinput": "^2.0.1",
     "react-native-flatlist-slider": "^1.0.6",
     "react-native-floating-action": "^1.22.0",

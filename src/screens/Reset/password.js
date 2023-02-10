@@ -18,7 +18,7 @@ import {
 import axios from 'axios';
 import Loader from '../loading/index';
 import LinearGradient from 'react-native-linear-gradient';
-const ResetPassword = ({navigation}) => {
+const ResetPassword = ({navigation,route}) => {
   const[password,setPassword]= useState('');
   const [isResetSuccess,setIsResetSuccess] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -31,12 +31,13 @@ const ResetPassword = ({navigation}) => {
       alert("Please Enter Password");
       return;
     }
+    console.log(route.params.email);
     setErrorText('');
     setIsLoading(true);
     setHasError(false);
     console.log("is loadingR="+isLoading);
     axios.post('https://reqres.in/api/register',{
-          "email":password,
+          "email":route.params.email,
           "password":"clicks"
       }).then(res => {
         console.log("is loadingR="+isLoading);
@@ -207,7 +208,7 @@ const ResetPassword = ({navigation}) => {
         <View style={styles.textInput}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <TextInput
-        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
             label="Password"
             placeholder="Enter your Password"
             mode="outlined"

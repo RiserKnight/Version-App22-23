@@ -9,25 +9,18 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 const Tab = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();
-
-
-  
   const TabOneScreen= (navigation)=>{
     return(
-      
-    
         <Tab.Navigator style = {{fontWeight:'bold',fontSize:16}}
         screenOptions={{
         tabBarActiveTintColor: 'black',
         tabBarIndicatorStyle: {backgroundColor: '#4d1637'},
         tabBarLabelStyle: { fontSize: 12 },
-        
       }}>
-          <Tab.Screen name="25/02/2023" component={Day0}/>
-          <Tab.Screen name="26/02/2023" component={Day1}/>
-          <Tab.Screen name="27/02/2023" component={Day2}/>
+          <Tab.Screen name="17/03/2023" component={Day0}/>
+          <Tab.Screen name="18/03/2023" component={Day1}/>
+          <Tab.Screen name="19/03/2023" component={Day2}/>
         </Tab.Navigator>
-      
     )
     }
 

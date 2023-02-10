@@ -15,55 +15,114 @@ export default class Day1 extends Component {
     this.renderDetail = this.renderDetail.bind(this)
     this.data = [
         {
+        time: '11:00 AM', 
+        title: "Hacker Hive Starts", 
+        lineColor:'#009688', 
+        icon: require('../../assets/icons/timeline.png'),
+        day:0,
+        },
+        {
           time: '09:00 AM', 
           title: "Inauguration ", 
-          lineColor:'#009688', 
-          icon: require('../../assets/icons/timeline.png'),
+          day:1
+          // lineColor:'#009688', 
+          // icon: require('../../assets/icons/timeline.png'),
 
         },
         {
           time: '10:00 AM', 
           title: "Enspire (Guest Lecture)", 
-          icon: require('../../assets/icons/timeline.png'),
+          day:1
+          // icon: require('../../assets/icons/timeline.png'),
 
         },
         {
           time: '11:00 AM', 
           title: "Hacker Hive Submission Ends", 
-          icon: require('../../assets/icons/timeline.png'),
+          day:1,
+          // icon: require('../../assets/icons/timeline.png'),
         },
         {
           time: '11:00 AM', 
           title:  "Hacker Hive Presentation", 
+          day:1,
           description: '11:00 AM t0 02:00 PM',
-          lineColor:'#009688', 
-          icon: require('../../assets/icons/timeline.png'),
+          // lineColor:'#009688', 
+          // icon: require('../../assets/icons/timeline.png'),
 
         },
         {
           time: '01:00  PM', 
           title: "Lunch Break", 
+          day:1,
           description: '01:00 PM to 02:00 PM', 
-          icon: require('../../assets/icons/timeline.png'),
+          // icon: require('../../assets/icons/timeline.png'),
         },
         {
           time: '02:00 PM', 
-          title: "Arcanum", 
+          title: "Arcanum",
+          day:1,
           description: '02:00 PM to 05:00 PM', 
-          icon: require('../../assets/icons/timeline.png'),
+          // icon: require('../../assets/icons/timeline.png'),
 
         },
         {
-          time: '05:30 PM', 
+          time: '05:30 PM',
+          day:1,
           title: "Crack n Swap", 
           description: '05:30 PM to 06:30 PM', 
-          icon: require('../../assets/icons/timeline.png'),        },
+          // icon: require('../../assets/icons/timeline.png'),       
+         },
         {
           time: '07:00 PM', 
-          title: "Just Two Minutes", 
+          title: "Just Two Minutes",
+          day:1,
           description: '07:00 PM to 09:00 PM', 
-          icon: require('../../assets/icons/timeline.png'),
-        }
+          // icon: require('../../assets/icons/timeline.png'),
+        },  {
+          time: '09:00 AM', 
+          title: "Coding Cauldron", 
+          description: '09:00 AM to 11:00 AM',
+          day:2,
+          // lineColor:'#009688', 
+          // icon: require('../../assets/icons/timeline.png'),
+          },
+          {
+          time: '11:30 AM', 
+          title: "Eliminator Round 1", 
+          description: '11:30 AM to 01:30 PM',
+          day:2,
+          // icon: require('../../assets/icons/timeline.png'),
+          },
+          {
+          time: '01:00 PM', 
+          title: "Lunch Break",
+          day:2,
+          description: '01:00 PM t0 2:00 PM',
+          // icon: require('../../assets/icons/timeline.png'),
+          },
+          {
+          time: '02:00 PM',
+          title:  "Xscape Quest", 
+          description: '02:00 PM t0 05:00 PM',
+          day:2,
+          // lineColor:'#009688', 
+          // icon: require('../../assets/icons/timeline.png'),
+          },
+          {
+          time: '05:30 PM', 
+          title: "Eliminator Round 2", 
+          description: '05:30 PM to 7:00 PM', 
+          day:2,
+          // icon: require('../../assets/icons/timeline.png'),
+          },
+          {
+          time: '07:00 PM', 
+          title: "Closing Ceremony", 
+          description: '07:00 PM to 09:00 PM',
+          day:2,
+          // icon: require('../../assets/icons/timeline.png'),
+          },
 ]
 
 
@@ -104,7 +163,7 @@ render() {
         {this.renderSelected()}
         <Timeline 
           style={styles.list}
-          data={this.data}
+          data={this.data.filter((item) => item.day == 1)}
           circleSize={20}
           circleColor='rgba(0,0,0,0)'
           lineColor='rgb(45,156,219)'
