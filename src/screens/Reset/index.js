@@ -28,7 +28,7 @@ const Reset = ({navigation}) => {
   const _handelOnPress =  () => {
     // setEmail('');setPassword('');setName('');setPhone('');setCollege('');
     if(!email){
-      alert("Please Enter Name");
+      alert("Please Enter Email");
       return;
     }
     setErrorText('');
@@ -138,7 +138,7 @@ const Reset = ({navigation}) => {
         justifyContent: 'center',
         backgroundColor: 'white',
     }}>
-       <LottieView
+      <LottieView
       style={{marginBottom: verticalScale(50)}}
       source={require('../../assets/lottieFiles/succ.json')}
       resizeMode="contain"
@@ -219,7 +219,7 @@ const Reset = ({navigation}) => {
         <View style={styles.textInput}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <TextInput
-        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
             label="Email"
             placeholder="Enter your Email"
             mode="outlined"
@@ -276,7 +276,14 @@ const Reset = ({navigation}) => {
             style={{marginTop: 3}}
             onPress={() => {
               setErrorText('');
-              navigation.push('ResetPassword', {screenType: 'RESET'})
+              // navigation.push('ResetPassword', {screenType: 'RESET'})4
+              if(!email){
+                alert("Please Enter Email");
+                return;
+              }
+              navigation.navigate('ResetPassword', {
+                email: email,
+              })
               }}>
             <Text
               style={{

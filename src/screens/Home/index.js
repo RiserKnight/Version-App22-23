@@ -1,6 +1,8 @@
 import {AuthContext} from '../../context/AuthContext';
 import CustomAlert from '../../components/customAlert';
 import React, {useState, useEffect ,useContext} from 'react';
+import {UserData} from '../../mobx/userData';
+import {observer} from 'mobx-react';
 import {
   View,
   StyleSheet,
@@ -32,7 +34,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Dimensions} from 'react-native';
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
-const Home = ({navigation}) => {
+const Home = observer(({navigation}) => {
   const {logout,userToken}= useContext(AuthContext);
   const [logoutVisible, setLogoutVisible] = useState(false);
   const [sideNavVisible, setSideNavVisible] = useState(false);
@@ -77,9 +79,9 @@ const Home = ({navigation}) => {
     },
   ];
   const data = {
-    studentName:'Umang',
-    studentRollNo: 205121099,
-    studentCollege: 'NIT-T',
+    studentName:UserData.userName,
+    studentRollNo: UserData.userId,
+    studentCollege: UserData.userCollege,
   };
 
     return (
@@ -97,6 +99,7 @@ const Home = ({navigation}) => {
             {
               text: 'YES',
               func: () => {
+
                 logOut();
               },
             },
@@ -167,9 +170,9 @@ const Home = ({navigation}) => {
             }}
             resizeMode="cover">
             <View style={styles.headingContainer}>
-              <View style={styles.orientationTitleContainer}>
-                <Text style={styles.orientationTitleText}>
-                  {data.orientationTitle}
+              <View style={styles.TitleContainer}>
+                <Text style={styles.TitleText}>
+                  {data.Title}
                 </Text>
               </View>
               <View style={styles.sideNavBarBtn}>
@@ -358,7 +361,7 @@ const Home = ({navigation}) => {
       </Layout>
     </SafeAreaView>
     );
-  }
+  })
 
 const styles = StyleSheet.create({
 dashboard: {
@@ -368,7 +371,7 @@ dashboard: {
 headingContainer: {
   height: verticalScale(90),
 },
-orientationTitleContainer: {
+TitleContainer: {
   marginTop: verticalScale(30),
   marginLeft: scale(35),
   alignItems: 'flex-start',
@@ -426,7 +429,7 @@ iconDashBoard: {
   width: scale(iconMedium),
   height: verticalScale(iconMedium),
 },
-orientationTitleText: {
+TitleText: {
   fontSize: scale(fontSizeVeryLarge),
   color: Colors.Black,
   fontFamily: FONT,

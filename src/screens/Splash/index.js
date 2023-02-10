@@ -14,6 +14,9 @@ import {scale, verticalScale} from 'react-native-size-matters';
 import AuthNavigator from '../../navigation/authNavigator'
 import {AUTH_NAV_STORE} from '../../mobx/AUTH_NAV_STORE';
 import NetInfo from '@react-native-community/netinfo';
+import { AsyncStorage } from 'react-native';
+import {UserData} from '../../mobx/userData';
+import * as KEYS from '../../utils/Storage_keys'
 const Splash = ({navigation}) => {
     
     const [State, setState] = useState(0);
@@ -33,10 +36,36 @@ const Splash = ({navigation}) => {
             else{
                 setState(2);
             }
-          });
-        
-        
+        });
     };
+    // UserData.setName(res.data.data.name);
+    // UserData.setCollege(res.data.data.university);
+    // UserData.setUserId(res.data.data.userID);
+    // console.log(UserData.userName);
+    // UserData.setPhone(response.data.isAdmin);
+    // UserData.setToken(res.data.token); //
+    const setupMobx = () => {
+        console.log('Setting up');
+        AsyncStorage.getItem(KEYS.USER_TOKEN).then(val => {
+        if (val) UserData.setToken(val);
+        else UserData.setToken(null);
+        });
+        AsyncStorage.getItem(KEYS.USER_NAME).then(val => {
+        if (val) UserData.setName(val);
+        else UserData.setName(null);
+        });
+        AsyncStorage.getItem(KEYS.USER_ID).then(val => {
+        if (val) UserData.setUserId(val);
+        else UserData.setUserId(null);
+        });
+        AsyncStorage.getItem(KEYS.USER_COLLEGE).then(val => {
+        if (val) UserData.setCollege(val);
+        else UserData.setCollege(null);
+        });
+    };
+    useEffect(() => {
+        setupMobx();
+    }, []);
     setTimeout(function () {
     navigate();
     }, 2000);

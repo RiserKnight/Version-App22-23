@@ -19,12 +19,15 @@ import {
   paddingSmall,
 } from '../../utils/UIConstants';
 import LinearGradient from 'react-native-linear-gradient';
-import { BASE_URL} from '../../utils/constants'
+import { BASE_URL , KEY } from '../../utils/constants'
 const Register = ({navigation}) => {
-    const [eyeIcon, setEyeIcon] = useState('eye-off');
-    const [passwordToggle, setPasswordToggle] = useState(true);
+  const [userId,setUserId]=useState('');
+    // const [eyeIcon, setEyeIcon] = useState('eye-off');
+    // const [passwordToggle, setPasswordToggle] = useState(true);
     const [email, setEmail] = useState('');
+    const [roll,setRoll]=useState('');
     const [password, setPassword] = useState('');
+    const [cpassword, setCpassword] = useState('');
     const [name, setName] = useState('');
     const[phone,setPhone]= useState('');
     const[college,setCollege]= useState('');
@@ -36,6 +39,10 @@ const Register = ({navigation}) => {
       // setEmail('');setPassword('');setName('');setPhone('');setCollege('');
       if(!name){
         alert("Please Enter Name");
+        return;
+      }
+      if(!roll){
+        alert("Please Enter Roll number");
         return;
       }
       if(!email){
@@ -50,23 +57,60 @@ const Register = ({navigation}) => {
         alert("Please Enter Phone Number");
         return;
       }
+      if(phone.length<10){
+        alert("Please Enter A Valid Phone Number");
+        return;
+      }
       if(!password){
         alert("Please Enter Password");
+        return;
+      }
+      if(!cpassword){
+        alert("Please Enter Confirm Password");
+        return;
+      }
+      if(cpassword!=password){
+        alert("Passwords Did Not Match");
         return;
       }
       setErrorText('');
       setIsLoading(true);
       setHasError(false);
       console.log("is loadingR="+isLoading);
-      axios.post('https://reqres.in/api/register',{
-            "email":email,
-            "password":password
+      axios.post(`${BASE_URL}`+'/register',{
+          "userName":name,
+          "roll":roll,
+          "email":email,
+          "university":college,
+          "pass":password,
+          "contact":phone,
+          "app_key":KEY.APP_KEY
         }).then(res => {
           console.log("is loadingR="+isLoading);
             setIsLoading(false);
-            console.log("aayaaa");
-            console.log(res.data.id);
-            setIsRegistrationSuccess(true);
+            console.log(res.data);
+            console.log("api call to hogaya bhai");
+            if(res.data.success=="true"){
+              console.log("hogya bhai register");
+              console.log(res.data.userID);
+              setIsRegistrationSuccess(true);
+              setUserId(res.data.userID);
+            }
+            else{
+              setHasError(true);
+              if(res.data.code == "000"){
+                setErrorText("Unauthorized");
+              }
+              else if(res.data.code == "200"){
+                setErrorText("User Email Already Exists");
+              }
+              else if(res.data.code == "300"){
+                setErrorText("Validation Error");
+              }
+              else{
+                setErrorText("Unexpected Error");
+              }
+            }
             // setErrorText("Something went wrong")
             // setUserToken('abc123');
             // AsyncStorage.setItem('userToken','abc123');
@@ -75,6 +119,7 @@ const Register = ({navigation}) => {
           console.log("aayaaaeerr");
             setIsLoading(false);
             setHasError(true);
+            setErrorText("Something went wrong");
             console.log(e);
         })
     }
@@ -108,7 +153,7 @@ const Register = ({navigation}) => {
           color:'black',
           marginTop: verticalScale(200),
         }}>
-        Something Went Wrong !!! 
+        {errorText}
       </Text>
      <TouchableOpacity
           style={{
@@ -193,7 +238,7 @@ const Register = ({navigation}) => {
           color:'black',
 
         }}>
-      User Id: 1234567
+      User Id: {userId}
       </Text>
       <LinearGradient
             start={{x: 0.0, y: 0.25}}
@@ -236,16 +281,17 @@ const Register = ({navigation}) => {
         <ScrollView>
         <View
           style={{
-           
-            height: verticalScale(470),
+            height:'100%',
+            // height: verticalScale(470),
             width: '100%',
-            marginTop:verticalScale(10)
+            marginTop:verticalScale(10),
+            // backgroundColor:'red'
           }}>
           <Text style={styles.title}>Register</Text>
           <View style={styles.textInput}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <TextInput
-        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
             label="Name"
             placeholder="Enter your Name"
             mode="outlined"
@@ -264,10 +310,32 @@ const Register = ({navigation}) => {
           />
           </TouchableWithoutFeedback>
         </View>
+         <View style={styles.textInput}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <TextInput
+        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
+            label="Roll"
+            placeholder="Enter your Roll number"
+            mode="outlined"
+            value={roll}
+            autoCapitalize="none"
+            style={{backgroundColor: 'white'}}
+            theme={{
+              colors: {
+                primary: 'black',
+              },
+            }}
+            selectionColor='black'
+            onChangeText={text => {
+              setRoll(text);
+            }}
+          />
+          </TouchableWithoutFeedback>
+        </View>
         <View style={styles.textInput}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <TextInput
-            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
             label="Email"
             placeholder="Enter your Email"
             mode="outlined"
@@ -291,7 +359,7 @@ const Register = ({navigation}) => {
         <TextInput
             label="College"
             placeholder="Enter your College"
-            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
             mode="outlined"
             value={college}
             autoCapitalize="none"
@@ -313,7 +381,7 @@ const Register = ({navigation}) => {
         <TextInput
             label="Mobile"
             placeholder="Enter your Mobile number"
-            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
             mode="outlined"
             value={phone}
             autoCapitalize="none"
@@ -323,8 +391,8 @@ const Register = ({navigation}) => {
                 primary: 'black',
               },
             }}
-            
-            Keyboard="number"
+            keyboardType="number-pad"
+            maxLength={10}
             selectionColor='black'
             onChangeText={text => {
               setPhone(text);
@@ -338,44 +406,79 @@ const Register = ({navigation}) => {
           <TextInput
             autoCorrect={false}
             label="Password"
-            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
             placeholder="Enter your password"
             style={{backgroundColor: 'white',}}
             mode="outlined"
             autoComplete={'off'}
             autoCapitalize="none"
-            secureTextEntry={passwordToggle}
+            secureTextEntry={true}
             theme={{
               colors: {
                 primary: 'black',
               },
             }}
             selectionColor='black'
-            right={
-              <TextInput.Icon
-                name={eyeIcon}
-                onPress={() => {
-                  setPasswordToggle(!passwordToggle);
-                  setEyeIcon(
-                    eyeIcon === 'eye' ? 'eye-off' : 'eye',
-                  );
-                }}
-              />
-            }
+            // right={
+            //   <TextInput.Icon
+            //     name={eyeIcon}
+            //     onPress={() => {
+            //       setPasswordToggle(!passwordToggle);
+            //       setEyeIcon(
+            //         eyeIcon === 'eye' ? 'eye-off' : 'eye',
+            //       );
+            //     }}
+            //   />
+            // }
             value={password}
             onChangeText={password => setPassword(password)}
           />
           </TouchableWithoutFeedback>
         </View>
-         {errorText != '' ? (
+        <View style={styles.textInput}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+          <TextInput
+            autoCorrect={false}
+            label="Confirm Password"
+            outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
+            placeholder="Re-Enter your password"
+            style={{backgroundColor: 'white',}}
+            mode="outlined"
+            autoComplete={'off'}
+            autoCapitalize="none"
+            secureTextEntry={true}
+            theme={{
+              colors: {
+                primary: 'black',
+              },
+            }}
+            selectionColor='black'
+            // right={
+            //   <TextInput.Icon
+            //     name={eyeIcon}
+            //     onPress={() => {
+            //       setPasswordToggle(!passwordToggle);
+            //       setEyeIcon(
+            //         eyeIcon === 'eye' ? 'eye-off' : 'eye',
+            //       );
+            //     }}
+            //   />
+            // }
+            value={cpassword}
+            onChangeText={cpassword => setCpassword(cpassword)}
+          />
+          </TouchableWithoutFeedback>
+        </View>
+         {/* {errorText != '' ? (
             <Text style={styles.errorTextStyle}>
               {errorText}
             </Text>
-          ) : null}
+          ) : null} */}
+        <View style={{flexDirection:'row',justifyContent: 'space-around',}}>
         <View
           style={{
             height: verticalScale(30),
-            flexDirection:'row',
+            // flexDirection:'row',
             alignContent: 'center',
             justifyContent: 'space-around',
             marginTop: 10,
@@ -408,9 +511,10 @@ const Register = ({navigation}) => {
           </TouchableOpacity>
         </View>
         <View
-          style={{
-            alignItems: 'flex-end',
-          }}>
+          // style={{
+          //   alignItems: 'flex-end',
+          // }}
+          >
         <LinearGradient
             start={{x: 0.0, y: 0.25}}
             end={{x: 0.5, y: 1.0}}
@@ -437,8 +541,9 @@ const Register = ({navigation}) => {
             </TouchableOpacity>
           </LinearGradient>
         </View>
+        </View>
       </View>
-      <View
+      {/* <View
         style={{
           height: verticalScale(205),
           width: '100%',
@@ -453,7 +558,7 @@ const Register = ({navigation}) => {
           autoPlay
           loop
         />
-      </View>
+      </View> */}
       </ScrollView>
     </View>
   );

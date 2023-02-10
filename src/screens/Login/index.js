@@ -8,6 +8,7 @@ import loginLottie from '../../assets/lottieFiles/login.json';
 import {Icon} from '@ui-kitten/components';
 import {Register} from '../Register';
 import {AuthContext} from '../../context/AuthContext';
+
 import {
   FONT,
   fontSizeBig,
@@ -16,14 +17,13 @@ import {
   paddingMedium,
   paddingSmall,
 } from '../../utils/UIConstants';
-import { useTogglePasswordVisibility } from './useTogglePasswordVisibility';
 import Loader from '../loading/index';
 import LinearGradient from 'react-native-linear-gradient';
 const Login = ({navigation}) => {
   const[id,setId]= useState('');
   const [password, setPassword] = useState('');
-  const [eyeIcon, setEyeIcon] = useState('eye-off');
-  const [passwordToggle, setPasswordToggle] = useState(true);
+  // const [eyeIcon, setEyeIcon] = useState('eye-off');
+  // const [passwordToggle, setPasswordToggle] = useState(true);
   const {login,isLoading,errorText,setErrorText,hasError,setError}= useContext(AuthContext);
   const _handelOnPress = () => {
     if(!id){
@@ -68,7 +68,7 @@ const Login = ({navigation}) => {
         color:'black',
         marginTop: verticalScale(200),
       }}>
-      Something Went Wrong !!! 
+      {errorText}
     </Text>
    <TouchableOpacity
         style={{
@@ -93,7 +93,6 @@ const Login = ({navigation}) => {
             borderRadius: scale(24),
             alignItems: 'center',
           }}>
-      
             <View style={{width: scale(8)}} />
           <Text
             allowFontScaling={false}
@@ -124,7 +123,7 @@ const Login = ({navigation}) => {
         <View style={styles.textInput}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <TextInput
-        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
             label="User Id"
             placeholder="Enter your User Id"
             mode="outlined"
@@ -136,6 +135,7 @@ const Login = ({navigation}) => {
                 primary: 'black',
               },
             }}
+            keyboardType="number-pad"
             selectionColor='black'
             onChangeText={user => {
               setId(user);
@@ -146,7 +146,7 @@ const Login = ({navigation}) => {
         <View style={styles.textInput}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
                         <TextInput
-                        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637',borderRadius:scale(8)}}
+                        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
                           autoCorrect={false}
                           label="Password"
                           placeholder="Enter your password"
@@ -154,34 +154,34 @@ const Login = ({navigation}) => {
                           mode="outlined"
                           autoComplete={'off'}
                           autoCapitalize="none"
-                          secureTextEntry={passwordToggle}
+                          secureTextEntry={true}
                           theme={{
                             colors: {
                               primary: 'black',
                             },
                           }}
                           selectionColor='black'
-                          right={
-                            <TextInput.Icon
-                              name={eyeIcon}
-                              onPress={() => {
-                                setPasswordToggle(!passwordToggle);
-                                setEyeIcon(
-                                  eyeIcon === 'eye' ? 'eye-off' : 'eye',
-                                );
-                              }}
-                            />
-                          }
+                          // right={
+                          //   <TextInput.Icon
+                          //     name={eyeIcon}
+                          //     onPress={() => {
+                          //       setPasswordToggle(!passwordToggle);
+                          //       setEyeIcon(
+                          //         eyeIcon === 'eye' ? 'eye-off' : 'eye',
+                          //       );
+                          //     }}
+                          //   />
+                          // }
                           value={password}
                           onChangeText={password => setPassword(password)}
                         />
                         </TouchableWithoutFeedback>
         </View>
-        {errorText != '' ? (
+        {/* {errorText != '' ? (
             <Text style={styles.errorTextStyle}>
               {errorText}
             </Text>
-          ) : null}
+          ) : null} */}
         <View
           style={{
             height: verticalScale(30),
@@ -196,6 +196,8 @@ const Login = ({navigation}) => {
             style={{marginTop: 3}}
             onPress={() => {
               setErrorText('');
+              setId('');
+              setPassword('');
               navigation.push('Register', {screenType: 'REGISTER'})
               }}>
             <Text
@@ -222,6 +224,8 @@ const Login = ({navigation}) => {
             style={{marginTop: 3}}
             onPress={() => {
               setErrorText('');
+              setId('');
+              setPassword('');
               navigation.push('Reset', {screenType: 'RESET'})
               }}>
             <Text
