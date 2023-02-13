@@ -281,9 +281,7 @@ const Reset = ({navigation}) => {
                 alert("Please Enter Email");
                 return;
               }
-              navigation.navigate('ResetPassword', {
-                email: email,
-              })
+              navigation.navigate('Otp')
               }}>
             <Text
               style={{

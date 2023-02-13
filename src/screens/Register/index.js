@@ -1,6 +1,6 @@
 import React, {useState,useContext} from 'react';
 import {scale, verticalScale,moderateScale} from 'react-native-size-matters';
-import {StyleSheet, Text, View, TouchableOpacity,ScrollView, ImageBackground,Image,TouchableWithoutFeedback,Keyboard,} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity,ScrollView, ImageBackground,Image,TouchableWithoutFeedback,Keyboard,Dimensions} from 'react-native';
 import {IconButton, TextInput} from 'react-native-paper';
 import {Black} from '../../utils/colors';
 import LottieView from 'lottie-react-native';
@@ -281,11 +281,11 @@ const Register = ({navigation}) => {
         <ScrollView>
         <View
           style={{
-            height:'100%',
-            // height: verticalScale(470),
+             height:Dimensions.get('window').height,
+            // height: verticalScale(800),
             width: '100%',
             marginTop:verticalScale(10),
-            // backgroundColor:'red'
+              // backgroundColor:'red'
           }}>
           <Text style={styles.title}>Register</Text>
           <View style={styles.textInput}>

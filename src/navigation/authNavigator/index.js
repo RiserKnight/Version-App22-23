@@ -4,6 +4,7 @@ import Register from '../../screens/Register';
 import Reset from '../../screens/Reset';
 import ResetPassword from '../../screens/Reset/password'
 import {FONT} from '../../utils/UIConstants';
+import Otp from '../../screens/otp/index'
 const Stack = createNativeStackNavigator();
 
 function AuthNavigator() {
@@ -13,6 +14,7 @@ return (
     }}>
     <Stack.Screen name="Login" component={Login} />
     <Stack.Screen name="Register" component={Register} />
+    <Stack.Screen name="Otp" component={Otp} />
     <Stack.Screen name="Reset" component={Reset} options={{headerShown: true, animation: 'slide_from_right',headerStyle: {
             backgroundColor: '#4d1637',
           },
