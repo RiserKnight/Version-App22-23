@@ -42,7 +42,7 @@ videoContainer: {
 },
 videoPreview: {
     width: windowWidth/2+80,
-    height: windowHeight/4,
+    height: windowHeight/4+30,
     borderRadius: 8,
     resizeMode: 'cover',
 },

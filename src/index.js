@@ -24,27 +24,20 @@ enableLatestRenderer();
           onRegister: function (token) {
             console.log("TOKEN:", token);
           },
-        
-        
           onNotification: function (notification) {
             console.log("NOTIFICATION:", notification);
-          
           // Alert.alert('Notification Received');
           RootNavigation.navigate('Notification', {
             itemId: 86,
             otherParam: notification,
                 });
-               
-           },
-         
+          },
           popInitialNotification: true,
         });
         (async () => await messaging().registerDeviceForRemoteMessages())();
-    
         const unsubscribe = messaging().onMessage(async remoteMessage => {
           //store.dispatch(storeNews(remoteMessage));
         });
-    
         messaging().onNotificationOpenedApp(remoteMessage => {
           //Alert.alert('here');
           console.log(
@@ -72,19 +65,16 @@ enableLatestRenderer();
                   otherParam: remoteMessage,
                       });
                 }, 2500);
-              
             }
           });
         return unsubscribe;
       }, []);
       const _addDataToList = (data) =>{
-        
         console.log("yeh:"+data.data.message);
       }
   return (
     <>
-   
-    <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#4d1637" translucent = {true}/>
+    <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "white" translucent = {true}/>
       <AuthProvider>
           <IconRegistry icons={[EvaIconsPack]} />
           <ApplicationProvider {...eva} theme={eva.light}>
@@ -93,7 +83,6 @@ enableLatestRenderer();
                   </NavigationContainer>
           </ApplicationProvider>
       </AuthProvider>
-  
     </>
   );
 }

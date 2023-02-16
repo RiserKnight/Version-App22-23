@@ -43,6 +43,13 @@ export const persons =[
         "Linkedin": "https://www.linkedin.com/in/khushbu-shandilya-a02284222"
     },
     {
+        "Email Address": "riser.aayush@gmail.com",
+        "Name": "Aayush Gupta",
+        "Photo": "https://drive.google.com/uc?export=view&id=1mxzZ036LcAfGKkI8A-DSF6PyboCH87sx",
+        "github": "https://github.com/RiserKnight",
+        "Linkedin": "https://www.linkedin.com/in/aayush-gupta-867831158"
+       },
+    {
      "Email Address": "subhamjha.indian.170@gmail.com",
      "Name": "Subham Jha",
      "Photo": "https://drive.google.com/uc?export=view&id=1kzhUfEI14IZ2Q3UNUcIHKB6aoTlMPxXw",
@@ -70,13 +77,7 @@ export const persons =[
      "Linkedin": "https://www.linkedin.com/in/anup-kumar-mridha"
     },
     
-    {
-     "Email Address": "riser.aayush@gmail.com",
-     "Name": "Aayush Gupta",
-     "Photo": "https://drive.google.com/uc?export=view&id=1mxzZ036LcAfGKkI8A-DSF6PyboCH87sx",
-     "github": "https://github.com/RiserKnight",
-     "Linkedin": "https://www.linkedin.com/in/aayush-gupta-867831158"
-    },
+    
     {
      "Email Address": "krritesh2001@gmail.com",
      "Name": "Ritesh Kumar Singh ",

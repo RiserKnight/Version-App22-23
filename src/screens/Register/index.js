@@ -45,6 +45,11 @@ const Register = ({navigation}) => {
         alert("Please Enter Roll number");
         return;
       }
+      let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+      if(reg.test(email)==false){
+        alert("Invalid Email");
+        return;
+      }
       if(!email){
         alert("Please Enter Email");
         return;

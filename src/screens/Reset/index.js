@@ -6,6 +6,7 @@ import {Black} from '../../utils/colors';
 import LottieView from 'lottie-react-native';
 import {Icon} from '@ui-kitten/components';
 import {Register} from '../Register';
+import {BASE_URL,KEY} from '../../utils/constants';
 import {AuthContext} from '../../context/AuthContext';
 import {
   FONT,
@@ -20,36 +21,67 @@ import Loader from '../loading/index';
 import LinearGradient from 'react-native-linear-gradient';
 const Reset = ({navigation}) => {
   const[email,setEmail]= useState('');
+  const[roll,setRoll]= useState('');
+  const[phone,setPhone]= useState('');
   const [isResetSuccess,setIsResetSuccess] = useState(false);
   const [hasError, setHasError] = useState(false);
   const[isLoading,setIsLoading] = useState(false);
   const [errorText, setErrorText] = useState('');
-  
+  const [id,setId] = useState('');
   const _handelOnPress =  () => {
     // setEmail('');setPassword('');setName('');setPhone('');setCollege('');
     if(!email){
       alert("Please Enter Email");
       return;
     }
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+    if(reg.test(email)==false){
+      alert("Invalid Email");
+      return;
+    }
+    if(!roll){
+      alert("Please Enter Roll Number");
+      return;
+    }
+    if(!phone){
+      alert("Please Enter Mobile Number");
+      return;
+    }
     setErrorText('');
     setIsLoading(true);
     setHasError(false);
     console.log("is loadingR="+isLoading);
-    axios.post('https://reqres.in/api/register',{
+    axios.post(`${BASE_URL}`+'/forgot_regno',{
+          "roll":roll,
           "email":email,
-          "password":"clicks"
+          "contact":phone,
+          "app_key":KEY.APP_KEY
       }).then(res => {
         console.log("is loadingR="+isLoading);
           setIsLoading(false);
           console.log("aayaaa");
-          console.log(res.data.id);
-          setIsResetSuccess(true);
+          console.log(res.data);
+          if(res.data.success=="true"){
+            setIsResetSuccess(true);
+            setId(res.data.userID);
+          }
+          else{
+            setHasError(true);
+            if(res.data.code=="200"){
+              setErrorText("Invalid Information");
+            }
+            else{
+              setErrorText("Unexpected Error");
+            }
+          }
+
           // setErrorText("Something went wrong")
           // setUserToken('abc123');
           // AsyncStorage.setItem('userToken','abc123');
       }).catch(e=>{
         console.log("is loadingR="+isLoading);
         console.log("aayaaaeerr");
+        setErrorText("Something went wrong");
           setIsLoading(false);
           setHasError(true);
           console.log(e);
@@ -85,7 +117,7 @@ const Reset = ({navigation}) => {
         color:'black',
         marginTop: verticalScale(200),
       }}>
-      Something Went Wrong !!! 
+      {errorText} 
     </Text>
    <TouchableOpacity
         style={{
@@ -169,7 +201,7 @@ const Reset = ({navigation}) => {
         color:'black',
 
       }}>
-    User Id: 1234567
+    User Id: {id}
     </Text>
     <LinearGradient
           start={{x: 0.0, y: 0.25}}
@@ -215,7 +247,53 @@ const Reset = ({navigation}) => {
           width: '100%',
           marginTop:verticalScale(10)
         }}>
-        <Text style={styles.title}>Retrieve User ID / Password</Text>
+        <Text style={styles.title}>Retrieve User ID </Text>
+        <View style={styles.textInput}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <TextInput
+        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
+            label="Roll"
+            placeholder="Enter your Roll Number"
+            mode="outlined"
+            value={roll}
+            autoCapitalize="none"
+            style={{backgroundColor: 'white'}}
+            theme={{
+              colors: {
+                primary: 'black',
+              },
+            }}
+            selectionColor='black'
+            onChangeText={user => {
+              setRoll(user);
+            }}
+          />
+          </TouchableWithoutFeedback>
+        </View>
+        <View style={styles.textInput}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <TextInput
+        outlineStyle={{borderWidth: scale(2),borderColor:'#4d1637', }}
+            label="Phone"
+            placeholder="Enter your Mobile Number"
+            mode="outlined"
+            value={phone}
+            autoCapitalize="none"
+            style={{backgroundColor: 'white'}}
+            theme={{
+              colors: {
+                primary: 'black',
+              },
+            }}
+            keyboardType="number-pad"
+            maxLength={10}
+            selectionColor='black'
+            onChangeText={user => {
+              setPhone(user);
+            }}
+          />
+          </TouchableWithoutFeedback>
+        </View>
         <View style={styles.textInput}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <TextInput
@@ -238,13 +316,13 @@ const Reset = ({navigation}) => {
           />
           </TouchableWithoutFeedback>
         </View>
-        {errorText != '' ? (
+        {/* {errorText != '' ? (
             <Text style={styles.errorTextStyle}>
               {errorText}
             </Text>
-          ) : null}
+          ) : null} */}
       
-            <View style={{flexDirection:'row',justifyContent: 'space-around',}}>
+            <View style={{flexDirection:'column',justifyContent: 'space-around',}}>
           <TouchableOpacity
             style={{marginTop: 3}}
             onPress={() => {
@@ -272,16 +350,26 @@ const Reset = ({navigation}) => {
               </Text>
             </Text>
           </TouchableOpacity>
+          <Text
+                style={{
+                  color: '#4d1637',
+                  fontWeight: 'bold',
+                  fontSize: scale(18),
+                  fontFamily: FONT,
+                  marginTop:20,
+                  justifyContent:'center',
+                  textAlign: 'center',
+                }}>
+                {' '}
+                OR
+              </Text>
+
           <TouchableOpacity
             style={{marginTop: 3}}
             onPress={() => {
               setErrorText('');
               // navigation.push('ResetPassword', {screenType: 'RESET'})4
-              if(!email){
-                alert("Please Enter Email");
-                return;
-              }
-              navigation.navigate('Otp')
+              navigation.navigate('ResetPassword')
               }}>
             <Text
               style={{
@@ -313,20 +401,7 @@ const Reset = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  // input1: {
-  //   marginHorizontal: paddingMedium,
-  //   marginTop: paddingSmall,
-  //   borderWidth: scale(2),
-  //   height: verticalScale(55),
-  //   paddingHorizontal: scale(8),
-  //   borderRadius: scale(8),
-  //   fontFamily: FONT,
-  //   borderColor:'#4d1637',
-  //   color:'black'
-  // },
-  // inputStyle: {fontSize: scale(fontSizeMedium), color: 'black', fontFamily: FONT},
-  // labelStyle: {fontSize: scale(fontSizeMedium)},
-  // textErrorStyle: {fontSize: 16},
+
   errorTextStyle: {
     marginTop:20,
     color: 'red',
