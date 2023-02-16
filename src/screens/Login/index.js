@@ -110,7 +110,8 @@ const Login = ({navigation}) => {
     );
   }
   return (
-    <View style={{backgroundColor:'white'}}>
+    
+    <View >
       <Loader isLoading={isLoading}/>
       <View
         style={{
@@ -298,6 +299,7 @@ const Login = ({navigation}) => {
         />
       </View>
     </View>
+   
   );
 };
 

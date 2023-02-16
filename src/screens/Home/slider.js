@@ -13,17 +13,21 @@ import {
   export default function Slider() {
     const 
        images =[
-        {image:"https://source.unsplash.com/1024x768/?nature"},
-        {image:"https://source.unsplash.com/1024x768/?water"},
-        {image:"https://source.unsplash.com/1024x768/?girl"},
-        {image:"https://source.unsplash.com/1024x768/?tree"}, // Network image
+        {image:"https://drive.google.com/uc?export=view&id=1-3iByXoZm8u_DUcibaN57LHgK8QKlDjT"},
+        {image:"https://drive.google.com/uc?export=view&id=13TuDaulQGx_0pCmW_I3IYsB0acdnh8XH"},
+        {image:"https://drive.google.com/uc?export=view&id=13hUDsSnv4xHbXl7EMdJb5SVV5sLCvPon"},
+        {image:"https://drive.google.com/uc?export=view&id=1OKoV8oLf99_FOmXlEP5VhDRmY-E0USWp"}, // Network image
+        {image:"https://drive.google.com/uc?export=view&id=1gMgVNaMzejgso_xX1pYAQvLHtE1mBqMG"}, // Network image
+        {image:"https://drive.google.com/uc?export=view&id=1nAYv8FCY147lr2TB7zKGTVSdsrCT4PTn"}, // Network image
+        {image:"https://drive.google.com/uc?export=view&id=1nAYv8FCY147lr2TB7zKGTVSdsrCT4PTn"}, // Network image
+        {image:"https://drive.google.com/uc?export=view&id=1nAYv8FCY147lr2TB7zKGTVSdsrCT4PTn"}, // Network image
       ]
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
     <FlatListSlider
     data={images}
     width={275}
-    timer={3000}
+    timer={2000}
     component={<Preview />}
     indicatorActiveWidth={40}
     contentContainerStyle={{paddingHorizontal: 16}}

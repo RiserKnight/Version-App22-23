@@ -22,6 +22,13 @@ export const persons =[
         "Photo": "https://drive.google.com/uc?export=view&id=1qZSubn3YeLMO64FkBpMEd0JmLXLymFTa"
     },
     {
+        "Email Address": "riser.aayush@gmail.com",
+        "Name": "Aayush Gupta",
+        "Photo": "https://drive.google.com/uc?export=view&id=1mxzZ036LcAfGKkI8A-DSF6PyboCH87sx",
+        "github": "https://github.com/RiserKnight",
+        "Linkedin": "https://www.linkedin.com/in/aayush-gupta-867831158"
+       },
+    {
      "Email address": "yuktasai0612@gmail.com",
      "Name": "Yukta Sai",
      "Photo": "https://drive.google.com/uc?export=view&id=1hp0rnbf15CyMWFhOsWMFJKzjL8PCw1Yx",
@@ -42,6 +49,13 @@ export const persons =[
      "github": "https://github.com/94sumit",
      "Linkedin": "https://www.linkedin.com/in/sumit-kushwaha-879720222"
     },
+    {
+        "Email Address": "itsmesomesh0628@gmail.com",
+        "Name": "Somesh harsule",
+        "Photo": "https://drive.google.com/uc?export=view&id=1jF1hneXq173jKYg3QaQNs_VkLXQV-GHt",
+        "github": "https://github.com/092somesh",
+        "Linkedin": "https://www.linkedin.com/in/somesh-harsule-376902224/"
+       },
     {
      "Email address": "akave7@gmail.com",
      "Name": "Akash Dave ",

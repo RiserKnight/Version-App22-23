@@ -6,8 +6,8 @@ import {Black} from '../../utils/colors';
 import LottieView from 'lottie-react-native';
 import {Icon} from '@ui-kitten/components';
 import {Register} from '../Register';
-import {BASE_URL,KEY} from '../../utils/constants';
 import {AuthContext} from '../../context/AuthContext';
+import {BASE_URL,KEY} from '../../utils/constants';
 import {
   FONT,
   fontSizeBig,
@@ -19,131 +19,128 @@ import {
 import axios from 'axios';
 import Loader from '../loading/index';
 import LinearGradient from 'react-native-linear-gradient';
-const ResetPassword = ({navigation}) => {
-  const[id,setId]= useState('');
+const SetPassword = ({navigation,route}) => {
+  const[password,setPassword]= useState('');
+  const[cpassword,setCpassword]= useState('');
   const [isResetSuccess,setIsResetSuccess] = useState(false);
   const [hasError, setHasError] = useState(false);
   const[isLoading,setIsLoading] = useState(false);
   const [errorText, setErrorText] = useState('');
   
   const _handelOnPress =  () => {
-    // setId('');setId('');setName('');setPhone('');setCollege('');
-    if(!id){
-      alert("Please Enter User Id");
-      return;
+    // setPassword('');setPassword('');setName('');setPhone('');setCollege('');
+    if(!password){
+    alert("Please Enter Password");
+    return;
     }
-    // console.log(route.params.email);
-    setErrorText('');
-    setIsLoading(true);
-    setHasError(false);
-    console.log(id);
-    console.log("is loadingR="+isLoading);
-    axios.post(`${BASE_URL}`+'/forgot_pass',{
-          "userID":id,
-          "app_key":KEY.APP_KEY
-      }).then(res => {
-        console.log("is loadingR="+isLoading);
-          setIsLoading(false);
-          console.log("aayaaa");
-          console.log(res.data);
-
-          // navigation.navigate('SetPassword',{id:id});
-          if(res.data.code==="100"){
-            setIsResetSuccess(true);
-            navigation.navigate('SetPassword',{id:id});
-          }
-          else{
-            setHasError(true);
-            if(res.data.code==="200"){
-              setErrorText("User Does Not Exist");
-            }
-            else{
-              setErrorText("Unexpected Error");
-            }
-          }
-          // setErrorText("Something went wrong")
-          // setUserToken('abc123');
-          // AsyncStorage.setItem('userToken','abc123');
-      }).catch(e=>{
-        console.log("is loadingR="+isLoading);
-        console.log("aayaaaeerr");
-          setIsLoading(false);
-          setHasError(true);
-          console.log(e);
-      })
+    if(!cpassword){
+      alert("Please Re-Enter Password");
+      return;
+      }
+      if(cpassword!=password){
+        alert("Passwords must match");
+        return;
+      }
+    console.log(route.params.id);
+    navigation.navigate('Otp',{id:route.params.id,password:password});
+    // setErrorText('');
+    // setIsLoading(true);
+    // setHasError(false);
+    // console.log("is loadingR="+isLoading);
+    // axios.post(`${BASE_URL}`+'/verifyOTP',{
+    //     "userID":route.params.id,
+    //     "OTP":code,
+    //     "pass":"1234",
+    //     "app_key":"205121002"
+    //   }).then(res => {
+    //     console.log("is loadingR="+isLoading);
+    //     setIsLoading(false);
+    //     console.log("aayaaa");
+    //     console.log(res.data.id);
+    //     setIsResetSuccess(true);
+    //       // setErrorText("Something went wrong")
+    //       // setUserToken('abc123');
+    //       // AsyncStorage.setItem('userToken','abc123');
+    //   }).catch(e=>{
+    //     console.log("is loadingR="+isLoading);
+    //     console.log("aayaaaeerr");
+    //       setIsLoading(false);
+    //       setHasError(true);
+    //       console.log(e);
+    //   })
   }
   console.log("is loading="+isLoading);
-  if (hasError) {
-    return (
-    <View
-    style={{
-        height: '100%',
-        width: '100%',
-        alignSelf: 'center',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        backgroundColor: 'white',
-    }}>
-    <LottieView
-    style={{marginBottom: verticalScale(50)}}
-    source={require('../../assets/lottieFiles/103574-robot-error.json')}
-    resizeMode="contain"
-    autoPlay
-    loop
-  />
-        <Text
-      allowFontScaling={false}
-      style={{
-        textAlign: 'center',
-        fontSize: scale(20),
-        marginHorizontal: scale(12),
-        textTransform: 'uppercase',
-        fontWeight: '600',
-        color:'black',
-        marginTop: verticalScale(200),
-      }}>
-      {errorText}
-    </Text>
-   <TouchableOpacity
-        style={{
-        padding: scale(9),
-        paddingRight: scale(18),
-        borderRadius: scale(24),
-        alignSelf: 'center',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '50%',
-        position: 'absolute',
-        backgroundColor: '#4d1637',
-        bottom: verticalScale(50),
-        }}
-        onPress={() => {
-          setHasError(false);
-          navigation.navigate('ResetPassword')}}>
-        <View
-          style={{
-            flexDirection: 'row',
-            borderRadius: scale(24),
-            alignItems: 'center',
-          }}>
+  // if (hasError) {
+  //   return (
+  //   <View
+  //   style={{
+  //       height: '100%',
+  //       width: '100%',
+  //       alignSelf: 'center',
+  //       flexDirection: 'column',
+  //       justifyContent: 'center',
+  //       backgroundColor: 'white',
+  //   }}>
+  //   <LottieView
+  //   style={{marginBottom: verticalScale(50)}}
+  //   source={require('../../assets/lottieFiles/103574-robot-error.json')}
+  //   resizeMode="contain"
+  //   autoPlay
+  //   loop
+  // />
+  //       <Text
+  //     allowFontScaling={false}
+  //     style={{
+  //       textAlign: 'center',
+  //       fontSize: scale(20),
+  //       marginHorizontal: scale(12),
+  //       textTransform: 'uppercase',
+  //       fontWeight: '600',
+  //       color:'black',
+  //       marginTop: verticalScale(200),
+  //     }}>
+  //     Something Went Wrong !!! 
+  //   </Text>
+  //  <TouchableOpacity
+  //       style={{
+  //       padding: scale(9),
+  //       paddingRight: scale(18),
+  //       borderRadius: scale(24),
+  //       alignSelf: 'center',
+  //       flexDirection: 'row',
+  //       alignItems: 'center',
+  //       justifyContent: 'center',
+  //       width: '50%',
+  //       position: 'absolute',
+  //       backgroundColor: '#4d1637',
+  //       bottom: verticalScale(50),
+  //       }}
+  //       onPress={() => {
+  //         setHasError(false);
+  //         navigation.navigate('Reset')}}>
+  //       <View
+  //         style={{
+  //           flexDirection: 'row',
+  //           borderRadius: scale(24),
+  //           alignItems: 'center',
+  //         }}>
       
-            <View style={{width: scale(8)}} />
-          <Text
-            allowFontScaling={false}
-            style={{
-              fontSize: scale(17),
-              color: 'white',
+  //           <View style={{width: scale(8)}} />
+  //         <Text
+  //           allowFontScaling={false}
+  //           style={{
+  //             fontSize: scale(17),
+  //             color: 'white',
 
-              fontWeight: 'bold',
-            }}>
-            TRY AGAIN
-          </Text>
-        </View>
-      </TouchableOpacity>
-      </View>
-    );
-  }
+  //             fontWeight: 'bold',
+  //           }}>
+  //           TRY AGAIN
+  //         </Text>
+  //       </View>
+  //     </TouchableOpacity>
+  //     </View>
+  //   );
+  // }
   // if (isResetSuccess) {
   //   return (
   //     <View
@@ -225,22 +222,44 @@ const ResetPassword = ({navigation}) => {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <TextInput
         outlineStyle={{borderColor:'#4d1637', }}
-            label="User Id"
-            placeholder="Enter your User Id"
+            label="Password"
+            placeholder="Enter your Password"
             mode="outlined"
-            value={id}
+            value={password}
             autoCapitalize="none"
+            secureTextEntry={true}
             style={{backgroundColor: 'white'}}
             theme={{
               colors: {
                 primary: 'black',
               },
             }}
-            keyboardType="number-pad"
-            // maxLength={10}
             selectionColor='black'
             onChangeText={user => {
-              setId(user);
+              setPassword(user);
+            }}
+          />
+          </TouchableWithoutFeedback>
+        </View>
+        <View style={styles.textInput}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <TextInput
+        outlineStyle={{borderColor:'#4d1637', }}
+            label="Confirm Password"
+            placeholder="Re-Enter your Password"
+            mode="outlined"
+            value={cpassword}
+            autoCapitalize="none"
+            style={{backgroundColor: 'white'}}
+            secureTextEntry={true}
+            theme={{
+              colors: {
+                primary: 'black',
+              },
+            }}
+            selectionColor='black'
+            onChangeText={user => {
+              setCpassword(user);
             }}
           />
           </TouchableWithoutFeedback>
@@ -257,7 +276,7 @@ const ResetPassword = ({navigation}) => {
             style={{marginTop: 3}}
             onPress={() => {
               setErrorText('');
-             _handelOnPress();
+            _handelOnPress();
               }}>
             <Text
               style={{
@@ -287,6 +306,20 @@ const ResetPassword = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  // input1: {
+  //   marginHorizontal: paddingMedium,
+  //   marginTop: paddingSmall,
+  //   borderWidth: scale(2),
+  //   height: verticalScale(55),
+  //   paddingHorizontal: scale(8),
+  //   borderRadius: scale(8),
+  //   fontFamily: FONT,
+  //   borderColor:'#4d1637',
+  //   color:'black'
+  // },
+  // inputStyle: {fontSize: scale(fontSizeMedium), color: 'black', fontFamily: FONT},
+  // labelStyle: {fontSize: scale(fontSizeMedium)},
+  // textErrorStyle: {fontSize: 16},
   errorTextStyle: {
     marginTop:20,
     color: 'red',
@@ -308,4 +341,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ResetPassword;
+export default SetPassword;
