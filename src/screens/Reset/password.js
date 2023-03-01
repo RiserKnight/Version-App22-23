@@ -21,7 +21,7 @@ import Loader from '../loading/index';
 import LinearGradient from 'react-native-linear-gradient';
 const ResetPassword = ({navigation}) => {
   const[id,setId]= useState('');
-  const [isResetSuccess,setIsResetSuccess] = useState(false);
+
   const [hasError, setHasError] = useState(false);
   const[isLoading,setIsLoading] = useState(false);
   const [errorText, setErrorText] = useState('');
@@ -69,6 +69,7 @@ const ResetPassword = ({navigation}) => {
         console.log("aayaaaeerr");
           setIsLoading(false);
           setHasError(true);
+          setErrorText("Something went wrong");
           console.log(e);
       })
   }
@@ -144,75 +145,8 @@ const ResetPassword = ({navigation}) => {
       </View>
     );
   }
-  // if (isResetSuccess) {
-  //   return (
-  //     <View
-  //     style={{
-  //       height: '100%',
-  //       width: '100%',
-  //       alignSelf: 'center',
-  //       flexDirection: 'column',
-  //       justifyContent: 'center',
-  //       backgroundColor: 'white',
-  //   }}>
-  //      <LottieView
-  //     style={{marginBottom: verticalScale(50)}}
-  //     source={require('../../assets/lottieFiles/succ.json')}
-  //     resizeMode="contain"
-  //     autoPlay
-  //     loop
-  // />
-  //     <Text
-  //     allowFontScaling={false}
-  //     style={{
-  //       textAlign: 'center',
-  //       fontSize: scale(20),
-  //       marginHorizontal: scale(12),
-  //       textTransform: 'uppercase',
-  //       fontWeight: '600',
-  //       color:'black',
-  //       marginTop: verticalScale(300),
-  //       marginBottom: verticalScale(10),
-  //     }}>
-  //   Password Reset Successful
-  //   </Text>
-  //   <LinearGradient
-  //         start={{x: 0.0, y: 0.25}}
-  //         end={{x: 0.5, y: 1.0}}
-  //         locations={[0, 0.6, 0.8]}
-  //         colors={['#4d1637', '#852DCE', '#4d1637']}
-  //         style={{
-  //           backgroundColor: 'blue',
-  //           height: verticalScale(80),
-  //           width: verticalScale(80),
-  //           padding: scale(9),
-  //           paddingRight: scale(18),
-  //           borderRadius: scale(45),
-  //           alignSelf: 'center',
-  //           flexDirection: 'row',
-  //           alignItems: 'center',
-  //           justifyContent: 'center',
-  //           position: 'absolute',
-  //           backgroundColor: '#4d1637',
-  //           bottom: verticalScale(50),
-  //         }}>
-  //         <TouchableOpacity onPress={()=> navigation.navigate('Login')} >
-  //         <Icon
-  //             fill="white"
-  //             style={{
-  //               height: verticalScale(45),
-  //               width: verticalScale(45),
-  //               borderRadius: verticalScale(20),
-  //             }}
-  //             name="arrow-ios-forward-outline"
-  //           />
-  //         </TouchableOpacity>
-  //       </LinearGradient>
-  //     </View>
-  //   );
-  // }
-  return (
-    <View style={{backgroundColor:'white'}}>
+  return(
+    <View >
       <Loader isLoading={isLoading}/>
       <View
         style={{
