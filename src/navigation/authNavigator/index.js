@@ -15,14 +15,7 @@ return (
     }}>
     <Stack.Screen name="Login" component={Login} />
     <Stack.Screen name="Register" component={Register} />
-    <Stack.Screen name="Otp" component={Otp} options={{headerShown: true, animation: 'slide_from_right',headerStyle: {
-            backgroundColor: '#4d1637',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontFamily:FONT
-          },}}/>
+    <Stack.Screen name="Otp" component={Otp} />
     <Stack.Screen name="Reset" component={Reset} options={{headerShown: true, animation: 'slide_from_right',headerStyle: {
             backgroundColor: '#4d1637',
           },

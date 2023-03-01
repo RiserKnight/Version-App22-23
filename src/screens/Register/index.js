@@ -236,20 +236,20 @@ const Register = ({navigation}) => {
         allowFontScaling={false}
         style={{
           textAlign: 'center',
-          fontSize: scale(16),
+          fontSize: scale(12),
           marginHorizontal: scale(12),
           textTransform: 'uppercase',
           fontWeight: '600',
           color:'black',
 
         }}>
-      User Id: {userId}
+      Please check your email and verify your account. Also check spam folder.
       </Text>
       <LinearGradient
             start={{x: 0.0, y: 0.25}}
             end={{x: 0.5, y: 1.0}}
             locations={[0, 0.6, 0.8]}
-            colors={['#4d1637', '#852DCE', '#4d1637']}
+            colors={['#4d1637', '#4d1637', '#4d1637']}
             style={{
               backgroundColor: 'blue',
               height: verticalScale(80),
@@ -281,12 +281,12 @@ const Register = ({navigation}) => {
       );
     }
     return (
-      <View style={{backgroundColor:'white'}}>
+      <View >
         <Loader isLoading={isLoading} />
         <ScrollView>
         <View
           style={{
-             height:Dimensions.get('window').height,
+            height:Dimensions.get('window').height,
             // height: verticalScale(800),
             width: '100%',
             marginTop:verticalScale(10),
@@ -524,7 +524,7 @@ const Register = ({navigation}) => {
             start={{x: 0.0, y: 0.25}}
             end={{x: 0.5, y: 1.0}}
             locations={[0, 0.6, 0.8]}
-            colors={['#4d1637', '#852DCE', '#4d1637']}
+            colors={['#4d1637', '#4d1637', '#4d1637']}
             style={{
               backgroundColor: 'blue',
               height: verticalScale(40),

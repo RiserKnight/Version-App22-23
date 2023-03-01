@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, Image, SafeAreaView,StyleSheet, FlatList ,TouchableOpacity} from 'react-native';
+import { View, Text, Image, SafeAreaView,StyleSheet, FlatList ,TouchableOpacity,Dimensions,} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
 const EventDescriptionScreen = ({navigation,route}) => {
   const { item } = route.params;
   return (
     <View style={styles.container}>
-    <SafeAreaView >
+      <ScrollView>
         <Image style={styles.image}
         source={{uri:item.image}} />
         <Text style={styles.header}>
@@ -29,13 +31,13 @@ const EventDescriptionScreen = ({navigation,route}) => {
           </View>
           
       </View>
-      
-    </SafeAreaView>
+      </ScrollView>
     <View style={styles.bottom}>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
       </View>
+      
 </View>
 
   );
@@ -48,8 +50,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
 },
 image: {
-    width: 300,
-    height: 150,
+  width: windowWidth/2+80,
+  height: windowHeight/4+30,
     position: 'relative',
     alignSelf: 'center',
     borderRadius: 10,

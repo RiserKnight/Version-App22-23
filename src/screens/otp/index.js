@@ -221,7 +221,7 @@ export default function Otp ({navigation,route}) {
     );
   }
   return (
-    <View style={{backgroundColor:'white'}}>
+    <View >
     <Loader isLoading={isLoading}/>
       <ScrollView>
     <View

@@ -30,6 +30,14 @@ const Reset = ({navigation}) => {
   const [id,setId] = useState('');
   const _handelOnPress =  () => {
     // setEmail('');setPassword('');setName('');setPhone('');setCollege('');
+    if(!roll){
+      alert("Please Enter Roll Number");
+      return;
+    }
+    if(!phone){
+      alert("Please Enter Mobile Number");
+      return;
+    }
     if(!email){
       alert("Please Enter Email");
       return;
@@ -37,14 +45,6 @@ const Reset = ({navigation}) => {
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
     if(reg.test(email)==false){
       alert("Invalid Email");
-      return;
-    }
-    if(!roll){
-      alert("Please Enter Roll Number");
-      return;
-    }
-    if(!phone){
-      alert("Please Enter Mobile Number");
       return;
     }
     setErrorText('');
@@ -239,7 +239,7 @@ const Reset = ({navigation}) => {
     );
   }
   return (
-    <View style={{backgroundColor:'white'}}>
+    <View >
       <Loader isLoading={isLoading}/>
       <View
         style={{
@@ -323,20 +323,22 @@ const Reset = ({navigation}) => {
           ) : null} */}
       
             <View style={{flexDirection:'column',justifyContent: 'space-around',}}>
-          <TouchableOpacity
+            <TouchableOpacity
             style={{marginTop: 3}}
             onPress={() => {
               setErrorText('');
-              _handelOnPress()
+              // navigation.push('ResetPassword', {screenType: 'RESET'})4
+              navigation.navigate('ResetPassword')
               }}>
             <Text
               style={{
                 color: 'black',
-                textAlign: 'center',
+                textAlign: 'right',
                 fontSize: scale(12),
                 fontFamily: FONT,
+                paddingRight:scale(13)
               }}>
-              Retrieve
+              Forgot
               <Text
                 style={{
                   color: '#4d1637',
@@ -346,11 +348,39 @@ const Reset = ({navigation}) => {
                   marginTop:20
                 }}>
                 {' '}
-                USER ID
+                PASSWORD ?
               </Text>
             </Text>
           </TouchableOpacity>
-          <Text
+          <TouchableOpacity
+            style={{marginTop: 3}}
+            onPress={() => {
+              setErrorText('');
+              _handelOnPress()
+              }}>
+            {/* <Text
+              style={{
+                color: 'black',
+                textAlign: 'center',
+                fontSize: scale(12),
+                fontFamily: FONT,
+              }}>
+              Retrieve */}
+              <Text
+                style={{
+                  color: '#4d1637',
+                  textAlign: 'center',
+                  fontWeight: 'bold',
+                  fontSize: scale(18),
+                  fontFamily: FONT,
+                  marginTop:20
+                }}>
+                {' '}
+                SUBMIT
+              </Text>
+            {/* </Text> */}
+          </TouchableOpacity>
+          {/* <Text
                 style={{
                   color: '#4d1637',
                   fontWeight: 'bold',
@@ -362,36 +392,9 @@ const Reset = ({navigation}) => {
                 }}>
                 {' '}
                 OR
-              </Text>
+              </Text> */}
 
-          <TouchableOpacity
-            style={{marginTop: 3}}
-            onPress={() => {
-              setErrorText('');
-              // navigation.push('ResetPassword', {screenType: 'RESET'})4
-              navigation.navigate('ResetPassword')
-              }}>
-            <Text
-              style={{
-                color: 'black',
-                textAlign: 'center',
-                fontSize: scale(12),
-                fontFamily: FONT,
-              }}>
-              Reset
-              <Text
-                style={{
-                  color: '#4d1637',
-                  fontWeight: 'bold',
-                  fontSize: scale(18),
-                  fontFamily: FONT,
-                  marginTop:20
-                }}>
-                {' '}
-                PASSWORD
-              </Text>
-            </Text>
-          </TouchableOpacity>
+          
           </View>
         </View>
       

@@ -8,6 +8,20 @@ export const persons =[
         "Linkedin": "https://linkedin.com/amit015"
     },
     {
+        "Email Address": "riser.aayush@gmail.com",
+        "Name": "Aayush Gupta",
+        "Photo": "https://drive.google.com/uc?export=view&id=1mxzZ036LcAfGKkI8A-DSF6PyboCH87sx",
+        "github": "https://github.com/RiserKnight",
+        "Linkedin": "https://www.linkedin.com/in/aayush-gupta-867831158"
+       },
+       {
+        "Email Address": "abhilashsingh326@gmail.com",
+        "Name": "Abhilash Singh ",
+        "Photo": "https://drive.google.com/uc?export=view&id=15aANAdsAMrLmWRivjDXJ15SpLQfF2WQV",
+        "github": "https://github.com/004-AbhilashSingh",
+        "Linkedin": "https://www.linkedin.com/in/004-abhilashsingh/"
+       },
+    {
         "Email Address": "asc23062000@gmail.com",
         "Name": "Aman Singh",
         "Photo": "https://drive.google.com/uc?export=view&id=14yo8Vup2gel562O07ZLSpSjvSWrBfPaW",
@@ -42,13 +56,7 @@ export const persons =[
         "github": "https://github.com/047-KhushbuShandilya",
         "Linkedin": "https://www.linkedin.com/in/khushbu-shandilya-a02284222"
     },
-    {
-        "Email Address": "riser.aayush@gmail.com",
-        "Name": "Aayush Gupta",
-        "Photo": "https://drive.google.com/uc?export=view&id=1mxzZ036LcAfGKkI8A-DSF6PyboCH87sx",
-        "github": "https://github.com/RiserKnight",
-        "Linkedin": "https://www.linkedin.com/in/aayush-gupta-867831158"
-       },
+   
     {
      "Email Address": "subhamjha.indian.170@gmail.com",
      "Name": "Subham Jha",
@@ -162,13 +170,7 @@ export const persons =[
      "github": "https://github.com/puneet289",
      "Linkedin": "https://www.linkedin.com/in/puneet-kumar-a017681a4"
     },
-    {
-     "Email Address": "abhilashsingh326@gmail.com",
-     "Name": "Abhilash Singh ",
-     "Photo": "https://drive.google.com/uc?export=view&id=15aANAdsAMrLmWRivjDXJ15SpLQfF2WQV",
-     "github": "https://github.com/004-AbhilashSingh",
-     "Linkedin": "https://www.linkedin.com/in/004-abhilashsingh/"
-    },
+    
     {
      "Email Address": "hkmeena.mpsite@gmail.com",
      "Name": "Harish Kumar Meena",

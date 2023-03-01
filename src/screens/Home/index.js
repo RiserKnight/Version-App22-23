@@ -30,7 +30,6 @@ import {
   FONT,
   fontSizeMedium,
 } from '../../utils/UIConstants';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Dimensions} from 'react-native';
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;

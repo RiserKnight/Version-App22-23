@@ -35,7 +35,7 @@ return (
 const styles = StyleSheet.create({
 videoContainer: {
     width: 275,
-    paddingVertical: 28,
+    paddingVertical: 38,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 20,

@@ -236,7 +236,7 @@ const Login = ({navigation}) => {
                 fontSize: scale(12),
                 fontFamily: FONT,
               }}>
-              Forgot USER ID / Password ?
+              Forgot 
               <Text
                 style={{
                   color: '#4d1637',
@@ -245,7 +245,7 @@ const Login = ({navigation}) => {
                   fontFamily: FONT,
                 }}>
                 {' '}
-                RESET
+                REGISTRATION ID ?
               </Text>
             </Text>
           </TouchableOpacity>
@@ -260,7 +260,7 @@ const Login = ({navigation}) => {
             start={{x: 0.0, y: 0.25}}
             end={{x: 0.5, y: 1.0}}
             locations={[0, 0.6, 0.8]}
-            colors={['#4d1637', '#852DCE', '#4d1637']}
+            colors={['#4d1637', '#4d1637', '#4d1637']}
             style={{
               backgroundColor: 'blue',
               height: verticalScale(40),
@@ -304,20 +304,6 @@ const Login = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  // input1: {
-  //   marginHorizontal: paddingMedium,
-  //   marginTop: paddingSmall,
-  //   borderWidth: scale(2),
-  //   height: verticalScale(55),
-  //   paddingHorizontal: scale(8),
-  //   borderRadius: scale(8),
-  //   fontFamily: FONT,
-  //   borderColor:'#4d1637',
-  //   color:'black'
-  // },
-  // inputStyle: {fontSize: scale(fontSizeMedium), color: 'black', fontFamily: FONT},
-  // labelStyle: {fontSize: scale(fontSizeMedium)},
-  // textErrorStyle: {fontSize: 16},
   errorTextStyle: {
     marginTop:20,
     color: 'red',
