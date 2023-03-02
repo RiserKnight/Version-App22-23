@@ -27,29 +27,37 @@ const Support = () => {
     },
     {
       id:1,
+      name: 'Aayush Gupta',
+      phone: '9131432828',
+      role: 'Event Execution Committee',
+      mail: 'rajnish@gmail.com',
+      image: "https://drive.google.com/uc?export=view&id=1mxzZ036LcAfGKkI8A-DSF6PyboCH87sx",
+    },
+    {
+      id:2,
       name: 'Sumit Kushwaha',
       phone: '9717919127',
       role: 'Hospitality & Reception Committee',
       mail: 'sumitkushwaha188@gmail.com',
       image: "https://drive.google.com/uc?export=view&id=1ETACm2rA1FuFmDfstmFcrxt1hyT0rzAj",
     },
-    // {
-    //   id:1,
-    //   name: 'Aayush Gupta',
-    //   phone: '9131432828',
-    //   role: 'Event Execution Committee',
-    //   mail: 'rajnish@gmail.com',
-    //   image: "https://drive.google.com/uc?export=view&id=1mxzZ036LcAfGKkI8A-DSF6PyboCH87sx",
-    // },
 
-    // {
-    //   id:3,
-    //   name: 'Abhilash Singh',
-    //   phone: '9129161426',
-    //   role: 'Event Execution Committee',
-    //   mail: 'rajnish@gmail.com',
-    //   image: "https://drive.google.com/uc?export=view&id=15aANAdsAMrLmWRivjDXJ15SpLQfF2WQV",
-    // },
+    {
+      id:3,
+      name: 'Abhilash Singh',
+      phone: '9129161426',
+      role: 'Event Execution Committee',
+      mail: 'rajnish@gmail.com',
+      image: "https://drive.google.com/uc?export=view&id=15aANAdsAMrLmWRivjDXJ15SpLQfF2WQV",
+    },
+    {
+      id:4,
+      name: "Akash Dave",
+      phone: '8305342585',
+      mail: "akave7@gmail.com",
+      role: 'Alumini Relation Committee',
+      image: "https://drive.google.com/uc?export=view&id=1wU7WgWxHp43bvDXxDcdR4NeZdAos8VEz",
+     },
     // {
     //   id:4,
     //   name: 'Khushbu Kumar',
@@ -107,7 +115,6 @@ const Support = () => {
                 <Text style={styles.name}>{item.phone}</Text>
         </TouchableOpacity>
         <Text style={styles.name}>{item.role}</Text>
-        <Text style={styles.name}>{item.mail}</Text>
       </View>
     </View>
     

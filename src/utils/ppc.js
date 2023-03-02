@@ -14,6 +14,7 @@ export const persons =[
      "github": "https://github.com/Pooja-Somani",
      "Linkedin": "linkedin.com/in/pooja-somani-315a82186/"
     },
+    
     {
      "Email Address": "alammdakil4@gmail.com",
      "Name": "Md Akil Alam",
@@ -115,4 +116,6 @@ export const persons =[
      "Photo": "https://drive.google.com/uc?export=view&id=1QQBtkXpZQVUry08p9u9ocUyDMjcparfQ",
      "Linkedin": "https://www.linkedin.com/in/pradeep-vishwakarma-8251a4222"
     }
+   
+    
    ]

@@ -10,7 +10,7 @@ return (
     <FlatList
     ListHeaderComponent={() => (
         <Text style={styles.header}>
-          Alumini Relation Committie
+          Alumini Relation Committee
         </Text>
       )}
       data={persons}
