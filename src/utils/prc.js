@@ -29,6 +29,13 @@ export const persons =[
      "Linkedin": "www.linkedin.com/in/avishmittal7566"
     },
     {
+        "Email Address": "xyz@gmail.com",
+        "Name": "Leepakshi Yadav ",
+        "Photo": "https://drive.google.com/uc?export=view&id=1EwFv7zV29ghsh-ASETU9t7wcV9hTAldd",
+        "github": "https://github.com/LeepakshiYadav",
+        "Linkedin": "https://www.linkedin.com/in/leepakshi-yadav-12975a11a/"
+       },
+    {
      "Email address": "amannamdev2809@gmail.com",
      "Name": "Aman Namdev ",
      "Photo": "https://drive.google.com/uc?export=view&id=1OITJwZ_X694gOff-c98IFqjikMS3loJ_",

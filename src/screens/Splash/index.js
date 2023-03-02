@@ -16,7 +16,7 @@ import {AUTH_NAV_STORE} from '../../mobx/AUTH_NAV_STORE';
 import NetInfo from '@react-native-community/netinfo';
 import { AsyncStorage } from 'react-native';
 import {UserData} from '../../mobx/userData';
-import * as KEYS from '../../utils/Storage_keys'
+import * as KEYS from '../../utils/Storage_keys';
 const Splash = ({navigation}) => {
     
     const [State, setState] = useState(0);

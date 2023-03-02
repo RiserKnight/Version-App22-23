@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React,{useState,useEffect} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image,TouchableOpacity} from 'react-native';
 import Day1 from './Day1';
 import Day2 from './Day2';
 import axios from 'axios';
@@ -28,6 +28,7 @@ const Stack = createStackNavigator();
     const getEvent = () => {
         setHasError(false);
         setIsLoading(true);
+        events.setAdminData([]);
         axios.post(`${BASE_URL}`+'/getEventData',{
             "app_key":KEY.APP_KEY
         }).then(res => {
@@ -104,7 +105,7 @@ const Stack = createStackNavigator();
         }}
         onPress={() => {
             setHasError(false);
-            navigation.navigate('Register')}}>
+            navigation.navigate('Home')}}>
         <View
             style={{
             flexDirection: 'row',

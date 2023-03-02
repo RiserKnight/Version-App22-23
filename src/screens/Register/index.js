@@ -19,7 +19,7 @@ import {
   paddingSmall,
 } from '../../utils/UIConstants';
 import LinearGradient from 'react-native-linear-gradient';
-import { BASE_URL , KEY } from '../../utils/constants'
+import { BASE_URL , KEY } from '../../utils/constants';
 const Register = ({navigation}) => {
   const [userId,setUserId]=useState('');
     // const [eyeIcon, setEyeIcon] = useState('eye-off');
@@ -283,7 +283,7 @@ const Register = ({navigation}) => {
     return (
       <View >
         <Loader isLoading={isLoading} />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
             height:Dimensions.get('window').height,
@@ -458,27 +458,11 @@ const Register = ({navigation}) => {
               },
             }}
             selectionColor='black'
-            // right={
-            //   <TextInput.Icon
-            //     name={eyeIcon}
-            //     onPress={() => {
-            //       setPasswordToggle(!passwordToggle);
-            //       setEyeIcon(
-            //         eyeIcon === 'eye' ? 'eye-off' : 'eye',
-            //       );
-            //     }}
-            //   />
-            // }
             value={cpassword}
             onChangeText={cpassword => setCpassword(cpassword)}
           />
           </TouchableWithoutFeedback>
         </View>
-         {/* {errorText != '' ? (
-            <Text style={styles.errorTextStyle}>
-              {errorText}
-            </Text>
-          ) : null} */}
         <View style={{flexDirection:'row',justifyContent: 'space-around',}}>
         <View
           style={{
@@ -548,48 +532,20 @@ const Register = ({navigation}) => {
         </View>
         </View>
       </View>
-      {/* <View
-        style={{
-          height: verticalScale(205),
-          width: '100%',
-          alignSelf: 'center',
-          justifyContent: 'center',
-        }}>
-        <LottieView
-          source={loginLottie}
-          progress={1}
-          autoSize={false}
-          resizeMode="contain"
-          autoPlay
-          loop
-        />
-      </View> */}
+
       </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  // input1: {
-  //   marginHorizontal: paddingMedium,
-  //   marginTop: paddingSmall,
-  //   borderWidth: scale(2),
-  //   height: verticalScale(50),
-  //   paddingHorizontal: scale(8),
-  //   borderRadius: scale(8),
-  //   fontFamily: FONT,
-  //   borderColor:'#4d1637',
-  //   color:'black'
-  // },
   errorTextStyle: {
     marginTop:20,
     color: 'red',
     textAlign: 'center',
     fontSize: 14,
   },
-  // inputStyle: {fontSize: scale(fontSizeMedium), color: 'black', fontFamily: FONT},
-  // labelStyle: {fontSize: scale(fontSizeMedium)},
-  // textErrorStyle: {fontSize: 16},
+
   title: {
     marginTop: verticalScale(paddingSmall-4),
     paddingVertical: scale(paddingSmall),

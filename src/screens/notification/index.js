@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, Image, SafeAreaView,StyleSheet, FlatList } from 'react-native';
+import { View, Text, Image, SafeAreaView,StyleSheet, FlatList ,Dimensions} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
 const Notification = ({ route, navigation }) => {
   const { itemId } = route.params;
   const { otherParam } = route.params;
@@ -27,8 +29,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
 },
 image: {
-    width: 350,
-    height: 360,
+    width: windowWidth/2+80,
+    height: windowHeight/4+30,
     position: 'relative',
     alignSelf: 'center',
     

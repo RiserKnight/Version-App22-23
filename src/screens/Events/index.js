@@ -17,13 +17,13 @@ const Completed = observer(() => {
     const eve = events.state.eventData;
     const [selectedId, setSelectedId] = useState(null);
     const[isLoading,setIsLoading] = useState(false);
-    const [errorText, setErrorText] = useState('');
+    const [errorText, setErrorText] = useState('Try Again');
     const [hasError, setHasError] = useState(false);
     const [data,setData] = useState([]);
     const getEvent = () => {
         setHasError(false);
         setIsLoading(true);
-        events.setAdminData([])
+        events.setAdminData([]);
         axios.post(`${BASE_URL}`+'/getEventData',{
             "app_key":KEY.APP_KEY
         })
@@ -98,12 +98,12 @@ const Completed = observer(() => {
             justifyContent: 'center',
             width: '50%',
             position: 'absolute',
-            // backgroundColor: '#4d1637',
+             backgroundColor: '#4d1637',
             bottom: verticalScale(50),
         }}
         onPress={() => {
             setHasError(false);
-            navigation.navigate('Register')}}>
+            navigation.navigate('Home')}}>
         <View
             style={{
             flexDirection: 'row',
@@ -166,7 +166,6 @@ const Completed = observer(() => {
                     showsVerticalScrollIndicator={false}
                 />
             </View>
-     
     );
 });
 const styles = StyleSheet.create({
@@ -176,7 +175,7 @@ const styles = StyleSheet.create({
         marginTop: StatusBar.currentHeight || 0,
     },
     items: {
-        
+
         borderRadius: 10,
         padding:'3%',
         marginVertical:5,

@@ -1,5 +1,5 @@
 import {action, makeObservable, observable, computed} from 'mobx';
-class User_Data {
+class User_Data { 
   state = {
     token: '',
     UserId: '',

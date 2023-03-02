@@ -8,6 +8,12 @@ export const persons =[
         "Linkedin": "https://www.linkedin.com/in/sudhanshu-shrivastava-74a089203/"
     },
     {
+        "Email address": "akave7@gmail.com",
+        "Name": "Akash Dave ",
+        "Photo": "https://drive.google.com/uc?export=view&id=1wU7WgWxHp43bvDXxDcdR4NeZdAos8VEz",
+        "Linkedin": "https://www.linkedin.com/in/dave-the-way-to-crack-code"
+    },
+    {
      "Email Address": "nayangupta2215@gmail.com",
      "Name": "Nayan Gupta ",
      "Photo": "https://drive.google.com/uc?export=view&id=1yCcv58Mo2ueLaO6QrYtgJn8gd4fiTzqj",
