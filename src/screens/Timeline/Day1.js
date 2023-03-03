@@ -3,11 +3,18 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
 import Timeline from 'react-native-timeline-flatlist'
 import {events} from "../../mobx/eventsData";
+import { LogBox } from 'react-native';
+
+
 export default class Day1 extends Component {
+  componentDidMount() {
+    LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
+}
   constructor(){
     super()
     this.onEventPress = this.onEventPress.bind(this)
@@ -27,14 +34,11 @@ onEventPress(data){
 renderDetail(rowData, sectionID, rowID) {
   let title = <Text style={[styles.title]}>{rowData.title}</Text>
   var desc = null
-  if(rowData.description && rowData.imageUrl)
     desc = (
       <View style={styles.descriptionContainer}>   
-        <Image source={{uri: rowData.imageUrl}} style={styles.image}/>
-        <Text style={[styles.textDescription]}>{rowData.description}</Text>
+        <Text style={[styles.textDescription]}>{rowData.time1}</Text>
       </View>
     )
-  
   return (
     <View style={{flex:1}}>
       {title}
@@ -46,6 +50,8 @@ renderDetail(rowData, sectionID, rowID) {
 render() {
     return (
       <View style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Text style={{justifyContent:'center',color:'#4d1637',textAlign:'center',fontSize:15,backgroundColor:'#ff9797',marginTop:10}}>18-03-2023</Text>
         <Timeline 
           style={styles.list}
           data={ events.state.eventData.filter((item) => item.day == 1 || item.day == 3)}
@@ -65,8 +71,29 @@ render() {
           separator={false}
           detailContainerStyle={{marginBottom: 20, paddingLeft: 5, paddingRight: 5, backgroundColor: "#5c2044", borderRadius: 10}}
           columnFormat='two-column'
-          
         />
+      <Text style={{justifyContent:'center',color:'#4d1637',textAlign:'center',fontSize:15,backgroundColor:'#ff9797',marginTop:10}}>19-03-2023</Text>
+      <Timeline
+        style={styles.list}
+        data={ events.state.eventData.filter((item) => item.day == 2 || item.day == 3)}
+        circleSize={20}
+        circleColor='rgba(0,0,0,0)'
+        lineColor='rgb(45,156,219)'
+        timeContainerStyle={{minWidth:52, marginTop: -5}}
+        timeStyle={{textAlign: 'center', backgroundColor:'#ff9797', color:'white', padding:5, borderRadius:13}}
+        descriptionStyle={{color:'gray'}}
+        options={{
+        style:{paddingTop:5}
+        }}
+        circleSize={20}
+        circleColor='rgb(45,156,219)'
+        innerCircle={'dot'}
+        onEventPress={this.onEventPress}
+        separator={false}
+        detailContainerStyle={{marginBottom: 20, paddingLeft: 5, paddingRight: 5, backgroundColor: "#5c2044", borderRadius: 10}}
+        columnFormat='two-column'
+        />
+        </ScrollView>
       </View>
     );
   }
