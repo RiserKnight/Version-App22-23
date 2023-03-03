@@ -28,8 +28,8 @@ const Contacts = ({navigation}) => {
               tabBarStyle: {backgroundColor: 'white'},
             }}
             >
-            <Tab.Screen name="Eec" component={Eec} />
             <Tab.Screen name="Ccc" component={Ccc} />
+            <Tab.Screen name="Eec" component={Eec} />
             <Tab.Screen name="Hrc" component={Hrc} />
             <Tab.Screen name="Arc" component={Arc} />
             <Tab.Screen name="Ppc" component={Ppc} />

@@ -17,6 +17,12 @@ const Notification = ({ route, navigation }) => {
         <Text style= {styles.text}>
           {otherParam.data.message}
         </Text>
+        <Text style= {styles.text1}>
+          {otherParam.data.contact}
+        </Text>
+        <Text style= {styles.text1}>
+          {otherParam.data.venue}
+        </Text>
     </SafeAreaView>
 </ScrollView>
 
@@ -29,8 +35,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
 },
 image: {
-    width: windowWidth/2+80,
-    height: windowHeight/4+30,
+    width: windowWidth/2+100,
+    height: windowHeight/4+50,
     position: 'relative',
     alignSelf: 'center',
     
@@ -64,6 +70,15 @@ text:{
     marginTop: 30,
     paddingLeft:10,
     alignSelf: 'center',
+},
+text1:{
+  color:'black',
+  fontSize:18,
+  fontFamily:'',
+  fontWeight:'bold',
+  marginTop: 30,
+  paddingLeft:10,
+  alignSelf: 'center',
 },
 timings:{
   flexDirection:'row',

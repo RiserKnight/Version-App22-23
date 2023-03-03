@@ -49,7 +49,6 @@ const ResetPassword = ({navigation}) => {
 
           // navigation.navigate('SetPassword',{id:id});
           if(res.data.code==="100"){
-            setIsResetSuccess(true);
             navigation.navigate('SetPassword',{id:id});
           }
           else{

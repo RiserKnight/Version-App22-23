@@ -2,7 +2,6 @@
 import React,{useState,useEffect} from 'react';
 import {View, Text, StyleSheet, Image,TouchableOpacity} from 'react-native';
 import Day1 from './Day1';
-import Day2 from './Day2';
 import axios from 'axios';
 import { BASE_URL , KEY } from '../../utils/constants';
 import Loader from '../loading/index';
@@ -129,19 +128,10 @@ const Stack = createStackNavigator();
     );
     }
     return(
-      <>
-      <Loader isLoading={isLoading} />
-        <Tab.Navigator style = {{fontWeight:'bold',fontSize:16}}
-        screenOptions={{
-        tabBarActiveTintColor: 'black',
-        tabBarIndicatorStyle: {backgroundColor: '#4d1637'},
-        tabBarLabelStyle: { fontSize: 12 },
-      }}>
-        {/* <Tab.Screen name="17/03/2023" component={Day0}/> */}
-        <Tab.Screen name="18/03/2023" children={()=><Day1 events={eve}/>}/>
-        <Tab.Screen name="19/03/2023" component={Day2}/>
-        </Tab.Navigator>
-        </>
+    <>
+    <Loader isLoading={isLoading} />
+    <Day1/>
+    </>
     )
     })
 
