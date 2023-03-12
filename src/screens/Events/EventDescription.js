@@ -286,6 +286,9 @@ if (isRegistrationSuccess) {
         <Text style= {styles.text}>
           {item.desc}
         </Text>
+        <View style={styles.venline}>
+            <Text style= {styles.ven}>Venue : {item.venue}</Text>
+          </View>
       <View style={{flexDirection:'column',marginTop:40,paddingHorizontal: 15,marginBottom:80}}>
           <View style={styles.line}>
             <Text style= {styles.header20}>Event Starts</Text>
@@ -299,8 +302,10 @@ if (isRegistrationSuccess) {
             <Text style= {styles.header21}>{item.StartTime}</Text>
             <Text style={styles.header21}>{item.EndTime}</Text>
           </View>
+         
 
       </View>
+      </ScrollView>
       {eve?(<View style={styles.bottom}>
         <TouchableOpacity style={styles.button1} onPress={handlePress} disabled={true} >
           <Text style={styles.buttonText1}>Registered</Text>
@@ -311,7 +316,7 @@ if (isRegistrationSuccess) {
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
       </View>)}
-      </ScrollView>
+      
 </View>
 
   );
@@ -324,8 +329,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
 },
 image: {
-  width: windowWidth/2+80,
-  height: windowHeight/4+30,
+  width: windowWidth/2+170,
+    height: windowHeight/4+180,
     position: 'relative',
     alignSelf: 'center',
     borderRadius: 10,
@@ -336,6 +341,17 @@ header: {
     fontSize: 20,
     fontWeight: 'bold',
     color:'black',
+},
+venline:{
+  textAlign: 'center',
+  justifyContent:'center',
+  marginTop:10
+},
+ven:{
+  textAlign: 'center',
+  fontSize: 18,
+  fontWeight: 'bold',
+  color:'black',
 },
 header20: {
 

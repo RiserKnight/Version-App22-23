@@ -98,7 +98,7 @@ const Completed = observer(() => {
             justifyContent: 'center',
             width: '50%',
             position: 'absolute',
-             backgroundColor: '#4d1637',
+            backgroundColor: '#4d1637',
             bottom: verticalScale(50),
         }}
         onPress={() => {

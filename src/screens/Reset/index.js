@@ -207,7 +207,7 @@ const Reset = ({navigation}) => {
           start={{x: 0.0, y: 0.25}}
           end={{x: 0.5, y: 1.0}}
           locations={[0, 0.6, 0.8]}
-          colors={['#4d1637', '#852DCE', '#4d1637']}
+          colors={['#4d1637', '#4d1637', '#4d1637']}
           style={{
             backgroundColor: 'blue',
             height: verticalScale(80),

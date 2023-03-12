@@ -35,10 +35,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
 },
 image: {
-    width: windowWidth/2+100,
-    height: windowHeight/4+50,
+    width: windowWidth/2+175,
+    height: windowHeight/4+185,
     position: 'relative',
     alignSelf: 'center',
+    borderRadius: 10,
     
 },
 header: {

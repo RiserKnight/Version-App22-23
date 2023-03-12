@@ -18,7 +18,6 @@ import {
 } from '../../utils/UIConstants';
 import axios from 'axios';
 import Loader from '../loading/index';
-import LinearGradient from 'react-native-linear-gradient';
 const ResetPassword = ({navigation}) => {
   const[id,setId]= useState('');
 
