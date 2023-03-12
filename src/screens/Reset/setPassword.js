@@ -18,7 +18,7 @@ import {
 } from '../../utils/UIConstants';
 import axios from 'axios';
 import Loader from '../loading/index';
-import LinearGradient from 'react-native-linear-gradient';
+
 const SetPassword = ({navigation,route}) => {
   const[password,setPassword]= useState('');
   const[cpassword,setCpassword]= useState('');
@@ -116,14 +116,7 @@ const SetPassword = ({navigation,route}) => {
               setErrorText('');
             _handelOnPress();
               }}>
-            <Text
-              style={{
-                color: 'black',
-                textAlign: 'center',
-                fontSize: scale(12),
-                fontFamily: FONT,
-              }}>
-              Reset
+          
               <Text
                 style={{
                   color: '#4d1637',
@@ -133,8 +126,7 @@ const SetPassword = ({navigation,route}) => {
                   marginTop:20
                 }}>
                 {' '}
-                PASSWORD
-              </Text>
+                SUBMIT
             </Text>
           </TouchableOpacity>
           </View>
