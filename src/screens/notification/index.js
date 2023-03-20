@@ -9,14 +9,23 @@ const Notification = ({ route, navigation }) => {
   return (
     <ScrollView>
     <SafeAreaView style={styles.container}>
-        <Image style={styles.image}
-        source={{uri:otherParam.data.url}} />
+        {otherParam.data.url!=null?<Image style={styles.image}
+        source={{uri:otherParam.data.url}} />:null}
         <Text style= {styles.header}>
           {otherParam.data.header}
         </Text>
         <Text style= {styles.text}>
-          {otherParam.data.message}
+          {otherParam.data.message1}
         </Text>
+        {otherParam.data.message2!=null?<Text style= {styles.text}>
+          {otherParam.data.message2}
+        </Text>:null}
+        {otherParam.data.message3!=null?<Text style= {styles.text}>
+          {otherParam.data.message3}
+        </Text>:null}
+        {otherParam.data.message4!=null?<Text style= {styles.text}>
+          {otherParam.data.message4}
+        </Text>:null}
         <Text style= {styles.text1}>
           {otherParam.data.contact}
         </Text>

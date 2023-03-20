@@ -23,17 +23,17 @@ export default class Day1 extends Component {
       {
         id :"0",
         day: "0",
-        time: "06:00 PM",
+        time: "05:00 PM",
         title:"Inauguration",
-        description:"06:00 PM - 09:00 PM"
+        description:"05:00 PM - 08:00 PM"
         
       },
       {
         id :"11",
         day: "0",
-        time: "06:00 PM",
+        time: "05:00 PM",
         title:"Enspire(Chief Guest)",
-        description:"06:00 PM - 09:00 PM"
+        description:"05:00 PM - 08:00 PM"
       },
 
         {
@@ -73,7 +73,7 @@ export default class Day1 extends Component {
             StartTime: "02:30 PM",
             EndTime: "06:30 PM",
             time: "2:30 PM",
-            title: "Hacker Hive",
+            title: "Paper Hive",
             desc: "This is a hackathon that will be organized as part of the Version. This will be a 7 days long hackathon. The problem statements for the hackathon will be released online a week before Version. Interested teams can register and develop the solution for any one problem. Problems will be from three domains – Web Development, App Development, Machine Learning. Participating teams will develop the solution and then present that solution offline in Version. "
         }, {
             eventID: "108",

@@ -18,7 +18,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 
-import { generalCoordinates,departmentCoordinates,hostelCoordinates,foodAndSports, customMapStyle ,mapBoundaries} from '../../utils/mapData';
+import { generalCoordinates,departmentCoordinates,hostelCoordinates,foodAndSports, customMapStyle,versionSpecial ,mapBoundaries} from '../../utils/mapData';
 
 
 import { useTheme } from '@react-navigation/native';
@@ -34,30 +34,36 @@ const Map = () => {
         text: "Food and Sports",
         icon: require("../../assets/icons/food.png"),
         name: "fas",
-        position: 4
+        position: 5
       },
       {
         text: "Hostels",
         icon: require("../../assets/icons/hostel.png"),
         name: "host",
-        position: 3
+        position: 4
       },
         {
           text: "Departments",
           icon: require("../../assets/icons/dept.png"),
           name: "dept",
-          position: 2
+          position: 3
         },
         {
           text: "General",
           icon: require("../../assets/icons/gen.png"),
           name: "gen",
+          position: 2
+        },
+        {
+          text: "Version Important",
+          icon: require("../../assets/icons/ver.png"),
+          name: "ver",
           position: 1
         },
        
       ];
     const [markers,setMarkers]=useState(generalCoordinates);
-    const initialMapState = {
+    const initialMapState = { 
 
     region: {
         latitude: 10.7555,
@@ -234,6 +240,9 @@ const Map = () => {
       setMarkers(departmentCoordinates);
     }else if(name === 'fas'){
       setMarkers(foodAndSports);
+    }
+    else if(name === 'ver'){
+      setMarkers(versionSpecial);
     }
       console.log(`selected button: ${name}`);
     }}
